@@ -1,7 +1,14 @@
 package ru.nsu.nrepin;
 
+/**
+ * Heap sort wrapper class
+ */
 public class HeapSort {
 
+    /**
+     * Sort an array with heap sort
+     * @param array array that will be sorted
+     */
     public static void sort(int[] array){
         BinaryHeap heap = new BinaryHeap(array);
 
