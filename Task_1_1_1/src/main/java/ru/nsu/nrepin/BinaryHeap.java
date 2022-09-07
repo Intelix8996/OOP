@@ -49,8 +49,8 @@ public class BinaryHeap {
     /**
      * Swaps two given elements i and j of the buffer
      *
-     * @param i - first element
-     * @param j - second element
+     * @param i first element
+     * @param j second element
      */
     public void swap(int i, int j) {
         int t = array[i];
@@ -61,7 +61,7 @@ public class BinaryHeap {
     /**
      * Perform sift down on the heap from a given index i
      *
-     * @param i - start element
+     * @param i start element
      */
     public void siftDown(int i) {
 
