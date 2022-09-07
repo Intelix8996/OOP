@@ -141,3 +141,6 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,java
+
+# Include gradle-wrapper.jar
+!Task_*/gradle/wrapper/gradle-wrapper.jar
