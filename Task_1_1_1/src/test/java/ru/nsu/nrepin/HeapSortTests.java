@@ -1,15 +1,17 @@
 package ru.nsu.nrepin;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
-
 import java.util.Arrays;
 import java.util.Random;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Unit test class for HeapSort.
+ */
 public class HeapSortTests {
 
     @Test
-    public void testEmptyArray(){
+    public void testEmptyArray() {
         int[] array = {  };
         int[] refArray = {  };
 
@@ -19,7 +21,7 @@ public class HeapSortTests {
     }
 
     @Test
-    public void testOneElemArray(){
+    public void testOneElemArray() {
         int[] array = { 1 };
         int[] refArray = { 1 };
 
@@ -29,7 +31,7 @@ public class HeapSortTests {
     }
 
     @Test
-    public void testTwoElemArray(){
+    public void testTwoElemArray() {
         int[] array = { 5, 2 };
         int[] refArray = { 2, 5 };
 
@@ -39,7 +41,7 @@ public class HeapSortTests {
     }
 
     @Test
-    public void testFiveElemArray(){
+    public void testFiveElemArray() {
         int[] array = { 6, 1, 2, 3, 4 };
         int[] refArray = { 1, 2, 3, 4, 6 };
 
@@ -49,7 +51,7 @@ public class HeapSortTests {
     }
 
     @Test
-    public void testBigArray(){
+    public void testBigArray() {
         final int arrSize = 150000;
 
         int[] array = new int[arrSize];
