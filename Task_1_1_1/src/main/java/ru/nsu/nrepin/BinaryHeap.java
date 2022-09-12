@@ -15,6 +15,8 @@ public class BinaryHeap {
     private int[] array;
 
     /**
+     * Returns the size of the heap
+     *
      * @return heap size
      */
     public int getHeapSize() {
@@ -22,7 +24,7 @@ public class BinaryHeap {
     }
 
     /**
-     * Set size of the heap
+     * Sets size of the heap
      *
      * @param heapSize new heap size
      */

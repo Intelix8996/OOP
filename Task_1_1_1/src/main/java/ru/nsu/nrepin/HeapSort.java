@@ -6,7 +6,7 @@ package ru.nsu.nrepin;
 public class HeapSort {
 
     /**
-     * Sort an array with heap sort
+     * Sorts an array with heap sort
      * @param array array that will be sorted
      */
     public static void sort(int[] array){
