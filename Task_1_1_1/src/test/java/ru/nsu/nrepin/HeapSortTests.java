@@ -59,7 +59,7 @@ public class HeapSortTests {
 
         Random rnd = new Random();
 
-        for (int i = 0; i < arrSize; ++i){
+        for (int i = 0; i < arrSize; ++i) {
             int num = rnd.nextInt();
             array[i] = num;
             refArray[i] = num;
