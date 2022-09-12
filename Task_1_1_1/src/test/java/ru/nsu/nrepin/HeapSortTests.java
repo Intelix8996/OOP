@@ -1,11 +1,10 @@
 package ru.nsu.nrepin;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class HeapSortTests {
 
@@ -16,7 +15,7 @@ public class HeapSortTests {
 
         HeapSort.sort(array);
 
-        assertArrayEquals(refArray, array);
+        Assertions.assertArrayEquals(refArray, array);
     }
 
     @Test
@@ -26,7 +25,7 @@ public class HeapSortTests {
 
         HeapSort.sort(array);
 
-        assertArrayEquals(refArray, array);
+        Assertions.assertArrayEquals(refArray, array);
     }
 
     @Test
@@ -36,7 +35,7 @@ public class HeapSortTests {
 
         HeapSort.sort(array);
 
-        assertArrayEquals(refArray, array);
+        Assertions.assertArrayEquals(refArray, array);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class HeapSortTests {
 
         HeapSort.sort(array);
 
-        assertArrayEquals(refArray, array);
+        Assertions.assertArrayEquals(refArray, array);
     }
 
     @Test
@@ -67,6 +66,6 @@ public class HeapSortTests {
         HeapSort.sort(array);
         Arrays.sort(refArray);
 
-        assertArrayEquals(refArray, array);
+        Assertions.assertArrayEquals(refArray, array);
     }
 }
