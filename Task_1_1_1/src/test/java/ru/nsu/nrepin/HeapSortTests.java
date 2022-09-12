@@ -1,7 +1,6 @@
-package ru.nsu.repin;
+package ru.nsu.nrepin;
 
 import org.junit.jupiter.api.Test;
-import ru.nsu.nrepin.HeapSort;
 
 import java.util.Arrays;
 import java.util.Random;
