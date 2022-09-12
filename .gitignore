@@ -144,3 +144,7 @@ fabric.properties
 
 # Include gradle-wrapper.jar
 !Task_*/gradle/wrapper/gradle-wrapper.jar
+
+# Gradle files
+Task_*/.gradle
+Task_*/build
