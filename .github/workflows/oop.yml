@@ -21,7 +21,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Set permissions for gradle script
-        uses: chmod +x ./gradlew
+        run: chmod +x ./gradlew
     
       - name: Execute Gradle build
         run: ./gradlew build
