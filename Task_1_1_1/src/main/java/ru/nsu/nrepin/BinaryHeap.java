@@ -15,6 +15,22 @@ public class BinaryHeap {
     private int[] array;
 
     /**
+     * Builds binary heap on given array.
+     *
+     * @param array array to build heap on
+     */
+    public BinaryHeap(int[] array) {
+
+        this.array = array;
+
+        this.heapSize = array.length;
+
+        for (int i = this.heapSize / 2 - 1; i >= 0; --i) {
+            siftDown(i);
+        }
+    }
+
+    /**
      * Returns the size of the heap.
      *
      * @return heap size
@@ -30,22 +46,6 @@ public class BinaryHeap {
      */
     public void setHeapSize(int heapSize) {
         this.heapSize = heapSize;
-    }
-
-    /**
-     * Builds binary heap on given array.
-     *
-     * @param array array to build heap on
-     */
-    public BinaryHeap(int[] array) {
-
-        this.array = array;
-
-        this.heapSize = array.length;
-
-        for (int i = this.heapSize / 2 - 1; i >= 0; --i) {
-            siftDown(i);
-        }
     }
 
     /**
