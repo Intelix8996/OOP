@@ -52,5 +52,8 @@ fabric.properties
 Task_*/.gradle
 Task_*/build
 
+# Manual build files
+Task_*/build_manual
+
 # IDEA Folder
 .idea/
