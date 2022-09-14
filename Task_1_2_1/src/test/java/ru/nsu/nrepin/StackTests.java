@@ -1,14 +1,13 @@
 package ru.nsu.nrepin;
 
+import java.util.Random;
+import java.util.EmptyStackException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.EmptyStackException;
-import java.util.Random;
-
 /**
- * Unit test class for Stack
+ * Unit test class for Stack.
  */
 public class StackTests {
 
@@ -81,20 +80,21 @@ public class StackTests {
     @DisplayName("Test PushStack()")
     public void testPushStack() {
 
-        int size = 6;
-
         Stack<Integer> stackFirst = new Stack<>();
-        Stack<Integer> stackSecond = new Stack<>();
 
         stackFirst.push(3);
         stackFirst.push(2);
         stackFirst.push(1);
+
+        Stack<Integer> stackSecond = new Stack<>();
 
         stackSecond.push(6);
         stackSecond.push(5);
         stackSecond.push(4);
 
         stackFirst.pushStack(stackSecond);
+
+        int size = 6;
 
         Integer[] refArray = { 3, 2, 1, 6, 5, 4 };
         Integer[] result = new Integer[size];
@@ -110,10 +110,7 @@ public class StackTests {
     @DisplayName("Test PopStack()")
     public void testPopStackTrivial() {
 
-        int size = 4;
-
         Stack<Integer> stackFirst = new Stack<>();
-        Stack<Integer> stackSecond;
 
         stackFirst.push(3);
         stackFirst.push(2);
@@ -122,16 +119,17 @@ public class StackTests {
         stackFirst.push(5);
         stackFirst.push(4);
 
-        stackSecond = stackFirst.popStack(size);
+        int size = 4;
 
-        Integer[] refPoppedArray = { 1, 6, 5, 4 };
-        Integer[] refInitialArray = { 3, 2 };
+        Stack<Integer> stackSecond = stackFirst.popStack(size);
 
         Integer[] result = new Integer[size];
 
         for (int i = size - 1; i >= 0; --i) {
             result[i] = stackSecond.pop();
         }
+
+        Integer[] refPoppedArray = { 1, 6, 5, 4 };
 
         Assertions.assertArrayEquals(refPoppedArray, result);
 
@@ -143,6 +141,8 @@ public class StackTests {
             result[i] = stackFirst.pop();
         }
 
+        Integer[] refInitialArray = { 3, 2 };
+
         Assertions.assertArrayEquals(refInitialArray, result);
     }
 
@@ -150,10 +150,7 @@ public class StackTests {
     @DisplayName("Test PopStack() with full size of buffer")
     public void testPopStackFull() {
 
-        int size = 6;
-
         Stack<Integer> stackFirst = new Stack<>();
-        Stack<Integer> stackSecond;
 
         stackFirst.push(3);
         stackFirst.push(2);
@@ -162,7 +159,9 @@ public class StackTests {
         stackFirst.push(5);
         stackFirst.push(4);
 
-        stackSecond = stackFirst.popStack(size);
+        int size = 6;
+
+        Stack<Integer> stackSecond = stackFirst.popStack(size);
 
         Integer[] refPoppedArray = { 3, 2, 1, 6, 5, 4 };
 

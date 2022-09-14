@@ -3,7 +3,7 @@ package ru.nsu.nrepin;
 import java.util.EmptyStackException;
 
 /**
- * Class that implements stack
+ * Class that implements stack.
  *
  * @param <T> type of elements
  */
@@ -17,7 +17,7 @@ public class Stack<T> {
     private int elementCount;
 
     /**
-     * Creates new Stack object
+     * Creates new Stack object.
      */
     public Stack() {
         this.elementCount = 0;
@@ -27,7 +27,7 @@ public class Stack<T> {
     }
 
     /**
-     * Pushes an item to stack
+     * Pushes an item to stack.
      *
      * @param newItem item that will be pushed
      */
@@ -46,12 +46,12 @@ public class Stack<T> {
     }
 
     /**
-     * Pops an item from stack
+     * Pops an item from stack.
      *
      * @return popped item
      */
     public T pop() {
-        if (elementCount == 0){
+        if (elementCount == 0) {
             throw new EmptyStackException();
         }
 
@@ -59,7 +59,7 @@ public class Stack<T> {
     }
 
     /**
-     * Pushes all items from given stack
+     * Pushes all items from given stack.
      *
      * @param newItems source stack
      */
@@ -70,7 +70,7 @@ public class Stack<T> {
     }
 
     /**
-     * Pops n items and returns them as new Stack object
+     * Pops n items and returns them as new Stack object.
      *
      * @param count n items that will be popped
      * @return stack object with last n elements of initial stack
@@ -93,7 +93,7 @@ public class Stack<T> {
     }
 
     /**
-     * Returns the number of elements present in stack
+     * Returns the number of elements present in stack.
      *
      * @return stack size
      */
