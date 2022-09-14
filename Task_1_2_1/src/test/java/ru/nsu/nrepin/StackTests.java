@@ -1,7 +1,7 @@
 package ru.nsu.nrepin;
 
-import java.util.Random;
 import java.util.EmptyStackException;
+import java.util.Random;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
