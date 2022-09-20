@@ -32,6 +32,11 @@ public class Stack<T> {
      * @param newItem item that will be pushed
      */
     public void push(T newItem) {
+
+        if (newItem == null) {
+            throw new IllegalStateException();
+        }
+
         if (this.elementCount >= this.capacity) {
             this.capacity *= 2;
 
@@ -64,6 +69,11 @@ public class Stack<T> {
      * @param newItems source stack
      */
     public void pushStack(Stack<T> newItems) {
+
+        if (newItems == null) {
+            throw new IllegalStateException();
+        }
+
         for (int i = 0; i < newItems.elementCount; ++i) {
             push(newItems.buffer[i]);
         }

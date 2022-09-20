@@ -49,6 +49,15 @@ public class StackTests {
     }
 
     @Test
+    @DisplayName("Test pop from empty stack")
+    public void testPushNull() {
+        Stack<Integer> stack = new Stack<>();
+
+        Assertions.assertThrows(IllegalStateException.class, () -> stack.push(null));
+        Assertions.assertThrows(IllegalStateException.class, () -> stack.pushStack(null));
+    }
+
+    @Test
     @DisplayName("Test stack buffer auto expand on overflow")
     public void testBufferAutoExpand() {
 
