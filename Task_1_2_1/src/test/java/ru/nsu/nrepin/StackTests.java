@@ -58,8 +58,8 @@ public class StackTests {
     }
 
     @Test
-    @DisplayName("Test stack buffer auto expand on overflow")
-    public void testBufferAutoExpand() {
+    @DisplayName("Test stack buffer resize")
+    public void testBufferResize() {
 
         Stack<Integer> stack = new Stack<>();
 

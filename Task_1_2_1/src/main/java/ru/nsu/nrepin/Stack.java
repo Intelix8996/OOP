@@ -7,8 +7,11 @@ import java.util.EmptyStackException;
  *
  * @param <T> type of elements
  */
-@SuppressWarnings("unchecked")
 public class Stack<T> {
+
+    private static final int INITIAL_CAPACITY = 5;
+
+    private static final int MIN_CAPACITY = 10;
 
     private T[] buffer;
 
@@ -19,9 +22,10 @@ public class Stack<T> {
     /**
      * Creates new Stack object.
      */
+    @SuppressWarnings("unchecked")
     public Stack() {
         this.elementCount = 0;
-        this.capacity = 5;
+        this.capacity = INITIAL_CAPACITY;
 
         this.buffer = (T[]) new Object[this.capacity];
     }
@@ -31,6 +35,7 @@ public class Stack<T> {
      *
      * @param newItem item that will be pushed
      */
+    @SuppressWarnings("unchecked")
     public void push(T newItem) {
 
         if (newItem == null) {
@@ -55,9 +60,20 @@ public class Stack<T> {
      *
      * @return popped item
      */
+    @SuppressWarnings("unchecked")
     public T pop() {
         if (elementCount == 0) {
             throw new EmptyStackException();
+        }
+
+        if (elementCount < capacity / 2 && this.capacity / 1.5 > MIN_CAPACITY) {
+            this.capacity /= 1.5;
+
+            T[] newBuffer = (T[]) new Object[this.capacity];
+
+            System.arraycopy(this.buffer, 0, newBuffer, 0, this.elementCount);
+
+            this.buffer = newBuffer;
         }
 
         return this.buffer[--this.elementCount];
