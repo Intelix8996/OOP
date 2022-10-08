@@ -1,22 +1,26 @@
 package ru.nsu.nrepin;
 
-import java.util.*;
-
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit test class for Tree.
+ */
 public class TreeTests {
 
     public Tree<Integer> tree;
 
-    public List<Integer> refDFS;
-    public List<Integer> refBFS;
+    public List<Integer> refDepthFirst;
+    public List<Integer> refBreadthFirst;
 
     @BeforeEach
     public void initRefLists() {
-        refDFS = List.of( 1, 2, 4, 10, 11, 12, 5, 6, 3, 7, 8, 9, 13, 14 );
-        refBFS = List.of( 1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 10, 11, 12, 6 );
+        refDepthFirst = List.of(1, 2, 4, 10, 11, 12, 5, 6, 3, 7, 8, 9, 13, 14);
+        refBreadthFirst = List.of(1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 10, 11, 12, 6);
     }
 
     @BeforeEach
@@ -25,7 +29,6 @@ public class TreeTests {
         tree.setValue(1);
 
         Tree<Integer> a = tree.add(2);
-        Tree<Integer> b = tree.add(3);
 
         Tree<Integer> aa = a.add(4);
 
@@ -36,6 +39,8 @@ public class TreeTests {
         Tree<Integer> ab = a.add(5);
 
         ab.add(6);
+
+        Tree<Integer> b = tree.add(3);
 
         b.add(7);
         b.add(8);
@@ -48,45 +53,45 @@ public class TreeTests {
     @Test
     public void testTreeTraversals() {
 
-        List<Integer> traversalBFS = tree.asList(Tree.TraversalType.BFS);
-        List<Integer> traversalDFS = tree.asList(Tree.TraversalType.DFS);
+        List<Integer> traversalBreadthFirst = tree.asList(Tree.TraversalType.BFS);
+        List<Integer> traversalDepthFirst = tree.asList(Tree.TraversalType.DFS);
 
-        Assertions.assertEquals(refBFS, traversalBFS);
-        Assertions.assertEquals(refDFS, traversalDFS);
+        Assertions.assertEquals(refBreadthFirst, traversalBreadthFirst);
+        Assertions.assertEquals(refDepthFirst, traversalDepthFirst);
     }
 
     @Test
     public void testTreeIterators() {
-        Iterator<Integer> iteratorDFS = tree.iterator(Tree.TraversalType.DFS);
-        Iterator<Integer> refIteratorDFS = refDFS.iterator();
+        Iterator<Integer> iteratorDepthFirst = tree.iterator(Tree.TraversalType.DFS);
+        Iterator<Integer> refIteratorDepthFirst = refDepthFirst.iterator();
 
-        Iterator<Integer> iteratorBFS = tree.iterator(Tree.TraversalType.BFS);
-        Iterator<Integer> refIteratorBFS = refBFS.iterator();
+        Iterator<Integer> iteratorBreadthFirst = tree.iterator(Tree.TraversalType.BFS);
+        Iterator<Integer> refIteratorBreadthFirst = refBreadthFirst.iterator();
 
         Iterator<Integer> defaultIterator = tree.iterator();
 
-        while (iteratorDFS.hasNext() && refIteratorDFS.hasNext() && defaultIterator.hasNext()) {
-            Integer refNext = refIteratorDFS.next();
+        while (iteratorDepthFirst.hasNext() && refIteratorDepthFirst.hasNext() && defaultIterator.hasNext()) {
+            Integer refNext = refIteratorDepthFirst.next();
 
-            Assertions.assertEquals(refNext, iteratorDFS.next());
+            Assertions.assertEquals(refNext, iteratorDepthFirst.next());
             Assertions.assertEquals(refNext, defaultIterator.next());
         }
 
-        while (iteratorBFS.hasNext() && refIteratorBFS.hasNext()) {
-            Assertions.assertEquals(refIteratorBFS.next(), iteratorBFS.next());
+        while (iteratorBreadthFirst.hasNext() && refIteratorBreadthFirst.hasNext()) {
+            Assertions.assertEquals(refIteratorBreadthFirst.next(), iteratorBreadthFirst.next());
         }
     }
 
     @Test
     public void testTreeMethods() {
-        refDFS = List.of( 1, 155, 4, 10, 11, /*12, */5, 6, 3, 7, 8, 9, 13, 14 );
+        refDepthFirst = List.of(1, 155, 4, 10, 11, /*12, */5, 6, 3, 7, 8, 9, 13, 14);
 
         tree.remove(12);
         tree.getChild(0).setValue(155);
 
-        List<Integer> traversalDFS = tree.asList();
+        List<Integer> traversalDepthFirst = tree.asList();
 
-        Assertions.assertEquals(refDFS, traversalDFS);
+        Assertions.assertEquals(refDepthFirst, traversalDepthFirst);
 
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> tree.getChild(100));
     }
