@@ -17,12 +17,18 @@ public class TreeTests {
     public List<Integer> refDepthFirst;
     public List<Integer> refBreadthFirst;
 
+    /**
+     * Initialize reference lists before each test.
+     */
     @BeforeEach
     public void initRefLists() {
         refDepthFirst = List.of(1, 2, 4, 10, 11, 12, 5, 6, 3, 7, 8, 9, 13, 14);
         refBreadthFirst = List.of(1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 10, 11, 12, 6);
     }
 
+    /**
+     * Initialize tree before each test.
+     */
     @BeforeEach
     public void initTree() {
         tree = new Tree<Integer>();
@@ -50,6 +56,9 @@ public class TreeTests {
         tree.add(b, 14);
     }
 
+    /**
+     * Test traversals.
+     */
     @Test
     public void testTreeTraversals() {
 
@@ -60,6 +69,9 @@ public class TreeTests {
         Assertions.assertEquals(refDepthFirst, traversalDepthFirst);
     }
 
+    /**
+     * Test iterators.
+     */
     @Test
     public void testTreeIterators() {
         Iterator<Integer> iteratorDepthFirst = tree.iterator(Tree.TraversalType.DFS);
@@ -70,18 +82,21 @@ public class TreeTests {
 
         Iterator<Integer> defaultIterator = tree.iterator();
 
-        while (iteratorDepthFirst.hasNext() && refIteratorDepthFirst.hasNext() && defaultIterator.hasNext()) {
+        while (iteratorDepthFirst.hasNext()) {
             Integer refNext = refIteratorDepthFirst.next();
 
             Assertions.assertEquals(refNext, iteratorDepthFirst.next());
             Assertions.assertEquals(refNext, defaultIterator.next());
         }
 
-        while (iteratorBreadthFirst.hasNext() && refIteratorBreadthFirst.hasNext()) {
+        while (iteratorBreadthFirst.hasNext()) {
             Assertions.assertEquals(refIteratorBreadthFirst.next(), iteratorBreadthFirst.next());
         }
     }
 
+    /**
+     * Test different tree methods.
+     */
     @Test
     public void testTreeMethods() {
         refDepthFirst = List.of(1, 155, 4, 10, 11, /*12, */5, 6, 3, 7, 8, 9, 13, 14);
@@ -96,6 +111,9 @@ public class TreeTests {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> tree.getChild(100));
     }
 
+    /**
+     * Test ConcurrentModificationException.
+     */
     @Test
     public void testConcurrentModificationException() {
         int count = 0;
@@ -134,6 +152,9 @@ public class TreeTests {
         }
     }
 
+    /**
+     * Test prettyPrint().
+     */
     @Test
     public void testPrettyPrint() {
         tree.prettyPrint();
