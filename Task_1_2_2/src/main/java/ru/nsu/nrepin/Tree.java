@@ -1,6 +1,11 @@
 package ru.nsu.nrepin;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * This class implements Tree data structure.
@@ -41,9 +46,9 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
-     * Creates default (DFS) iterator over tree.
+     * Creates default (DepthFirst) iterator over tree.
      *
-     * @return tree iterator (DFS)
+     * @return tree iterator (DepthFirst)
      */
     @Override
     public Iterator<T> iterator() {
@@ -134,7 +139,8 @@ public class Tree<T> implements Iterable<T> {
      * Finds first occurrence of element in tree and removes it.
      *
      * @param elem element to be removed
-     * @return <i>true</i> if element was successfully removed and <i>false</i> if element was not found
+     * @return <i>true</i> if element was successfully removed and
+     *         <i>false</i> if element was not found
      */
     public boolean remove(T elem) {
 
@@ -183,16 +189,16 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
-     * Returns default (DFS) traversal as list.
+     * Returns default (DepthFirst) traversal as list.
      *
-     * @return DFS traversal
+     * @return DepthFirst traversal
      */
     public List<T> asList() {
         return asList(TraversalType.DFS);
     }
 
     /**
-     * Returns traversal of given type as list
+     * Returns traversal of given type as list.
      *
      * @param type type of traversal
      * @return traversal of given type
@@ -219,10 +225,10 @@ public class Tree<T> implements Iterable<T> {
 
         switch (type) {
             case DFS:
-                traversal = traverseDFS();
+                traversal = traverseDepthFirst();
                 break;
             case BFS:
-                traversal = traverseBFS();
+                traversal = traverseBreadthFirst();
                 break;
             default:
                 throw new IllegalStateException();
@@ -232,29 +238,29 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
-     * Performs DFS traversal and returns it as list of nodes.
+     * Performs DepthFirst traversal and returns it as list of nodes.
      *
      * @return traversal as list of nodes
      */
-    private List<Tree<T>> traverseDFS() {
+    private List<Tree<T>> traverseDepthFirst() {
 
         List<Tree<T>> result = new LinkedList<>();
 
         result.add(this);
 
         for (Tree<T> subtree : subtrees) {
-            result.addAll(subtree.traverseDFS());
+            result.addAll(subtree.traverseDepthFirst());
         }
 
         return result;
     }
 
     /**
-     * Performs BFS traversal and returns it as list of nodes.
+     * Performs BreadthFirst traversal and returns it as list of nodes.
      *
      * @return traversal as list of nodes
      */
-    private List<Tree<T>> traverseBFS() {
+    private List<Tree<T>> traverseBreadthFirst() {
 
         Queue<Tree<T>> queue = new ArrayDeque<>();
         List<Tree<T>> result = new LinkedList<>();
