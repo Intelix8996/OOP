@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.nrepin","l":"Tree.TraversalType"},{"p":"ru.nsu.nrepin","l":"Tree"},{"p":"ru.nsu.nrepin","l":"TreeIterator"}]
