@@ -58,13 +58,7 @@ public class Tree<T> implements Iterable<T> {
      */
     public Iterator<T> iterator(TraversalType type) {
 
-        List<Tree<T>> searchResult;
-
-        switch (type) {
-            case DFS -> searchResult = traverseDFS();
-            case BFS -> searchResult = traverseBFS();
-            default -> throw new IllegalStateException();
-        }
+        List<Tree<T>> searchResult = traverseTree(type);
 
         for (var i : searchResult) {
             i.incrementIteratorCount();
@@ -205,14 +199,7 @@ public class Tree<T> implements Iterable<T> {
      */
     public List<T> asList(TraversalType type) {
 
-        List<Tree<T>> searchResult;
-
-        switch (type) {
-            case DFS -> searchResult = traverseDFS();
-            case BFS -> searchResult = traverseBFS();
-            default -> throw new IllegalStateException();
-        }
-
+        List<Tree<T>> searchResult = traverseTree(type);
         List<T> list = new LinkedList<>();
 
         for (var i : searchResult) {
@@ -223,11 +210,33 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
+     * Performs traversal of given type and returns it as list of nodes.
+     *
+     * @return traversal as list of nodes
+     */
+    public List<Tree<T>> traverseTree(TraversalType type) {
+        List<Tree<T>> traversal;
+
+        switch (type) {
+            case DFS:
+                traversal = traverseDFS();
+                break;
+            case BFS:
+                traversal = traverseBFS();
+                break;
+            default:
+                throw new IllegalStateException();
+        }
+
+        return traversal;
+    }
+
+    /**
      * Performs DFS traversal and returns it as list of nodes.
      *
      * @return traversal as list of nodes
      */
-    public List<Tree<T>> traverseDFS() {
+    private List<Tree<T>> traverseDFS() {
 
         List<Tree<T>> result = new LinkedList<>();
 
@@ -245,7 +254,7 @@ public class Tree<T> implements Iterable<T> {
      *
      * @return traversal as list of nodes
      */
-    public List<Tree<T>> traverseBFS() {
+    private List<Tree<T>> traverseBFS() {
 
         Queue<Tree<T>> queue = new ArrayDeque<>();
         List<Tree<T>> result = new LinkedList<>();
