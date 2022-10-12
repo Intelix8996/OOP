@@ -161,9 +161,10 @@ implements java.util.Iterator&lt;T&gt;</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.List)">TreeIterator</a></span>&#8203;(java.util.List&lt;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">T</a>&gt;&gt;&nbsp;traversal)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(ru.nsu.nrepin.Tree,ru.nsu.nrepin.Tree.TraversalType)">TreeIterator</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">T</a>&gt;&nbsp;node,
+            <a href="Tree.TraversalType.html" title="enum in ru.nsu.nrepin">Tree.TraversalType</a>&nbsp;traversalType)</code></th>
 <td class="colLast">
-<div class="block">Consructs new tree iterator.</div>
+<div class="block">Constructs new tree iterator.</div>
 </td>
 </tr>
 </table>
@@ -225,17 +226,19 @@ implements java.util.Iterator&lt;T&gt;</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.util.List)">
+<a id="&lt;init&gt;(ru.nsu.nrepin.Tree,ru.nsu.nrepin.Tree.TraversalType)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>TreeIterator</h4>
-<pre>public&nbsp;TreeIterator&#8203;(java.util.List&lt;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">T</a>&gt;&gt;&nbsp;traversal)</pre>
-<div class="block">Consructs new tree iterator.</div>
+<pre>public&nbsp;TreeIterator&#8203;(<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">T</a>&gt;&nbsp;node,
+                    <a href="Tree.TraversalType.html" title="enum in ru.nsu.nrepin">Tree.TraversalType</a>&nbsp;traversalType)</pre>
+<div class="block">Constructs new tree iterator.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>traversal</code> - traversal of tree</dd>
+<dd><code>node</code> - starting node</dd>
+<dd><code>traversalType</code> - traversal type</dd>
 </dl>
 </li>
 </ul>

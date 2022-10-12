@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -188,11 +188,12 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Tree</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Constructs new tree node with default (null) value.</div>
+<div class="block">Constructs new tree node with default (null) value and no (null) parent.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(T)">Tree</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;val)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(T,ru.nsu.nrepin.Tree)">Tree</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value,
+    <a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;parent)</code></th>
 <td class="colLast">
 <div class="block">Constructs new tree node with given value.</div>
 </td>
@@ -209,16 +210,16 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(ru.nsu.nrepin.Tree,T)">add</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;node,
-   <a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;newElem)</code></th>
+<td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;E&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(ru.nsu.nrepin.Tree,E)">add</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;E&gt;&nbsp;node,
+   E&nbsp;newElem)</code></th>
 <td class="colLast">
 <div class="block">Adds new element to given tree node.</div>
 </td>
@@ -245,69 +246,83 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#decrementIteratorCount()">decrementIteratorCount</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Decrements internal iterator counter.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChild(int)">getChild</a></span>&#8203;(int&nbsp;index)</code></th>
 <td class="colLast">
 <div class="block">Returns child by given index.</div>
 </td>
 </tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getModCount()">getModCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns number of tree modifications.</div>
+</td>
+</tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParent()">getParent</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns parent of current node.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubtrees()">getSubtrees</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns node's children as <i>List</i>.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="type parameter in Tree">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValue()">getValue</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns value of current node.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementIteratorCount()">incrementIteratorCount</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementModCount()">incrementModCount</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Increments internal iterator counter.</div>
+<div class="block">Increments internal modifications counter.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator()">iterator</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Creates default (DepthFirst) iterator over tree.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator(ru.nsu.nrepin.Tree.TraversalType)">iterator</a></span>&#8203;(<a href="Tree.TraversalType.html" title="enum in ru.nsu.nrepin">Tree.TraversalType</a>&nbsp;type)</code></th>
 <td class="colLast">
 <div class="block">Creates iterator over tree of given type.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#prettyPrint()">prettyPrint</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Prints tree with pseudo-graphics to standard output.</div>
+<div class="block">Returns tree representation with pseudo-graphics.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(T)">remove</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;elem)</code></th>
 <td class="colLast">
 <div class="block">Remove element from tree.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValue(T)">setValue</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Sets value of current node.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#traverseTree(ru.nsu.nrepin.Tree.TraversalType)">traverseTree</a></span>&#8203;(<a href="Tree.TraversalType.html" title="enum in ru.nsu.nrepin">Tree.TraversalType</a>&nbsp;type)</code></th>
 <td class="colLast">
@@ -345,19 +360,21 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.Object)">
+<a id="&lt;init&gt;(java.lang.Object,ru.nsu.nrepin.Tree)">
 <!--   -->
-</a><a id="&lt;init&gt;(T)">
+</a><a id="&lt;init&gt;(T,ru.nsu.nrepin.Tree)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>Tree</h4>
-<pre>public&nbsp;Tree&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;val)</pre>
+<pre>public&nbsp;Tree&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value,
+            <a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;parent)</pre>
 <div class="block">Constructs new tree node with given value.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>val</code> - value to initialize node with</dd>
+<dd><code>value</code> - value to initialize node with</dd>
+<dd><code>parent</code> - node to be set as parent</dd>
 </dl>
 </li>
 </ul>
@@ -368,7 +385,7 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 <li class="blockList">
 <h4>Tree</h4>
 <pre>public&nbsp;Tree()</pre>
-<div class="block">Constructs new tree node with default (null) value.</div>
+<div class="block">Constructs new tree node with default (null) value and no (null) parent.</div>
 </li>
 </ul>
 </li>
@@ -413,26 +430,29 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
-<a id="incrementIteratorCount()">
+<a id="incrementModCount()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>incrementIteratorCount</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;incrementIteratorCount()</pre>
-<div class="block">Increments internal iterator counter.
+<h4>incrementModCount</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;incrementModCount()</pre>
+<div class="block">Increments internal modifications counter.
  This function is used to support <i>ConcurrentModificationException</i>.</div>
 </li>
 </ul>
-<a id="decrementIteratorCount()">
+<a id="getModCount()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>decrementIteratorCount</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;decrementIteratorCount()</pre>
-<div class="block">Decrements internal iterator counter.
- This function is used to support <i>ConcurrentModificationException</i>.</div>
+<h4>getModCount</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getModCount()</pre>
+<div class="block">Returns number of tree modifications.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of tree modifications</dd>
+</dl>
 </li>
 </ul>
 <a id="getChild(int)">
@@ -448,6 +468,20 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 <dd><code>index</code> - index of child to be returned</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>tree child</dd>
+</dl>
+</li>
+</ul>
+<a id="getSubtrees()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSubtrees</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;&nbsp;getSubtrees()</pre>
+<div class="block">Returns node's children as <i>List</i>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>node's children</dd>
 </dl>
 </li>
 </ul>
@@ -472,17 +506,19 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 </ul>
 <a id="add(ru.nsu.nrepin.Tree,java.lang.Object)">
 <!--   -->
-</a><a id="add(ru.nsu.nrepin.Tree,T)">
+</a><a id="add(ru.nsu.nrepin.Tree,E)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
-<pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;add&#8203;(<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;node,
-                   <a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;newElem)</pre>
+<pre class="methodSignature">public static&nbsp;&lt;E&gt;&nbsp;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;E&gt;&nbsp;add&#8203;(<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;E&gt;&nbsp;node,
+                              E&nbsp;newElem)</pre>
 <div class="block">Adds new element to given tree node.
  Function wraps element into tree node and adds it to given node.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>E</code> - type of values stored in tree</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>node</code> - node to which new element will be added</dd>
 <dd><code>newElem</code> - element to be added</dd>
@@ -541,6 +577,21 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
+<a id="getParent()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParent</h4>
+<pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;getParent()</pre>
+<div class="block">Returns parent of current node.
+ May be <i>null</i>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>parent of current node</dd>
+</dl>
+</li>
+</ul>
 <a id="asList()">
 <!--   -->
 </a>
@@ -580,6 +631,8 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Tree.html" title="class in ru.nsu.nrepin">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;&nbsp;traverseTree&#8203;(<a href="Tree.TraversalType.html" title="enum in ru.nsu.nrepin">Tree.TraversalType</a>&nbsp;type)</pre>
 <div class="block">Performs traversal of given type and returns it as list of nodes.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - traversal type</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>traversal as list of nodes</dd>
 </dl>
@@ -591,8 +644,12 @@ implements java.lang.Iterable&lt;T&gt;</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>prettyPrint</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;prettyPrint()</pre>
-<div class="block">Prints tree with pseudo-graphics to standard output.</div>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;prettyPrint()</pre>
+<div class="block">Returns tree representation with pseudo-graphics.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>string representation of tree</dd>
+</dl>
 </li>
 </ul>
 </li>
