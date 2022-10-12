@@ -13,7 +13,7 @@ public class TreeIterator<T> implements Iterator<T> {
     private Iterator<Tree<T>> iterator;
 
     /**
-     * Consructs new tree iterator.
+     * Constructs new tree iterator.
      *
      * @param traversal traversal of tree
      */
