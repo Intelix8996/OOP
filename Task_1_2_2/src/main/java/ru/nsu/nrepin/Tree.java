@@ -4,8 +4,8 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * This class implements Tree data structure.
@@ -28,12 +28,12 @@ public class Tree<T> implements Iterable<T> {
     public enum TraversalType {
 
         /**
-         * Depth-first search
+         * Depth-first search.
          */
         DFS,
 
         /**
-         * Breadth-first search
+         * Breadth-first search.
          */
         BFS
     }
@@ -142,6 +142,7 @@ public class Tree<T> implements Iterable<T> {
      * @param node    node to which new element will be added
      * @param newElem element to be added
      * @return added tree node
+     * @param <E> type of values stored in tree
      */
     public static <E> Tree<E> add(Tree<E> node, E newElem) {
         return node.add(newElem);
@@ -198,7 +199,7 @@ public class Tree<T> implements Iterable<T> {
 
     /**
      * Returns parent of current node.
-     * May be <i>null<i/>.
+     * May be <i>null</i>.
      *
      * @return parent of current node
      */
@@ -236,6 +237,7 @@ public class Tree<T> implements Iterable<T> {
     /**
      * Performs traversal of given type and returns it as list of nodes.
      *
+     * @param type traversal type
      * @return traversal as list of nodes
      */
     public List<Tree<T>> traverseTree(TraversalType type) {

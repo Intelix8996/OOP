@@ -14,8 +14,11 @@ public class TreeTests {
 
     public Tree<Integer> tree;
 
-    public final List<Integer> refDepthFirst = List.of(1, 2, 4, 10, 11, 12, 5, 6, 3, 7, 8, 9, 13, 14);
-    public final List<Integer> refBreadthFirst = List.of(1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 10, 11, 12, 6);
+    public final List<Integer> refDepthFirst =
+            List.of(1, 2, 4, 10, 11, 12, 5, 6, 3, 7, 8, 9, 13, 14);
+    public final List<Integer> refBreadthFirst =
+            List.of(1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 10, 11, 12, 6);
+
 
     /**
      * Initialize tree before each test.
@@ -90,7 +93,8 @@ public class TreeTests {
      */
     @Test
     public void testTreeMethods() {
-        List<Integer> refDepthFirstModified = List.of(1, 155, 4, 10, 11, /*12, */5, 6, 3, 7, 8, 9, 13, 14);
+        List<Integer> refDepthFirstModified =
+                List.of(1, 155, 4, 10, 11, /*12, */5, 6, 3, 7, 8, 9, 13, 14);
 
         tree.remove(12);
         tree.getChild(0).setValue(155);
@@ -186,21 +190,23 @@ public class TreeTests {
      */
     @Test
     public void testPrettyPrint() {
-        String refTreeString = "root\n" +
-                "   |- 1\n" +
-                "      |- 2\n" +
-                "         |- 4\n" +
-                "            |- 10\n" +
-                "            |- 11\n" +
-                "            |- 12\n" +
-                "         |- 5\n" +
-                "            |- 6\n" +
-                "      |- 3\n" +
-                "         |- 7\n" +
-                "         |- 8\n" +
-                "         |- 9\n" +
-                "         |- 13\n" +
-                "         |- 14\n";
+        String refTreeString = """
+                root
+                   |- 1
+                      |- 2
+                         |- 4
+                            |- 10
+                            |- 11
+                            |- 12
+                         |- 5
+                            |- 6
+                      |- 3
+                         |- 7
+                         |- 8
+                         |- 9
+                         |- 13
+                         |- 14
+                """;
 
         String treeString = tree.prettyPrint();
 
