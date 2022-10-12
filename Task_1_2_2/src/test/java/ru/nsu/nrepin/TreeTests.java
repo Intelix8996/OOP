@@ -107,42 +107,73 @@ public class TreeTests {
      */
     @Test
     public void testConcurrentModificationException() {
-        int count = 0;
 
-        for (var i : tree) {
-            if (count == 2) {
-                Assertions.assertThrows(
-                        ConcurrentModificationException.class,
-                        () -> tree.getChild(1)
-                                .getChild(0)
-                                .setValue(123)
-                );
+        Assertions.assertThrows(ConcurrentModificationException.class, () -> {
+
+            int count = 0;
+
+            for (var i : tree) {
+                if (count == 2) {
+                    tree.getChild(1)
+                            .getChild(0)
+                            .setValue(123);
+                }
+
+                count++;
             }
+        });
 
-            if (count == 3) {
-                Assertions.assertThrows(
-                        ConcurrentModificationException.class,
-                        () -> tree.getChild(1)
-                                .getChild(0)
-                                .add(1223)
-                );
+        initTree();
+
+        Assertions.assertThrows(ConcurrentModificationException.class, () -> {
+
+            int count = 0;
+
+            for (var i : tree) {
+                if (count == 3) {
+                    tree.getChild(1)
+                            .getChild(0)
+                            .add(1223);
+                }
+
+                count++;
             }
+        });
 
-            if (count == 4) {
-                Assertions.assertThrows(
-                        ConcurrentModificationException.class,
-                        () -> tree.remove(14)
-                );
+        initTree();
+
+        Assertions.assertThrows(ConcurrentModificationException.class, () -> {
+
+            int count = 0;
+
+            for (var i : tree) {
+                if (count == 4) {
+                    tree.remove(14);
+                }
+
+                count++;
             }
+        });
 
-            if (count == 5) {
-                Assertions.assertDoesNotThrow(() -> tree.setValue(1255));
+        initTree();
+
+        Assertions.assertDoesNotThrow(() -> {
+
+            int count = 0;
+
+            for (var i : tree.getChild(0).getChild(1)) {
+                if (count == 5) {
+                    tree.setValue(1255);
+                }
+
+                count++;
             }
-
-            count++;
-        }
+        });
     }
 
+    /**
+     * Test getParent().
+     */
     @Test
     public void testGetParent() {
         Assertions.assertEquals(
