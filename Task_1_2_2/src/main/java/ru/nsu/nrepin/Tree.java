@@ -1,7 +1,6 @@
 package ru.nsu.nrepin;
 
 import java.util.ArrayDeque;
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +20,7 @@ public class Tree<T> implements Iterable<T> {
 
     private final List<Tree<T>> subtrees;
 
-    private int dependentIteratorCount;
+    private int modCount;
 
     /**
      * Defines types of tree traversal: depth-first and breadth-first.
@@ -48,7 +47,7 @@ public class Tree<T> implements Iterable<T> {
     public Tree(T value, Tree<T> parent) {
         this.value = value;
         this.subtrees = new LinkedList<>();
-        this.dependentIteratorCount = 0;
+        this.modCount = 0;
         this.parent = parent;
     }
 
@@ -80,19 +79,20 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
-     * Increments internal iterator counter.
+     * Increments internal modifications counter.
      * This function is used to support <i>ConcurrentModificationException</i>.
      */
-    public void incrementIteratorCount() {
-        dependentIteratorCount++;
+    public void incrementModCount() {
+        modCount++;
     }
 
     /**
-     * Decrements internal iterator counter.
-     * This function is used to support <i>ConcurrentModificationException</i>.
+     * Returns number of tree modifications.
+     *
+     * @return number of tree modifications
      */
-    public void decrementIteratorCount() {
-        dependentIteratorCount--;
+    public int getModCount() {
+        return modCount;
     }
 
     /**
@@ -126,10 +126,7 @@ public class Tree<T> implements Iterable<T> {
      * @return added tree node
      */
     public Tree<T> add(T newElem) {
-
-        if (dependentIteratorCount > 0) {
-            throw new ConcurrentModificationException();
-        }
+        propagateModCount();
 
         Tree<T> newSubtree = new Tree<>(newElem, this);
 
@@ -165,9 +162,7 @@ public class Tree<T> implements Iterable<T> {
 
             if (subtree.getValue() == elem) {
 
-                if (dependentIteratorCount > 0) {
-                    throw new ConcurrentModificationException();
-                }
+                propagateModCount();
 
                 subtrees.remove(i);
                 return true;
@@ -187,10 +182,7 @@ public class Tree<T> implements Iterable<T> {
      * @param value value to be set
      */
     public void setValue(T value) {
-
-        if (dependentIteratorCount > 0) {
-            throw new ConcurrentModificationException();
-        }
+        propagateModCount();
 
         this.value = value;
     }
@@ -309,6 +301,17 @@ public class Tree<T> implements Iterable<T> {
         }
 
         return result;
+    }
+
+    private void propagateModCount() {
+        Tree<T> node = this;
+
+        while (node.getParent() != null) {
+            node.incrementModCount();
+            node = node.getParent();
+        }
+
+        node.incrementModCount();
     }
 
     /**

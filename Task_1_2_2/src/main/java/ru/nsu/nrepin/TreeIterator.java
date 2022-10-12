@@ -1,6 +1,7 @@
 package ru.nsu.nrepin;
 
 import java.util.ArrayDeque;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -14,10 +15,11 @@ import java.util.Queue;
  */
 public class TreeIterator<T> implements Iterator<T> {
 
+    private final Tree<T> rootNode;
     private final Tree.TraversalType traversalType;
-
     private final Stack<Tree<T>> stack;
     private final Queue<Tree<T>> queue;
+    private final int expectedModCount;
 
     /**
      * Constructs new tree iterator.
@@ -27,6 +29,8 @@ public class TreeIterator<T> implements Iterator<T> {
      */
     public TreeIterator(Tree<T> node, Tree.TraversalType traversalType) {
         this.traversalType = traversalType;
+        this.rootNode = node;
+        this.expectedModCount = node.getModCount();
 
         stack = new Stack<>();
         queue = new ArrayDeque<>();
@@ -57,6 +61,10 @@ public class TreeIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
+
+        if (rootNode.getModCount() > expectedModCount) {
+            throw new ConcurrentModificationException();
+        }
 
         Tree<T> node;
         List<Tree<T>> subtrees;
