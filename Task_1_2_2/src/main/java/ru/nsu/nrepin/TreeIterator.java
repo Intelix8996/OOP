@@ -5,8 +5,8 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Stack;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Class that implements iterator for Tree class.
