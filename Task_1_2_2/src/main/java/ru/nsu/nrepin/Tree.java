@@ -17,9 +17,9 @@ public class Tree<T> implements Iterable<T> {
 
     private T value;
 
-    private Tree<T> parent;
+    private final Tree<T> parent;
 
-    private List<Tree<T>> subtrees;
+    private final List<Tree<T>> subtrees;
 
     private int dependentIteratorCount;
 
@@ -76,14 +76,7 @@ public class Tree<T> implements Iterable<T> {
      * @return tree iterator
      */
     public Iterator<T> iterator(TraversalType type) {
-
-        List<Tree<T>> searchResult = traverseTree(type);
-
-        for (var i : searchResult) {
-            i.incrementIteratorCount();
-        }
-
-        return new TreeIterator<>(searchResult);
+        return new TreeIterator<>(this, type);
     }
 
     /**
@@ -117,6 +110,15 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
+     * Returns node's children as <i>List</i>.
+     *
+     * @return node's children
+     */
+    public List<Tree<T>> getSubtrees() {
+        return subtrees;
+    }
+
+    /**
      * Adds new element to current tree node.
      * Function wraps element into tree node and adds it to current node.
      *
@@ -144,7 +146,6 @@ public class Tree<T> implements Iterable<T> {
      * @param newElem element to be added
      * @return added tree node
      */
-    //TODO
     public static <E> Tree<E> add(Tree<E> node, E newElem) {
         return node.add(newElem);
     }
@@ -329,9 +330,7 @@ public class Tree<T> implements Iterable<T> {
         int offset = 0;
 
         if (getValue() != null) {
-            for (int i = 0; i < depth; ++i) {
-                string.append(" ");
-            }
+            string.append(" ".repeat(Math.max(0, depth)));
 
             string.append("|- ");
             string.append(getValue());
