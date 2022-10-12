@@ -139,10 +139,10 @@ public class Tree<T> implements Iterable<T> {
      * Adds new element to given tree node.
      * Function wraps element into tree node and adds it to given node.
      *
+     * @param <E> type of values stored in tree
      * @param node    node to which new element will be added
      * @param newElem element to be added
      * @return added tree node
-     * @param <E> type of values stored in tree
      */
     public static <E> Tree<E> add(Tree<E> node, E newElem) {
         return node.add(newElem);
