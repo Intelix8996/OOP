@@ -5,6 +5,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 import java.util.Queue;
 
 /**
@@ -16,6 +17,8 @@ public class Tree<T> implements Iterable<T> {
 
     private T value;
 
+    private Tree<T> parent;
+
     private List<Tree<T>> subtrees;
 
     private int dependentIteratorCount;
@@ -24,25 +27,36 @@ public class Tree<T> implements Iterable<T> {
      * Defines types of tree traversal: depth-first and breadth-first.
      */
     public enum TraversalType {
-        DFS, BFS
+
+        /**
+         * Depth-first search
+         */
+        DFS,
+
+        /**
+         * Breadth-first search
+         */
+        BFS
     }
 
     /**
      * Constructs new tree node with given value.
      *
-     * @param val value to initialize node with
+     * @param value value to initialize node with
+     * @param parent node to be set as parent
      */
-    public Tree(T val) {
-        value = val;
-        subtrees = new LinkedList<>();
-        dependentIteratorCount = 0;
+    public Tree(T value, Tree<T> parent) {
+        this.value = value;
+        this.subtrees = new LinkedList<>();
+        this.dependentIteratorCount = 0;
+        this.parent = parent;
     }
 
     /**
-     * Constructs new tree node with default (null) value.
+     * Constructs new tree node with default (null) value and no (null) parent.
      */
     public Tree() {
-        this(null);
+        this(null, null);
     }
 
     /**
@@ -115,7 +129,7 @@ public class Tree<T> implements Iterable<T> {
             throw new ConcurrentModificationException();
         }
 
-        Tree<T> newSubtree = new Tree<>(newElem);
+        Tree<T> newSubtree = new Tree<>(newElem, this);
 
         subtrees.add(newSubtree);
 
@@ -130,7 +144,8 @@ public class Tree<T> implements Iterable<T> {
      * @param newElem element to be added
      * @return added tree node
      */
-    public Tree<T> add(Tree<T> node, T newElem) {
+    //TODO
+    public static <E> Tree<E> add(Tree<E> node, E newElem) {
         return node.add(newElem);
     }
 
@@ -189,6 +204,16 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
+     * Returns parent of current node.
+     * May be <i>null<i/>.
+     *
+     * @return parent of current node
+     */
+    public Tree<T> getParent() {
+        return parent;
+    }
+
+    /**
      * Returns default (DepthFirst) traversal as list.
      *
      * @return DepthFirst traversal
@@ -244,12 +269,19 @@ public class Tree<T> implements Iterable<T> {
      */
     private List<Tree<T>> traverseDepthFirst() {
 
+        Stack<Tree<T>> stack = new Stack<>();
         List<Tree<T>> result = new LinkedList<>();
 
-        result.add(this);
+        stack.push(this);
 
-        for (Tree<T> subtree : subtrees) {
-            result.addAll(subtree.traverseDepthFirst());
+        while (stack.size() != 0) {
+            Tree<T> node = stack.pop();
+
+            result.add(node);
+
+            for (int i = node.subtrees.size() - 1; i >= 0; --i) {
+                stack.push(node.subtrees.get(i));
+            }
         }
 
         return result;
@@ -279,30 +311,37 @@ public class Tree<T> implements Iterable<T> {
     }
 
     /**
-     * Prints tree with pseudo-graphics to standard output.
+     * Returns tree representation with pseudo-graphics.
+     *
+     * @return string representation of tree
      */
-    public void prettyPrint() {
-        System.out.println("root");
-        prettyPrint(3);
+    public String prettyPrint() {
+        StringBuilder string = new StringBuilder();
+
+        string.append("root\n");
+        prettyPrint(3, string);
+
+        return string.toString();
     }
 
-    private void prettyPrint(int depth) {
+    private void prettyPrint(int depth, StringBuilder string) {
 
         int offset = 0;
 
         if (getValue() != null) {
             for (int i = 0; i < depth; ++i) {
-                System.out.print(" ");
+                string.append(" ");
             }
 
-            System.out.print("|- ");
-            System.out.println(getValue());
+            string.append("|- ");
+            string.append(getValue());
+            string.append("\n");
 
             offset = getValue().toString().length() + 2;
         }
 
         for (Tree<T> subtree : subtrees) {
-            subtree.prettyPrint(depth + offset);
+            subtree.prettyPrint(depth + offset, string);
         }
     }
 }
