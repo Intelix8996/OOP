@@ -21,8 +21,7 @@ public class GraphUtilities {
 
             for (var j : graph.getVertices()) {
                 if (!visited.contains(j) &&
-                        (node == null ||
-                                distances.get(j).doubleValue() < distances.get(node).doubleValue())) {
+                        (node == null || distances.get(j).doubleValue() < distances.get(node).doubleValue())) {
                     node = j;
                 }
             }
@@ -35,8 +34,16 @@ public class GraphUtilities {
 
             for (var edge : graph.getNodeEdges(node)) {
                 Node<V> terminus = graph.getEdgeTerminus(node, edge);
-                if (distances.get(node).doubleValue() + edge.getWeight().doubleValue() < distances.get(terminus).doubleValue()) {
-                    distances.replace(terminus, (W)Double.valueOf(distances.get(node).doubleValue() + edge.getWeight().doubleValue()));
+
+                W currentDistance = distances.get(node);
+                W terminusDistance = distances.get(terminus);
+                W edgeWeight = edge.getWeight();
+
+                if (currentDistance.doubleValue() + edgeWeight.doubleValue() < terminusDistance.doubleValue()) {
+                    distances.replace(
+                            terminus,
+                            (W)Double.valueOf(currentDistance.doubleValue() + edgeWeight.doubleValue())
+                    );
                 }
             }
         }
