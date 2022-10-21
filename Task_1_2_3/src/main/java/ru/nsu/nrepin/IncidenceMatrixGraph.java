@@ -2,6 +2,12 @@ package ru.nsu.nrepin;
 
 import java.util.*;
 
+/**
+ * This class implements graph with incidence matrix representation.
+ *
+ * @param <V> type of value stored in graph node
+ * @param <W> type of edge weight
+ */
 public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     private final Map<Node<V>, Map<Edge<W>, EdgeDirection>> incidenceMatrix;
@@ -12,6 +18,9 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
         NO_EDGE
     }
 
+    /**
+     * Constructs new empty graph.
+     */
     public IncidenceMatrixGraph() {
         incidenceMatrix = new HashMap<>();
     }

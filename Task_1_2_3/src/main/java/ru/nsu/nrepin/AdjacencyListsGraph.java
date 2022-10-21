@@ -5,10 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class implements graph with adjacency list representation.
+ *
+ * @param <V> type of value stored in graph node
+ * @param <W> type of edge weight
+ */
 public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     private final Map<Node<V>, List<Pair<Node<V>, Edge<W>>>> nodes;
 
+    /**
+     * Constructs new empty graph.
+     */
     public AdjacencyListsGraph() {
         nodes = new HashMap<>();
     }
