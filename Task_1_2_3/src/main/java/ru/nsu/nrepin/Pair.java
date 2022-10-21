@@ -11,7 +11,7 @@ public class Pair<A, B> {
     private B right;
 
     /**
-     * Creates new pair with given value
+     * Creates new pair with given value.
      *
      * @param left left element value
      * @param right right element value

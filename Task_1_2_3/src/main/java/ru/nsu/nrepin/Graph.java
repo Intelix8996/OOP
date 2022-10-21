@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * This interface specifies behaviour for directed weighted graphs.
- * <i>NOTE: Terms <b>Node</b> and <b>Vertex</b> can be used interchangeably in this context.<i/>
+ * <i>NOTE: Terms <b>Node</b> and <b>Vertex</b> can be used interchangeably in this context.</i>
  * <i>Vertices are represented with {@code Node} class.</i>
  *
  * @param <V> type of value stored in graph node
