@@ -51,8 +51,7 @@ public class GraphReader {
                 lines.add(currentLine);
 
                 Collections.addAll(currentLine, line.split(" "));
-            }
-            else {
+            } else {
                 break;
             }
 

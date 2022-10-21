@@ -21,8 +21,7 @@ public class GraphUtilities {
      */
     public static <V, W extends Number> Map<Node<V>, Double> dijkstra(
             Graph<V, W> graph,
-            Node<V> origin)
-    {
+            Node<V> origin) {
 
         Set<Node<V>> visited = new HashSet<>();
         Map<Node<V>, Double> distances = new HashMap<>();
