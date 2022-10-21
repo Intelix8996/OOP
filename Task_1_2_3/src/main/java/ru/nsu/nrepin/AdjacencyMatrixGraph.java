@@ -5,10 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class implements graph with adjacency matrix representation.
+ *
+ * @param <V> type of value stored in graph node
+ * @param <W> type of edge weight
+ */
 public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     private final Map<Node<V>, Map<Node<V>, Edge<W>>> adjacencyMatrix;
 
+    /**
+     * Constructs new empty graph.
+     */
     public AdjacencyMatrixGraph() {
         adjacencyMatrix = new HashMap<>();
     }
