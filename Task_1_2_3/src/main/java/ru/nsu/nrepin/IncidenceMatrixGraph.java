@@ -92,7 +92,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
                 break;
             }
 
-            return edges.stream().toList();
+            return new ArrayList<>(edges);
         }
         return new ArrayList<>();
     }

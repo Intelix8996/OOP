@@ -100,7 +100,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public List<Node<V>> getVertices() {
-        return nodes.keySet().stream().toList();
+        return new ArrayList<>(nodes.keySet());
     }
 
     @Override
