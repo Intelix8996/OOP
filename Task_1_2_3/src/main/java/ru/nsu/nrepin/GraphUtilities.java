@@ -1,6 +1,9 @@
 package ru.nsu.nrepin;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * This class contains algorithms that can be applied to {@code Graph}.
@@ -16,7 +19,10 @@ public class GraphUtilities {
      * @param <W> type of edge weight
      * @return mapping of nodes to their distances from {@code origin} vertex
      */
-    public static <V, W extends Number> Map<Node<V>, Double> Dijkstra(Graph<V, W> graph, Node<V> origin) {
+    public static <V, W extends Number> Map<Node<V>, Double> dijkstra(
+            Graph<V, W> graph,
+            Node<V> origin)
+    {
 
         Set<Node<V>> visited = new HashSet<>();
         Map<Node<V>, Double> distances = new HashMap<>();
@@ -31,8 +37,8 @@ public class GraphUtilities {
             Node<V> node = null;
 
             for (var j : graph.getVertices()) {
-                if (!visited.contains(j) &&
-                        (node == null || distances.get(j) < distances.get(node))) {
+                if (!visited.contains(j)
+                        && (node == null || distances.get(j) < distances.get(node))) {
                     node = j;
                 }
             }

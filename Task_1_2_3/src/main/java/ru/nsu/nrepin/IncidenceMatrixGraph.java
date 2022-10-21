@@ -1,6 +1,11 @@
 package ru.nsu.nrepin;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * This class implements graph with incidence matrix representation.
@@ -43,8 +48,8 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
 
         for (var edge : incidenceMatrix.get(u).keySet()) {
-            if (incidenceMatrix.get(u).get(edge) == EdgeDirection.OUTGOING &&
-                    incidenceMatrix.get(v).get(edge) == EdgeDirection.INGOING) {
+            if (incidenceMatrix.get(u).get(edge) == EdgeDirection.OUTGOING
+                    && incidenceMatrix.get(v).get(edge) == EdgeDirection.INGOING) {
                 return edge;
             }
         }

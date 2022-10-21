@@ -1,13 +1,13 @@
 package ru.nsu.nrepin;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for Graph.
@@ -67,8 +67,6 @@ public class GraphTests {
     @Test
     public void testDijkstra() {
         for (var graph : graphs) {
-
-            Map<Node<String>, Double> graphDistances = GraphUtilities.Dijkstra(graph, graph.find("C"));
             Map<Node<String>, Double> graphRefDistances = new HashMap<>();
 
             graphRefDistances.put(graph.find("C"), 0.0);
@@ -78,6 +76,11 @@ public class GraphTests {
             graphRefDistances.put(graph.find("D"), 2.0);
             graphRefDistances.put(graph.find("B"), 10.0);
             graphRefDistances.put(graph.find("F"), 5.0);
+
+            Map<Node<String>, Double> graphDistances = GraphUtilities.dijkstra(
+                    graph,
+                    graph.find("C")
+            );
 
             Assertions.assertEquals(graphRefDistances, graphDistances);
         }
