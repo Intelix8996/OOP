@@ -33,7 +33,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
-        for (var pair : nodes.get(u)) {
+        for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getLeft().equals(v)) {
                 return pair.getRight();
             }
@@ -47,7 +47,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
         List<Edge<W>> edges = new ArrayList<>();
 
-        for (var pair : nodes.get(u)) {
+        for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             edges.add(pair.getRight());
         }
 
@@ -56,7 +56,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
-        for (var pair : nodes.get(u)) {
+        for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getRight().equals(e)) {
                 return pair.getLeft();
             }
@@ -69,8 +69,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
     public List<Edge<W>> getEdges() {
         List<Edge<W>> edges = new ArrayList<>();
 
-        for (var node : nodes.keySet()) {
-            for (var pair : nodes.get(node)) {
+        for (Node<V> node : nodes.keySet()) {
+            for (Pair<Node<V>, Edge<W>> pair : nodes.get(node)) {
                 edges.add(pair.getRight());
             }
         }
@@ -80,7 +80,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeEdge(Node<V> u, Node<V> v) {
-        for (var pair : nodes.get(u)) {
+        for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getLeft().equals(v)) {
                 nodes.get(u).remove(pair);
                 return true;
@@ -116,7 +116,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> find(V value) {
-        for (var node : nodes.keySet()) {
+        for (Node<V> node : nodes.keySet()) {
             if (node.getValue().equals(value)) {
                 return node;
             }
@@ -135,7 +135,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
         int edgesCount = 0;
 
-        for (var node : nodes.keySet()) {
+        for (Node<V> node : nodes.keySet()) {
             edgesCount += nodes.get(node).size();
         }
 

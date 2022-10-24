@@ -42,7 +42,7 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
         List<Edge<W>> edges = new ArrayList<>();
         Map<Node<V>, Edge<W>> node = adjacencyMatrix.get(u);
 
-        for (var edge : node.keySet()) {
+        for (Node<V> edge : node.keySet()) {
             if (node.get(edge) != null) {
                 edges.add(node.get(edge));
             }
@@ -55,7 +55,7 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
         Map<Node<V>, Edge<W>> node = adjacencyMatrix.get(u);
 
-        for (var i : node.keySet()) {
+        for (Node<V> i : node.keySet()) {
             if (node.get(i) != null && node.get(i).equals(e)) {
                 return i;
             }
@@ -68,8 +68,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     public List<Edge<W>> getEdges() {
         List<Edge<W>> edges = new ArrayList<>();
 
-        for (var i : adjacencyMatrix.keySet()) {
-            for (var j : adjacencyMatrix.get(i).keySet()) {
+        for (Node<V> i : adjacencyMatrix.keySet()) {
+            for (Node<V> j : adjacencyMatrix.get(i).keySet()) {
                 if (adjacencyMatrix.get(i).get(j) != null) {
                     edges.add(adjacencyMatrix.get(i).get(j));
                 }
@@ -96,13 +96,13 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
         Node<V> newVertex = new Node<>(value);
 
-        for (var vertex : adjacencyMatrix.keySet()) {
+        for (Node<V> vertex : adjacencyMatrix.keySet()) {
             adjacencyMatrix.get(vertex).put(newVertex, null);
         }
 
         adjacencyMatrix.put(newVertex, new HashMap<>());
 
-        for (var vertex : adjacencyMatrix.keySet()) {
+        for (Node<V> vertex : adjacencyMatrix.keySet()) {
             adjacencyMatrix.get(newVertex).put(vertex, null);
         }
 
@@ -121,7 +121,7 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
             return false;
         }
 
-        for (var vertex : adjacencyMatrix.keySet()) {
+        for (Node<V> vertex : adjacencyMatrix.keySet()) {
             adjacencyMatrix.get(vertex).remove(node);
         }
 
@@ -132,7 +132,7 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> find(V value) {
-        for (var vertex : adjacencyMatrix.keySet()) {
+        for (Node<V> vertex : adjacencyMatrix.keySet()) {
             if (vertex.getValue().equals(value)) {
                 return vertex;
             }

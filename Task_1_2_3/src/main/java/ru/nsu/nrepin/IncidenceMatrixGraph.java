@@ -34,7 +34,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
         Edge<W> newEdge = new Edge<>(weight);
 
-        for (var node : incidenceMatrix.keySet()) {
+        for (Node<V> node : incidenceMatrix.keySet()) {
             incidenceMatrix.get(node).put(newEdge, EdgeDirection.NO_EDGE);
         }
 
@@ -47,7 +47,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
 
-        for (var edge : incidenceMatrix.get(u).keySet()) {
+        for (Edge<W> edge : incidenceMatrix.get(u).keySet()) {
             if (incidenceMatrix.get(u).get(edge) == EdgeDirection.OUTGOING
                     && incidenceMatrix.get(v).get(edge) == EdgeDirection.INGOING) {
                 return edge;
@@ -62,7 +62,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
         List<Edge<W>> edges = new ArrayList<>();
 
-        for (var edge : incidenceMatrix.get(u).keySet()) {
+        for (Edge<W> edge : incidenceMatrix.get(u).keySet()) {
             if (incidenceMatrix.get(u).get(edge) == EdgeDirection.OUTGOING) {
                 edges.add(edge);
             }
@@ -78,7 +78,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
             return null;
         }
 
-        for (var node : incidenceMatrix.keySet()) {
+        for (Node<V> node : incidenceMatrix.keySet()) {
             if (incidenceMatrix.get(node).get(e) == EdgeDirection.INGOING) {
                 return node;
             }
@@ -92,7 +92,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
         if (getVertexCount() > 0) {
             Set<Edge<W>> edges = new HashSet<>();
 
-            for (var node : incidenceMatrix.keySet()) {
+            for (Node<V> node : incidenceMatrix.keySet()) {
                 edges = incidenceMatrix.get(node).keySet();
                 break;
             }
@@ -126,14 +126,14 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
         if (incidenceMatrix.size() > 1) {
             Set<Edge<W>> edges = new HashSet<>();
 
-            for (var node : incidenceMatrix.keySet()) {
+            for (Node<V> node : incidenceMatrix.keySet()) {
                 if (!node.equals(newNode)) {
                     edges = incidenceMatrix.get(node).keySet();
                     break;
                 }
             }
 
-            for (var edge : edges) {
+            for (Edge<W> edge : edges) {
                 incidenceMatrix.get(newNode).put(edge, EdgeDirection.NO_EDGE);
             }
         }
@@ -159,7 +159,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> find(V value) {
-        for (var node : incidenceMatrix.keySet()) {
+        for (Node<V> node : incidenceMatrix.keySet()) {
             if (node.getValue().equals(value)) {
                 return node;
             }
