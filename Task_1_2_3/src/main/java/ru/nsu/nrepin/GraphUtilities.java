@@ -26,16 +26,16 @@ public class GraphUtilities {
         Set<Node<V>> visited = new HashSet<>();
         Map<Node<V>, Double> distances = new HashMap<>();
 
-        for (var vertex : graph.getVertices()) {
+        for (Node<V> vertex : graph.getVertices()) {
             distances.put(vertex, Double.POSITIVE_INFINITY);
         }
 
         distances.put(origin, 0.0);
 
-        for (var i : graph.getVertices()) {
+        for (Node<V> i : graph.getVertices()) {
             Node<V> node = null;
 
-            for (var j : graph.getVertices()) {
+            for (Node<V> j : graph.getVertices()) {
                 if (!visited.contains(j)
                         && (node == null || distances.get(j) < distances.get(node))) {
                     node = j;
@@ -48,7 +48,7 @@ public class GraphUtilities {
 
             visited.add(node);
 
-            for (var edge : graph.getNodeEdges(node)) {
+            for (Edge<W> edge : graph.getNodeEdges(node)) {
                 Node<V> terminus = graph.getEdgeTerminus(node, edge);
 
                 Double currentDistance = distances.get(node);
