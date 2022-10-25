@@ -19,9 +19,8 @@ public class GraphUtilities {
      * @param <W> type of edge weight
      * @return mapping of nodes to their distances from {@code origin} vertex
      */
-    public static <V, W extends Number> Map<Node<V>, Double> dijkstra(
-            Graph<V, W> graph,
-            Node<V> origin) {
+    public static <V, W extends Number> Map<Node<V>, Double> dijkstra(Graph<V, W> graph,
+                                                                      Node<V> origin) {
 
         Set<Node<V>> visited = new HashSet<>();
         Map<Node<V>, Double> distances = new HashMap<>();

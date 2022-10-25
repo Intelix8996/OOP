@@ -34,11 +34,11 @@ public class GraphTests {
         for (Node<String> nodeA : graphA.getVertices()) {
             for (Node<String> nodeB : graphB.getVertices()) {
 
-                Node<String> nodeBInA = graphA.find(nodeB.getValue());
-                Node<String> nodeAInB = graphB.find(nodeA.getValue());
+                Node<String> nodeBinA = graphA.find(nodeB.getValue());
+                Node<String> nodeAinB = graphB.find(nodeA.getValue());
 
-                Edge<Integer> edgeA = graphA.getEdge(nodeA, nodeBInA);
-                Edge<Integer> edgeB = graphB.getEdge(nodeB, nodeAInB);
+                Edge<Integer> edgeA = graphA.getEdge(nodeA, nodeBinA);
+                Edge<Integer> edgeB = graphB.getEdge(nodeB, nodeAinB);
 
                 if (edgeA == null || edgeB == null) {
                     Assertions.assertNull(edgeA);
