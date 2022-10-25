@@ -24,6 +24,11 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
+
+        if (u == null || v == null) {
+            throw new IllegalStateException("Nodes must be specified");
+        }
+
         Edge<W> newEdge = new Edge<>(weight);
 
         nodes.get(u).add(new Pair<>(v, newEdge));

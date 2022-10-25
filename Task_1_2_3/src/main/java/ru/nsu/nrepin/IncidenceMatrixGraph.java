@@ -32,6 +32,11 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
+
+        if (u == null || v == null) {
+            throw new IllegalStateException("Nodes must be specified");
+        }
+
         Edge<W> newEdge = new Edge<>(weight);
 
         for (Node<V> node : incidenceMatrix.keySet()) {
