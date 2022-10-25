@@ -15,6 +15,9 @@ import java.util.Objects;
  */
 public class GraphReader {
 
+    /**
+     * File formats supported by this class.
+     */
     public enum FileFormat {
         /**
          * Graph represented by adjacency lists.
@@ -90,7 +93,9 @@ public class GraphReader {
      * @param filename name of file to read from
      * @param type type of graph representation in file
      */
-    public static void fillGraphFromFile(Graph<String, Integer> graph, String filename, FileFormat type) {
+    public static void fillGraphFromFile(Graph<String, Integer> graph,
+                                         String filename,
+                                         FileFormat type) {
         List<List<String>> inputGraph;
 
         try {
@@ -125,15 +130,21 @@ public class GraphReader {
                         String w = inputGraph.get(i).get(j);
 
                         if (!Objects.equals(w, "-")) {
-                            int wNumber;
+                            int parsedWeight;
 
                             try {
-                                wNumber = Integer.parseInt(w);
+                                parsedWeight = Integer.parseInt(w);
                             } catch (NumberFormatException e) {
-                                throw new NumberFormatException("Illegal symbol in input file: '" + w + "'");
+                                throw new NumberFormatException(
+                                        "Illegal symbol in input file: '" + w + "'"
+                                );
                             }
 
-                            graph.addEdge(graph.find(nodes.get(i)), graph.find(nodes.get(j)), wNumber);
+                            graph.addEdge(
+                                    graph.find(nodes.get(i)),
+                                    graph.find(nodes.get(j)),
+                                    parsedWeight
+                            );
                         }
                     }
                 }
