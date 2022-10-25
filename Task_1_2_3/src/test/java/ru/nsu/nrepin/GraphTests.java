@@ -1,6 +1,5 @@
 package ru.nsu.nrepin;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,34 +13,40 @@ import org.junit.jupiter.api.Test;
  */
 public class GraphTests {
 
+    private static final int GRAPH_COUNT = 3;
+
     private List<Graph<String, Integer>> graphs;
 
-    /**
-     * Initializes given graph from {@code graph.txt}.
-     *
-     * @param graph graph to be initialized
-     */
-    public void constructGraph(Graph<String, Integer> graph) {
-        List<List<String>> inputGraph;
+    private void testGraphEquality(Graph<String, Integer> graphA,
+                                   Graph<String, Integer> graphB) {
 
-        try {
-            inputGraph = GraphReader.readGraph("/graph.txt");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        Assertions.assertEquals(graphA.getEdgesCount(), graphB.getEdgesCount());
+        Assertions.assertEquals(graphA.getVertexCount(), graphB.getVertexCount());
+
+        List<Node<String>> verticesA = graphA.getVertices();
+
+        for (Node<String> node : verticesA) {
+            Node<String> nodeB = graphB.find(node.getValue());
+
+            Assertions.assertEquals(node.getValue(), nodeB.getValue());
         }
 
-        for (var node : inputGraph.get(0)) {
-            graph.addVertex(node);
-        }
+        for (Node<String> nodeA : graphA.getVertices()) {
+            for (Node<String> nodeB : graphB.getVertices()) {
 
-        inputGraph.remove(0);
+                Node<String> nodeBInA = graphA.find(nodeB.getValue());
+                Node<String> nodeAInB = graphB.find(nodeA.getValue());
 
-        for (var edge : inputGraph) {
-            String u = edge.get(0);
-            String v = edge.get(1);
-            Integer w = Integer.valueOf(edge.get(2));
+                Edge<Integer> edgeA = graphA.getEdge(nodeA, nodeBInA);
+                Edge<Integer> edgeB = graphB.getEdge(nodeB, nodeAInB);
 
-            graph.addEdge(graph.find(u), graph.find(v), w);
+                if (edgeA == null || edgeB == null) {
+                    Assertions.assertNull(edgeA);
+                    Assertions.assertNull(edgeB);
+                } else {
+                    Assertions.assertEquals(edgeA.getWeight(), edgeB.getWeight());
+                }
+            }
         }
     }
 
@@ -52,12 +57,35 @@ public class GraphTests {
     public void createGraphs() {
         graphs = new ArrayList<>();
 
-        graphs.add(new AdjacencyListsGraph<>());
         graphs.add(new AdjacencyMatrixGraph<>());
+        graphs.add(new AdjacencyListsGraph<>());
         graphs.add(new IncidenceMatrixGraph<>());
 
-        for (var graph : graphs) {
-            constructGraph(graph);
+        GraphReader.fillGraphFromFile(
+                graphs.get(0),
+                "/EdgeListGraph.txt",
+                GraphReader.FileFormat.EDGES_LIST);
+
+        GraphReader.fillGraphFromFile(
+                graphs.get(1),
+                "/AdjacencyMatrixGraph.txt",
+                GraphReader.FileFormat.ADJACENCY_MATRIX);
+
+        GraphReader.fillGraphFromFile(
+                graphs.get(2),
+                "/AdjacencyListsGraph.txt",
+                GraphReader.FileFormat.ADJACENCY_LISTS);
+    }
+
+    /**
+     * Test equality of different graph formats.
+     */
+    @Test
+    public void testVariousFormats() {
+        for (int i = 0; i < GRAPH_COUNT; ++i) {
+            for (int j = i; j < GRAPH_COUNT; ++j) {
+                testGraphEquality(graphs.get(i), graphs.get(j));
+            }
         }
     }
 
