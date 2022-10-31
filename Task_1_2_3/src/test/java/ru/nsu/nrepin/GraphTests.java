@@ -188,32 +188,32 @@ public class GraphTests {
         for (var graph : graphs) {
             Assertions.assertThrows(
                     IllegalStateException.class,
-                    () -> { graph.addEdge(nullNode, notNullNode, 15); }
+                    () -> graph.addEdge(nullNode, notNullNode, 15)
             );
 
             Assertions.assertThrows(
                     IllegalStateException.class,
-                    () -> { graph.getEdge(nullNode, notNullNode); }
+                    () -> graph.getEdge(nullNode, notNullNode)
             );
 
             Assertions.assertThrows(
                     IllegalStateException.class,
-                    () -> { graph.getNodeEdges(nullNode); }
+                    () -> graph.getNodeEdges(nullNode)
             );
 
             Assertions.assertThrows(
                     IllegalStateException.class,
-                    () -> { graph.getEdgeTerminus(nullNode, new Edge<>(2)); }
+                    () -> graph.getEdgeTerminus(nullNode, new Edge<>(2))
             );
 
             Assertions.assertThrows(
                     IllegalStateException.class,
-                    () -> { graph.removeEdge(nullNode, notNullNode); }
+                    () -> graph.removeEdge(nullNode, notNullNode)
             );
 
             Assertions.assertThrows(
                     IllegalStateException.class,
-                    () -> { graph.removeVertex(nullNode); }
+                    () -> graph.removeVertex(nullNode)
             );
         }
     }
