@@ -25,9 +25,7 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
 
-        if (u == null || v == null) {
-            throw new IllegalStateException("Nodes must be specified");
-        }
+        NullChecker.checkNull("Nodes must be specified", u, v);
 
         Edge<W> newEdge = new Edge<>(weight);
 
@@ -38,11 +36,15 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
+        NullChecker.checkNull("Nodes must be specified", u, v);
+
         return adjacencyMatrix.get(u).get(v);
     }
 
     @Override
     public List<Edge<W>> getNodeEdges(Node<V> u) {
+
+        NullChecker.checkNull("Node must be specified", u);
 
         List<Edge<W>> edges = new ArrayList<>();
         Map<Node<V>, Edge<W>> node = adjacencyMatrix.get(u);
@@ -58,6 +60,10 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
+
+        NullChecker.checkNull("Node must be specified", u);
+        NullChecker.checkNull("Edge must be specified", e);
+
         Map<Node<V>, Edge<W>> node = adjacencyMatrix.get(u);
 
         for (Node<V> i : node.keySet()) {
@@ -86,6 +92,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeEdge(Node<V> u, Node<V> v) {
+
+        NullChecker.checkNull("Nodes must be specified", u, v);
 
         if (adjacencyMatrix.get(u).get(v) == null) {
             return false;
@@ -121,6 +129,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeVertex(Node<V> node) {
+
+        NullChecker.checkNull("Node must be specified", node);
 
         if (adjacencyMatrix.get(node) == null) {
             return false;

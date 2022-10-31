@@ -32,6 +32,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
+        NullChecker.checkNull("Nodes must be specified", u, v);
 
         if (u == null || v == null) {
             throw new IllegalStateException("Nodes must be specified");
@@ -51,6 +52,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
+        NullChecker.checkNull("Nodes must be specified", u, v);
 
         for (Edge<W> edge : incidenceMatrix.get(u).keySet()) {
             if (incidenceMatrix.get(u).get(edge) == EdgeDirection.OUTGOING
@@ -64,6 +66,7 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public List<Edge<W>> getNodeEdges(Node<V> u) {
+        NullChecker.checkNull("Node must be specified", u);
 
         List<Edge<W>> edges = new ArrayList<>();
 
@@ -78,6 +81,9 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
+
+        NullChecker.checkNull("Node must be specified", u);
+        NullChecker.checkNull("Edge must be specified", e);
 
         if (incidenceMatrix.get(u).get(e) == EdgeDirection.NO_EDGE) {
             return null;
@@ -109,6 +115,8 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeEdge(Node<V> u, Node<V> v) {
+
+        NullChecker.checkNull("Nodes must be specified", u, v);
 
         Edge<W> newEdge = getEdge(u, v);
 
@@ -153,6 +161,8 @@ public class IncidenceMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeVertex(Node<V> node) {
+        NullChecker.checkNull("Node must be specified", node);
+
         if (incidenceMatrix.get(node) == null) {
             return false;
         }
