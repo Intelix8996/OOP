@@ -25,6 +25,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
 
+        NullChecker.checkNull("Nodes must be specified", u, v);
+
         if (u == null || v == null) {
             throw new IllegalStateException("Nodes must be specified");
         }
@@ -38,6 +40,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
+        NullChecker.checkNull("Nodes must be specified", u, v);
+
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getLeft().equals(v)) {
                 return pair.getRight();
@@ -50,6 +54,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public List<Edge<W>> getNodeEdges(Node<V> u) {
 
+        NullChecker.checkNull("Node must be specified", u);
+
         List<Edge<W>> edges = new ArrayList<>();
 
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
@@ -61,6 +67,9 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
+        NullChecker.checkNull("Node must be specified", u);
+        NullChecker.checkNull("Edge must be specified", e);
+
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getRight().equals(e)) {
                 return pair.getLeft();
@@ -85,6 +94,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeEdge(Node<V> u, Node<V> v) {
+        NullChecker.checkNull("Nodes must be specified", u, v);
+
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getLeft().equals(v)) {
                 nodes.get(u).remove(pair);
@@ -110,6 +121,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeVertex(Node<V> node) {
+        NullChecker.checkNull("Node must be specified", node);
+
         if (!nodes.containsKey(node)) {
             return false;
         }

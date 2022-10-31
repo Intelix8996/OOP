@@ -176,4 +176,45 @@ public class GraphTests {
         Assertions.assertEquals("B", pair.getLeft());
         Assertions.assertEquals(2, pair.getRight());
     }
+
+    /**
+     * Test {@code null} checks of different methods.
+     */
+    @Test
+    public void testNullValues() {
+        Node<String> nullNode = null;
+        Node<String> notNullNode = new Node<>("AaAa");
+
+        for (var graph : graphs) {
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> { graph.addEdge(nullNode, notNullNode, 15); }
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> { graph.getEdge(nullNode, notNullNode); }
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> { graph.getNodeEdges(nullNode); }
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> { graph.getEdgeTerminus(nullNode, new Edge<>(2)); }
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> { graph.removeEdge(nullNode, notNullNode); }
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> { graph.removeVertex(nullNode); }
+            );
+        }
+    }
 }
