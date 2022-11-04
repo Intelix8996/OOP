@@ -217,4 +217,86 @@ public class GraphTests {
             );
         }
     }
+
+    /**
+     * Test methods with absent nodes and edges.
+     */
+    @Test
+    public void testInvalidArguments() {
+
+        Node<String> absentNode = new Node<>("AaAa");
+
+        for (var graph : graphs) {
+
+            Node<String> existingNode = graph.find("E");
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> graph.addEdge(absentNode, existingNode, 15)
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> graph.getEdge(absentNode, existingNode)
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> graph.getNodeEdges(absentNode)
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> graph.getEdgeTerminus(absentNode, new Edge<>(2))
+            );
+
+            Assertions.assertThrows(
+                    IllegalStateException.class,
+                    () -> graph.removeEdge(absentNode, existingNode)
+            );
+        }
+    }
+
+    /**
+     * Test graph {@code contains} method and {@code GraphChecker.checkPresence} method.
+     */
+    @Test
+    public void checkContainsMethods() {
+        Assertions.assertThrows(
+                IllegalStateException.class,
+                () -> GraphChecker.checkPresence(
+                        "Node must be present",
+                        graphs.get(0),
+                        new Node<>("BBbb")
+                )
+        );
+
+        Assertions.assertDoesNotThrow(
+                () -> GraphChecker.checkPresence(
+                        "Node must be present",
+                        graphs.get(0),
+                        graphs.get(0).find("A")
+                )
+        );
+
+        Assertions.assertThrows(
+                IllegalStateException.class,
+                () -> GraphChecker.checkPresence(
+                        "Edge must be present",
+                        graphs.get(0),
+                        new Edge<>(15)
+                )
+        );
+
+        Assertions.assertDoesNotThrow(
+                () -> GraphChecker.checkPresence(
+                        "Edge must be present",
+                        graphs.get(0),
+                        graphs.get(0).getEdge(
+                                graphs.get(0).find("C"),
+                                graphs.get(0).find("G")
+                        )
+                )
+        );
+    }
 }

@@ -25,11 +25,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
 
-        NullChecker.checkNull("Nodes must be specified", u, v);
-
-        if (u == null || v == null) {
-            throw new IllegalStateException("Nodes must be specified");
-        }
+        GraphChecker.checkNull("Nodes must not be null", u, v);
+        GraphChecker.checkPresence("Nodes must be present in the graph", this, u, v);
 
         Edge<W> newEdge = new Edge<>(weight);
 
@@ -40,7 +37,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
-        NullChecker.checkNull("Nodes must be specified", u, v);
+        GraphChecker.checkNull("Nodes must not be null", u, v);
+        GraphChecker.checkPresence("Nodes must be present in the graph", this, u, v);
 
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getLeft().equals(v)) {
@@ -54,7 +52,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public List<Edge<W>> getNodeEdges(Node<V> u) {
 
-        NullChecker.checkNull("Node must be specified", u);
+        GraphChecker.checkNull("Node must not be null", u);
+        GraphChecker.checkPresence("Node must be present in the graph", this, u);
 
         List<Edge<W>> edges = new ArrayList<>();
 
@@ -67,8 +66,10 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
-        NullChecker.checkNull("Node must be specified", u);
-        NullChecker.checkNull("Edge must be specified", e);
+        GraphChecker.checkNull("Node must not be null", u);
+        GraphChecker.checkNull("Edge must not be null", e);
+
+        GraphChecker.checkPresence("Node must be present in the graph", this, u);
 
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getRight().equals(e)) {
@@ -94,7 +95,8 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeEdge(Node<V> u, Node<V> v) {
-        NullChecker.checkNull("Nodes must be specified", u, v);
+        GraphChecker.checkNull("Nodes must not be null", u, v);
+        GraphChecker.checkPresence("Nodes must be present in the graph", this, u, v);
 
         for (Pair<Node<V>, Edge<W>> pair : nodes.get(u)) {
             if (pair.getLeft().equals(v)) {
@@ -121,7 +123,7 @@ public class AdjacencyListsGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public boolean removeVertex(Node<V> node) {
-        NullChecker.checkNull("Node must be specified", node);
+        GraphChecker.checkNull("Node must be specified", node);
 
         if (!nodes.containsKey(node)) {
             return false;

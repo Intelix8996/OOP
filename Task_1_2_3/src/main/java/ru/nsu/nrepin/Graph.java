@@ -41,6 +41,7 @@ public interface Graph<V, W extends Number> {
 
     /**
      * Get edge terminus node by origin node and edge itself.
+     * Return {@code null} if edge is not present.
      *
      * @param u origin node
      * @param e edge
@@ -109,4 +110,23 @@ public interface Graph<V, W extends Number> {
      */
     int getEdgesCount();
 
+    /**
+     * Check if graph contains a given node.
+     *
+     * @param node node to check
+     * @return {@code true} if node is present in the graph, {@code false} otherwise
+     */
+    default boolean contains(Node<V> node) {
+        return getVertices().contains(node);
+    }
+
+    /**
+     * Check if graph contains a given edge.
+     *
+     * @param edge edge to check
+     * @return {@code true} if edge is present in the graph, {@code false} otherwise
+     */
+    default boolean contains(Edge<W> edge) {
+        return getEdges().contains(edge);
+    }
 }

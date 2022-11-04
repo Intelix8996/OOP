@@ -25,7 +25,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public Edge<W> addEdge(Node<V> u, Node<V> v, W weight) {
 
-        NullChecker.checkNull("Nodes must be specified", u, v);
+        GraphChecker.checkNull("Nodes must not be null", u, v);
+        GraphChecker.checkPresence("Nodes must be present in the graph", this, u, v);
 
         Edge<W> newEdge = new Edge<>(weight);
 
@@ -36,7 +37,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
 
     @Override
     public Edge<W> getEdge(Node<V> u, Node<V> v) {
-        NullChecker.checkNull("Nodes must be specified", u, v);
+        GraphChecker.checkNull("Nodes must not be null", u, v);
+        GraphChecker.checkPresence("Nodes must be present in the graph", this, u, v);
 
         return adjacencyMatrix.get(u).get(v);
     }
@@ -44,7 +46,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public List<Edge<W>> getNodeEdges(Node<V> u) {
 
-        NullChecker.checkNull("Node must be specified", u);
+        GraphChecker.checkNull("Node must not be null", u);
+        GraphChecker.checkPresence("Node must be present in the graph", this, u);
 
         List<Edge<W>> edges = new ArrayList<>();
         Map<Node<V>, Edge<W>> node = adjacencyMatrix.get(u);
@@ -61,8 +64,10 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public Node<V> getEdgeTerminus(Node<V> u, Edge<W> e) {
 
-        NullChecker.checkNull("Node must be specified", u);
-        NullChecker.checkNull("Edge must be specified", e);
+        GraphChecker.checkNull("Node must not be null", u);
+        GraphChecker.checkNull("Edge must not be null", e);
+
+        GraphChecker.checkPresence("Node must be present in the graph", this, u);
 
         Map<Node<V>, Edge<W>> node = adjacencyMatrix.get(u);
 
@@ -93,7 +98,8 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public boolean removeEdge(Node<V> u, Node<V> v) {
 
-        NullChecker.checkNull("Nodes must be specified", u, v);
+        GraphChecker.checkNull("Nodes must not be null", u, v);
+        GraphChecker.checkPresence("Nodes must be present in the graph", this, u, v);
 
         if (adjacencyMatrix.get(u).get(v) == null) {
             return false;
@@ -130,7 +136,7 @@ public class AdjacencyMatrixGraph<V, W extends Number> implements Graph<V, W> {
     @Override
     public boolean removeVertex(Node<V> node) {
 
-        NullChecker.checkNull("Node must be specified", node);
+        GraphChecker.checkNull("Node must not be null", node);
 
         if (adjacencyMatrix.get(node) == null) {
             return false;
