@@ -32,7 +32,9 @@ public class GraphChecker {
      * @param <W> edge weight type
      */
     @SafeVarargs
-    public static <V, W extends Number> void checkPresence(String msg, Graph<V, W> graph, Node<V>... nodes) {
+    public static <V, W extends Number> void checkPresence(String msg,
+                                                           Graph<V, W> graph,
+                                                           Node<V>... nodes) {
         for (Node<V> node : nodes) {
             if (!graph.contains(node)) {
                 throw new IllegalStateException(msg);
@@ -51,7 +53,9 @@ public class GraphChecker {
      * @param <W> edge weight type
      */
     @SafeVarargs
-    public static <V, W extends Number> void checkPresence(String msg, Graph<V, W> graph, Edge<W>... edges) {
+    public static <V, W extends Number> void checkPresence(String msg,
+                                                           Graph<V, W> graph,
+                                                           Edge<W>... edges) {
         for (Edge<W> edge : edges) {
             if (!graph.contains(edge)) {
                 throw new IllegalStateException(msg);
