@@ -282,6 +282,13 @@ implements <a href="Graph.html" title="interface in ru.nsu.nrepin">Graph</a>&lt;
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.ru.nsu.nrepin.Graph">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;ru.nsu.nrepin.<a href="Graph.html" title="interface in ru.nsu.nrepin">Graph</a></h3>
+<code><a href="Graph.html#contains(ru.nsu.nrepin.Edge)">contains</a>, <a href="Graph.html#contains(ru.nsu.nrepin.Node)">contains</a></code></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -392,7 +399,8 @@ implements <a href="Graph.html" title="interface in ru.nsu.nrepin">Graph</a>&lt;
 <pre class="methodSignature">public&nbsp;<a href="Node.html" title="class in ru.nsu.nrepin">Node</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&gt;&nbsp;getEdgeTerminus&#8203;(<a href="Node.html" title="class in ru.nsu.nrepin">Node</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&gt;&nbsp;u,
                                <a href="Edge.html" title="class in ru.nsu.nrepin">Edge</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">W</a>&gt;&nbsp;e)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Graph.html#getEdgeTerminus(ru.nsu.nrepin.Node,ru.nsu.nrepin.Edge)">Graph</a></code></span></div>
-<div class="block">Get edge terminus node by origin node and edge itself.</div>
+<div class="block">Get edge terminus node by origin node and edge itself.
+ Return <code>null</code> if edge is not present.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getEdgeTerminus(ru.nsu.nrepin.Node,ru.nsu.nrepin.Edge)">getEdgeTerminus</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.nrepin">Graph</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>,&#8203;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">W</a> extends java.lang.Number&gt;</code></dd>
