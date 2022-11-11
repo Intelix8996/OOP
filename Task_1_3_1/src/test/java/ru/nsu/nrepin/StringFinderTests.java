@@ -88,11 +88,13 @@ public class StringFinderTests {
      */
     @Test
     public void testNoOccurrence() {
-        List<Integer> answer = null;
+        List<Integer> answer;
 
         try {
             answer = SubstringFinder.findSubstringsInFile("/test5.txt", "cake");
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
 
         List<Integer> referenceList = List.of();
 
