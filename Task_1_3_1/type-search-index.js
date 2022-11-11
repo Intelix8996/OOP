@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.nrepin","l":"SubstringFinder"},{"p":"ru.nsu.nrepin","l":"ZBuffer"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.nrepin","l":"PrefixRingBuffer"},{"p":"ru.nsu.nrepin","l":"SubstringFinder"}]
