@@ -1,10 +1,10 @@
 package ru.nsu.nrepin;
 
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.io.FileNotFoundException;
-import java.util.List;
 
 /**
  * Tester class for StringFinder.
@@ -16,11 +16,13 @@ public class StringFinderTests {
      */
     @Test
     public void testMultipleOccurrences() {
-        List<Integer> answer = null;
+        List<Integer> answer;
 
         try {
             answer = SubstringFinder.findSubstringsInFile("/test1.txt", "cake");
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
 
         List<Integer> referenceList = List.of(9, 15, 21);
 
@@ -32,11 +34,13 @@ public class StringFinderTests {
      */
     @Test
     public void testSingleOccurrence() {
-        List<Integer> answer = null;
+        List<Integer> answer;
 
         try {
             answer = SubstringFinder.findSubstringsInFile("/test2.txt", "cake");
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
 
         List<Integer> referenceList = List.of(0);
 
@@ -48,11 +52,13 @@ public class StringFinderTests {
      */
     @Test
     public void testPrefix() {
-        List<Integer> answer = null;
+        List<Integer> answer;
 
         try {
             answer = SubstringFinder.findSubstringsInFile("/test3.txt", "cake");
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
 
         List<Integer> referenceList = List.of(24);
 
@@ -64,11 +70,13 @@ public class StringFinderTests {
      */
     @Test
     public void testPostfix() {
-        List<Integer> answer = null;
+        List<Integer> answer;
 
         try {
             answer = SubstringFinder.findSubstringsInFile("/test4.txt", "cake");
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
 
         List<Integer> referenceList = List.of(0);
 

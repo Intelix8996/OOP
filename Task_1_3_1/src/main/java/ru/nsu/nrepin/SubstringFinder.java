@@ -40,7 +40,7 @@ public class SubstringFinder {
         int patternLength = pattern.length() + 1;
 
         // Allocate buffer
-        ZBuffer buffer = new ZBuffer(patternLength, patternLength);
+        PrefixRingBuffer buffer = new PrefixRingBuffer(patternLength, patternLength);
 
         // Write pattern as prefix to array region
         for (int i = 0; i < patternLength - 1; ++i) {
