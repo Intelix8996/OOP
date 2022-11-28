@@ -47,8 +47,8 @@ public class StringUtils {
         for (int i = startIndex; i < stringLength; ++i) {
             zedFunction[i] = Math.max(0, Math.min(right - i, zedFunction[i - left]));
 
-            while ((i + zedFunction[i] < stringLength) &&
-                   (string.charAt(zedFunction[i]) == string.charAt(i + zedFunction[i]))) {
+            while ((i + zedFunction[i] < stringLength)
+                    && (string.charAt(zedFunction[i]) == string.charAt(i + zedFunction[i]))) {
                 zedFunction[i]++;
             }
 
@@ -102,8 +102,21 @@ public class StringUtils {
         while (true) {
 
             // Shift buffers by patternLength to left
-            System.arraycopy(buffer, 2 * patternLength, buffer, patternLength, patternLength);
-            System.arraycopy(zedFunction, 2 * patternLength, zedFunction, patternLength, patternLength);
+            System.arraycopy(
+                    buffer,
+                    2 * patternLength,
+                    buffer,
+                    patternLength,
+                    patternLength
+            );
+
+            System.arraycopy(
+                    zedFunction,
+                    2 * patternLength,
+                    zedFunction,
+                    patternLength,
+                    patternLength
+            );
 
             // Fill end of buffer with zeros as if we read less that patternLength chars from reader
             Arrays.fill(buffer, 2 * patternLength, 3 * patternLength, '\0');
