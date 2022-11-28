@@ -19,7 +19,7 @@ public class StringFinderTests {
         List<Integer> answer;
 
         try {
-            answer = SubstringFinder.findSubstringsInFile("/test1.txt", "cake");
+            answer = StringUtils.findSubstringsInFile("/test1.txt", "cake");
         } catch (Exception ignore) {
             throw new IOError(new FileNotFoundException());
         }
@@ -37,7 +37,7 @@ public class StringFinderTests {
         List<Integer> answer;
 
         try {
-            answer = SubstringFinder.findSubstringsInFile("/test2.txt", "cake");
+            answer = StringUtils.findSubstringsInFile("/test2.txt", "cake");
         } catch (Exception ignore) {
             throw new IOError(new FileNotFoundException());
         }
@@ -55,7 +55,7 @@ public class StringFinderTests {
         List<Integer> answer;
 
         try {
-            answer = SubstringFinder.findSubstringsInFile("/test3.txt", "cake");
+            answer = StringUtils.findSubstringsInFile("/test3.txt", "cake");
         } catch (Exception ignore) {
             throw new IOError(new FileNotFoundException());
         }
@@ -73,7 +73,7 @@ public class StringFinderTests {
         List<Integer> answer;
 
         try {
-            answer = SubstringFinder.findSubstringsInFile("/test4.txt", "cake");
+            answer = StringUtils.findSubstringsInFile("/test4.txt", "cake");
         } catch (Exception ignore) {
             throw new IOError(new FileNotFoundException());
         }
@@ -91,7 +91,43 @@ public class StringFinderTests {
         List<Integer> answer;
 
         try {
-            answer = SubstringFinder.findSubstringsInFile("/test5.txt", "cake");
+            answer = StringUtils.findSubstringsInFile("/test5.txt", "cake");
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
+
+        List<Integer> referenceList = List.of();
+
+        Assertions.assertEquals(referenceList, answer);
+    }
+
+    /**
+     * Test a case when pattern repeats in the file.
+     */
+    @Test
+    public void testRepeat() {
+        List<Integer> answer;
+
+        try {
+            answer = StringUtils.findSubstringsInFile("/test6.txt", "cake");
+        } catch (Exception ignore) {
+            throw new IOError(new FileNotFoundException());
+        }
+
+        List<Integer> referenceList = List.of(9, 13, 17);
+
+        Assertions.assertEquals(referenceList, answer);
+    }
+
+    /**
+     * Test short file.
+     */
+    @Test
+    public void testShort() {
+        List<Integer> answer;
+
+        try {
+            answer = StringUtils.findSubstringsInFile("/test7.txt", "cake");
         } catch (Exception ignore) {
             throw new IOError(new FileNotFoundException());
         }
@@ -108,6 +144,19 @@ public class StringFinderTests {
     public void testWrongFilename() {
         Assertions.assertThrows(
                 FileNotFoundException.class,
-                () -> SubstringFinder.findSubstringsInFile("file.txt", "cake"));
+                () -> StringUtils.findSubstringsInFile("file.txt", "cake"));
+    }
+
+    /**
+     * Test {@code computeZedFunction} itself.
+     */
+    @Test
+    public void testComputeZedFunction() {
+        int[] refArray = {7, 0, 1, 0, 3, 0, 1};
+        String string = "abacaba";
+
+        int[] zf = StringUtils.computeZedFunction(string);
+
+        Assertions.assertArrayEquals(refArray, zf);
     }
 }
