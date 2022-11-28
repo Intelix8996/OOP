@@ -39,25 +39,26 @@ public class StringUtils {
 
         int stringLength = string.length();
 
-        int[] zFunction = new int[string.length()];
+        int[] zedFunction = new int[string.length()];
 
         int left = startIndex;
         int right = startIndex;
 
         for (int i = startIndex; i < stringLength; ++i) {
-            zFunction[i] = Math.max(0, Math.min(right - i, zFunction[i - left]));
+            zedFunction[i] = Math.max(0, Math.min(right - i, zedFunction[i - left]));
 
-            while ((i + zFunction[i] < stringLength) && (string.charAt(zFunction[i]) == string.charAt(i + zFunction[i]))) {
-                zFunction[i]++;
+            while ((i + zedFunction[i] < stringLength) &&
+                   (string.charAt(zedFunction[i]) == string.charAt(i + zedFunction[i]))) {
+                zedFunction[i]++;
             }
 
-            if (i + zFunction[i] > right) {
+            if (i + zedFunction[i] > right) {
                 left = i;
-                right = i + zFunction[i];
+                right = i + zedFunction[i];
             }
         }
 
-        return zFunction;
+        return zedFunction;
     }
 
     /**
@@ -87,7 +88,7 @@ public class StringUtils {
         buffer[patternLength - 1] = 0xFFFF;
 
         // Allocate buffer for Z-Function
-        int[] zFunction = new int[buffer.length];
+        int[] zedFunction = new int[buffer.length];
 
         // Iteration counter; start from -1 as it takes one additional iteration to fill the buffer
         int iterCount = -1;
@@ -102,7 +103,7 @@ public class StringUtils {
 
             // Shift buffers by patternLength to left
             System.arraycopy(buffer, 2 * patternLength, buffer, patternLength, patternLength);
-            System.arraycopy(zFunction, 2 * patternLength, zFunction, patternLength, patternLength);
+            System.arraycopy(zedFunction, 2 * patternLength, zedFunction, patternLength, patternLength);
 
             // Fill end of buffer with zeros as if we read less that patternLength chars from reader
             Arrays.fill(buffer, 2 * patternLength, 3 * patternLength, '\0');
@@ -110,17 +111,16 @@ public class StringUtils {
             // Read patternLength chars
             try {
                 charsRead = reader.read(buffer, 2 * patternLength, patternLength);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 throw new IOError(e);
             }
 
             // Recompute Z-Function
-            zFunction = computeZedFunction(String.valueOf(buffer), patternLength);
+            zedFunction = computeZedFunction(String.valueOf(buffer), patternLength);
 
             // Check for matches
             for (int i = patternLength; i < 2 * patternLength; ++i) {
-                if (zFunction[i] == patternLength - 1) {
+                if (zedFunction[i] == patternLength - 1) {
                     result.add(i - patternLength + (patternLength * iterCount));
                 }
             }
