@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test class for RecordBook
+ * Test class for RecordBook.
  */
 public class RecordBookTests {
 
