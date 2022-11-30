@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.nrepin","l":"RecordBook.Grade"},{"p":"ru.nsu.nrepin","l":"RecordBook"}]
