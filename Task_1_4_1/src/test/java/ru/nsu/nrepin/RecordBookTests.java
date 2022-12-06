@@ -20,19 +20,19 @@ public class RecordBookTests {
     }
 
     private void fillWithRealData() {
-        book.putMark(1, "Calculus", RecordBook.Grade.GOOD);
-        book.putMark(1, "Discrete Math", RecordBook.Grade.SATISFACTORY);
-        book.putMark(1, "History", RecordBook.Grade.EXCELLENT);
-        book.putMark(1, "Declarative Programming", RecordBook.Grade.EXCELLENT);
-        book.putMark(1, "Russian Language", RecordBook.Grade.EXCELLENT);
-        book.putMark(1, "Imperative Programming", RecordBook.Grade.EXCELLENT);
+        book.putMark(1, "Calculus", Grade.GOOD);
+        book.putMark(1, "Discrete Math", Grade.SATISFACTORY);
+        book.putMark(1, "History", Grade.EXCELLENT);
+        book.putMark(1, "Declarative Programming", Grade.EXCELLENT);
+        book.putMark(1, "Russian Language", Grade.EXCELLENT);
+        book.putMark(1, "Imperative Programming", Grade.EXCELLENT);
 
-        book.putMark(2, "Calculus", RecordBook.Grade.GOOD);
-        book.putMark(2, "Imperative Programming", RecordBook.Grade.EXCELLENT);
-        book.putMark(2, "Digital Platforms", RecordBook.Grade.EXCELLENT);
-        book.putMark(2, "Graph Theory", RecordBook.Grade.EXCELLENT);
-        book.putMark(2, "SQL", RecordBook.Grade.EXCELLENT);
-        book.putMark(2, "English Language", RecordBook.Grade.SATISFACTORY);
+        book.putMark(2, "Calculus", Grade.GOOD);
+        book.putMark(2, "Imperative Programming", Grade.EXCELLENT);
+        book.putMark(2, "Digital Platforms", Grade.EXCELLENT);
+        book.putMark(2, "Graph Theory", Grade.EXCELLENT);
+        book.putMark(2, "SQL", Grade.EXCELLENT);
+        book.putMark(2, "English Language", Grade.SATISFACTORY);
     }
 
     /**
@@ -57,21 +57,21 @@ public class RecordBookTests {
 
         fillWithRealData();
 
-        book.putMark(2, "English Language", RecordBook.Grade.GOOD);
-        book.putMark(1, "Discrete Math", RecordBook.Grade.GOOD);
+        book.putMark(2, "English Language", Grade.GOOD);
+        book.putMark(1, "Discrete Math", Grade.GOOD);
 
         Assertions.assertFalse(book.canHaveHonoursDegree());
 
-        book.putMark(2, "English Language", RecordBook.Grade.EXCELLENT);
-        book.putMark(1, "Discrete Math", RecordBook.Grade.EXCELLENT);
+        book.putMark(2, "English Language", Grade.EXCELLENT);
+        book.putMark(1, "Discrete Math", Grade.EXCELLENT);
 
         Assertions.assertTrue(book.canHaveHonoursDegree());
 
-        book.putQualificationWorkMark(RecordBook.Grade.EXCELLENT);
+        book.putQualificationWorkMark(Grade.EXCELLENT);
 
         Assertions.assertTrue(book.canHaveHonoursDegree());
 
-        book.putQualificationWorkMark(RecordBook.Grade.SATISFACTORY);
+        book.putQualificationWorkMark(Grade.SATISFACTORY);
 
         Assertions.assertFalse(book.canHaveHonoursDegree());
     }
@@ -85,7 +85,7 @@ public class RecordBookTests {
 
         Assertions.assertThrows(
                 IndexOutOfBoundsException.class,
-                () -> book.putMark(16, "Calculus", RecordBook.Grade.GOOD)
+                () -> book.putMark(16, "Calculus", Grade.GOOD)
         );
 
         Assertions.assertThrows(

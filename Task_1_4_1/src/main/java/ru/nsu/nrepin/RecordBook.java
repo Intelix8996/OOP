@@ -10,31 +10,6 @@ import java.util.Map;
  */
 public class RecordBook {
 
-    /**
-     * Define possible grades.
-     */
-    public enum Grade {
-        POOR(2),
-        SATISFACTORY(3),
-        GOOD(4),
-        EXCELLENT(5);
-
-        private final int value;
-
-        Grade(int intValue) {
-            value = intValue;
-        }
-
-        /**
-         * Return integer equivalent of a grade.
-         *
-         * @return integer mark
-         */
-        public int intValue() {
-            return value;
-        }
-    }
-
     private static final int DEFAULT_SEMESTER_COUNT = 8;
 
     private final List<Map<String, Grade>> semesters;
