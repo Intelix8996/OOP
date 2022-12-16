@@ -5,8 +5,16 @@ import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * This class handles input from command line.
+ */
 public class TerminalReader {
 
+    /**
+     * Reads a line from standard input.
+     *
+     * @return line read
+     */
     public static String readLine() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
