@@ -3,6 +3,9 @@ package ru.nsu.nrepin;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for expression evaluator.
+ */
 public class EvaluatorTests {
 
     @Test
@@ -14,6 +17,7 @@ public class EvaluatorTests {
                 Double.parseDouble(ExpressionEvaluator.evaluatePrefixExpression(input))
         );
     }
+
     @Test
     public void testComplex() {
         String input = "sqrt pow + 1 / * 1 cos 0 1 10";
