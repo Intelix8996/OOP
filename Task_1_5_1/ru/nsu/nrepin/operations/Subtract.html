@@ -138,6 +138,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Subtract</span>
 extends java.lang.Object
 implements <a href="../Operation.html" title="interface in ru.nsu.nrepin">Operation</a></pre>
+<div class="block">Subtracts second number from first.</div>
 </li>
 </ul>
 </div>
@@ -182,12 +183,16 @@ implements <a href="../Operation.html" title="interface in ru.nsu.nrepin">Operat
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#compute(java.util.List)">compute</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;operands)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Performs operation on list of operands.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOperandCount()">getOperandCount</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns operand count of operation.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -239,9 +244,13 @@ implements <a href="../Operation.html" title="interface in ru.nsu.nrepin">Operat
 <li class="blockList">
 <h4>getOperandCount</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getOperandCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Operation.html#getOperandCount()">Operation</a></code></span></div>
+<div class="block">Returns operand count of operation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../Operation.html#getOperandCount()">getOperandCount</a></code>&nbsp;in interface&nbsp;<code><a href="../Operation.html" title="interface in ru.nsu.nrepin">Operation</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>operand count</dd>
 </dl>
 </li>
 </ul>
@@ -252,9 +261,15 @@ implements <a href="../Operation.html" title="interface in ru.nsu.nrepin">Operat
 <li class="blockList">
 <h4>compute</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;compute&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;operands)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Operation.html#compute(java.util.List)">Operation</a></code></span></div>
+<div class="block">Performs operation on list of operands.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../Operation.html#compute(java.util.List)">compute</a></code>&nbsp;in interface&nbsp;<code><a href="../Operation.html" title="interface in ru.nsu.nrepin">Operation</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>operands</code> - operands</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>result of operation as <code>String</code></dd>
 </dl>
 </li>
 </ul>

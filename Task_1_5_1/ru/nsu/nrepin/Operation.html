@@ -124,10 +124,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="operations/Add.html" title="class in ru.nsu.nrepin.operations">Add</a></code>, <code><a href="operations/Sine.html" title="class in ru.nsu.nrepin.operations">Sine</a></code>, <code><a href="operations/Subtract.html" title="class in ru.nsu.nrepin.operations">Subtract</a></code></dd>
+<dd><code><a href="operations/Add.html" title="class in ru.nsu.nrepin.operations">Add</a></code>, <code><a href="operations/Cosine.html" title="class in ru.nsu.nrepin.operations">Cosine</a></code>, <code><a href="operations/Divide.html" title="class in ru.nsu.nrepin.operations">Divide</a></code>, <code><a href="operations/Logarithm.html" title="class in ru.nsu.nrepin.operations">Logarithm</a></code>, <code><a href="operations/Multiply.html" title="class in ru.nsu.nrepin.operations">Multiply</a></code>, <code><a href="operations/Power.html" title="class in ru.nsu.nrepin.operations">Power</a></code>, <code><a href="operations/Sine.html" title="class in ru.nsu.nrepin.operations">Sine</a></code>, <code><a href="operations/SquareRoot.html" title="class in ru.nsu.nrepin.operations">SquareRoot</a></code>, <code><a href="operations/Subtract.html" title="class in ru.nsu.nrepin.operations">Subtract</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">Operation</span></pre>
+<div class="block">Interface for all operations.</div>
 </li>
 </ul>
 </div>
@@ -151,12 +152,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#compute(java.util.List)">compute</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;operands)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Performs operation on list of operands.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOperandCount()">getOperandCount</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns operand count of operation.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -182,6 +187,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getOperandCount</h4>
 <pre class="methodSignature">int&nbsp;getOperandCount()</pre>
+<div class="block">Returns operand count of operation.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>operand count</dd>
+</dl>
 </li>
 </ul>
 <a id="compute(java.util.List)">
@@ -191,6 +201,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>compute</h4>
 <pre class="methodSignature">java.lang.String&nbsp;compute&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;operands)</pre>
+<div class="block">Performs operation on list of operands.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>operands</code> - operands</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>result of operation as <code>String</code></dd>
+</dl>
 </li>
 </ul>
 </li>
