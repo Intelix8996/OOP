@@ -5,9 +5,9 @@ import ru.nsu.nrepin.Operation;
 import java.util.List;
 
 /**
- * Return sine of given value.
+ * Returns a square root of given value.
  */
-public class Sine implements Operation {
+public class SquareRoot implements Operation {
     private static final int OPERAND_COUNT = 1;
 
     @Override
@@ -23,6 +23,6 @@ public class Sine implements Operation {
 
         double a = Double.parseDouble(operands.get(0));
 
-        return String.valueOf(Math.sin(a));
+        return String.valueOf(Math.sqrt(a));
     }
 }

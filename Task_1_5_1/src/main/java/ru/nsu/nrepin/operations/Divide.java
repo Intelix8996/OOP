@@ -5,10 +5,10 @@ import ru.nsu.nrepin.Operation;
 import java.util.List;
 
 /**
- * Return sine of given value.
+ * Divides one number by other.
  */
-public class Sine implements Operation {
-    private static final int OPERAND_COUNT = 1;
+public class Divide implements Operation {
+    private static final int OPERAND_COUNT = 2;
 
     @Override
     public int getOperandCount() {
@@ -22,7 +22,8 @@ public class Sine implements Operation {
         }
 
         double a = Double.parseDouble(operands.get(0));
+        double b = Double.parseDouble(operands.get(1));
 
-        return String.valueOf(Math.sin(a));
+        return String.valueOf(a / b);
     }
 }

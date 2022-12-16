@@ -4,6 +4,9 @@ import ru.nsu.nrepin.Operation;
 
 import java.util.List;
 
+/**
+ * Adds two numbers together.
+ */
 public class Add implements Operation {
 
     private static final int OPERAND_COUNT = 2;
