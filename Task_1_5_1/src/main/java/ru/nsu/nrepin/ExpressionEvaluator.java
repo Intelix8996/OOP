@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
+/**
+ * This class handles evaluation of expression in prefix notation.
+ */
 public class ExpressionEvaluator {
 
     /**

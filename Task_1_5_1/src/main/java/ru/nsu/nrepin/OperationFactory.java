@@ -1,5 +1,8 @@
 package ru.nsu.nrepin;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import ru.nsu.nrepin.operations.Add;
 import ru.nsu.nrepin.operations.Cosine;
 import ru.nsu.nrepin.operations.Divide;
@@ -9,10 +12,6 @@ import ru.nsu.nrepin.operations.Power;
 import ru.nsu.nrepin.operations.Sine;
 import ru.nsu.nrepin.operations.SquareRoot;
 import ru.nsu.nrepin.operations.Subtract;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Factory for operations.

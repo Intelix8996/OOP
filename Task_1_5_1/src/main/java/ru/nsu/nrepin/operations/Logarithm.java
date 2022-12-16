@@ -1,8 +1,7 @@
 package ru.nsu.nrepin.operations;
 
-import ru.nsu.nrepin.Operation;
-
 import java.util.List;
+import ru.nsu.nrepin.Operation;
 
 /**
  * Returns a natural logarithm of given value.
