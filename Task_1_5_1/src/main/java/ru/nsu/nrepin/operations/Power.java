@@ -5,10 +5,10 @@ import ru.nsu.nrepin.Operation;
 import java.util.List;
 
 /**
- * Return sine of given value.
+ * Raises first number to the second number's power.
  */
-public class Sine implements Operation {
-    private static final int OPERAND_COUNT = 1;
+public class Power implements Operation {
+    private static final int OPERAND_COUNT = 2;
 
     @Override
     public int getOperandCount() {
@@ -21,8 +21,9 @@ public class Sine implements Operation {
             throw new IllegalStateException();
         }
 
-        double a = Double.parseDouble(operands.get(0));
+        double base = Double.parseDouble(operands.get(0));
+        double power = Double.parseDouble(operands.get(1));
 
-        return String.valueOf(Math.sin(a));
+        return String.valueOf(Math.pow(base, power));
     }
 }

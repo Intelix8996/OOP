@@ -4,6 +4,9 @@ import ru.nsu.nrepin.Operation;
 
 import java.util.List;
 
+/**
+ * Subtracts second number from first.
+ */
 public class Subtract implements Operation {
 
     private static final int OPERAND_COUNT = 2;
