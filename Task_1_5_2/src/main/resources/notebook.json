@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "creationTime": "18.12.2022 18:2",
+      "name": "First note",
+      "text": "This is my first note"
+    },
+    {
+      "creationTime": "18.12.2022 18:2",
+      "name": "Second note",
+      "text": "This is my second note"
+    },
+    {
+      "creationTime": "18.12.2022 18:2",
+      "name": "Third note",
+      "text": "This is my third note"
+    },
+    {
+      "creationTime": "14.12.2019 7:0",
+      "name": "Very old note",
+      "text": "This note was created back in 2019"
+    }
+  ]
+}
