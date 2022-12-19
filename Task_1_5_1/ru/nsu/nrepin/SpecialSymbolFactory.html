@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9};
+var data = {"i0":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -176,17 +176,10 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colFirst"><code>static java.util.Optional&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSpecialSymbol(java.lang.String)">getSpecialSymbol</a></span>&#8203;(java.lang.String&nbsp;symbol)</code></th>
 <td class="colLast">
-<div class="block">Returns special symbol value.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>static java.util.Set&lt;java.lang.String&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSymbolSet()">getSymbolSet</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Returns all supported special symbols as a <code>Set</code>.</div>
+<div class="block">Returns special symbol value as <code>Optional</code>.</div>
 </td>
 </tr>
 </table>
@@ -235,30 +228,16 @@ extends java.lang.Object</pre>
 <a id="getSpecialSymbol(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getSpecialSymbol</h4>
-<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;getSpecialSymbol&#8203;(java.lang.String&nbsp;symbol)</pre>
-<div class="block">Returns special symbol value.</div>
+<pre class="methodSignature">public static&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;getSpecialSymbol&#8203;(java.lang.String&nbsp;symbol)</pre>
+<div class="block">Returns special symbol value as <code>Optional</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>symbol</code> - symbol</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>value as <code>String</code></dd>
-</dl>
-</li>
-</ul>
-<a id="getSymbolSet()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getSymbolSet</h4>
-<pre class="methodSignature">public static&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;getSymbolSet()</pre>
-<div class="block">Returns all supported special symbols as a <code>Set</code>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a <code>Set</code> of supported special symbols</dd>
+<dd><code>Optional</code> of value as <code>String</code></dd>
 </dl>
 </li>
 </ul>
