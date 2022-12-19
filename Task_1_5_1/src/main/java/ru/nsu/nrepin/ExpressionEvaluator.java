@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EmptyStackException;
 import java.util.List;
-import java.util.Set;
+import java.util.Optional;
 import java.util.Stack;
 
 /**
@@ -32,22 +32,18 @@ public class ExpressionEvaluator {
 
         List<String> tokens = tokenize(expression);
 
-        Set<String> supportedOperations = OperationFactory.getOperationSet();
-        Set<String> specialSymbols = SpecialSymbolFactory.getSymbolSet();
-
         Collections.reverse(tokens);
 
         Stack<String> stack = new Stack<>();
 
         for (String token : tokens) {
 
-            if (supportedOperations.contains(token)) {
+            Optional<Operation> operation = OperationFactory.getOperation(token);
 
-                Operation operation = OperationFactory.getOperation(token);
-
+            if (operation.isPresent()) {
                 List<String> operands = new ArrayList<>();
 
-                for (int i = 0; i < operation.getOperandCount(); ++i) {
+                for (int i = 0; i < operation.get().getOperandCount(); ++i) {
 
                     String operand;
 
@@ -60,7 +56,7 @@ public class ExpressionEvaluator {
                     operands.add(operand);
                 }
 
-                stack.push(operation.compute(operands));
+                stack.push(operation.get().compute(operands));
             } else {
 
                 boolean isNumber = true;
@@ -74,8 +70,10 @@ public class ExpressionEvaluator {
                 if (isNumber) {
                     stack.push(token);
                 } else {
-                    if (specialSymbols.contains(token)) {
-                        stack.push(SpecialSymbolFactory.getSpecialSymbol(token));
+                    Optional<String> symbol = SpecialSymbolFactory.getSpecialSymbol(token);
+
+                    if (symbol.isPresent()) {
+                        stack.push(symbol.get());
                     } else {
                         throw new IllegalStateException("Invalid symbol: " + token);
                     }

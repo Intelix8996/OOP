@@ -2,7 +2,7 @@ package ru.nsu.nrepin;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.Optional;
 import ru.nsu.nrepin.operations.Add;
 import ru.nsu.nrepin.operations.Cosine;
 import ru.nsu.nrepin.operations.Divide;
@@ -35,25 +35,12 @@ public class OperationFactory {
     }
 
     /**
-     * Returns {@code Operation} singleton by given operator token.
+     * Returns {@code Operation} singleton wrapped in {@code Optional} by given operator token.
      *
      * @param operator operator token
-     * @return {@code Operation} singleton
+     * @return {@code Optional} of {@code Operation} singleton
      */
-    public static Operation getOperation(String operator) {
-        if (OPERATION_SET.containsKey(operator)) {
-            return OPERATION_SET.get(operator);
-        } else {
-            throw new IllegalStateException(operator + " not a valid operator");
-        }
-    }
-
-    /**
-     * Returns all supported operations as a {@code Set}.
-     *
-     * @return a {@code Set} of supported operations
-     */
-    public static Set<String> getOperationSet() {
-        return OPERATION_SET.keySet();
+    public static Optional<Operation> getOperation(String operator) {
+        return Optional.ofNullable(OPERATION_SET.get(operator));
     }
 }

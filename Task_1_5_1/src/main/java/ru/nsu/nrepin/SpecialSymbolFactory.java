@@ -2,7 +2,7 @@ package ru.nsu.nrepin;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.Optional;
 
 /**
  * Factory for special symbols.
@@ -19,28 +19,21 @@ public class SpecialSymbolFactory {
     }
 
     /**
-     * Returns special symbol value.
+     * Returns special symbol value as {@code Optional}.
      *
      * @param symbol symbol
-     * @return value as {@code String}
+     * @return {@code Optional} of value as {@code String}
      */
-    public static String getSpecialSymbol(String symbol) {
+    public static Optional<String> getSpecialSymbol(String symbol) {
 
         symbol = symbol.toLowerCase();
 
-        if (SPECIAL_SYMBOL_SET.containsKey(symbol)) {
-            return String.valueOf(SPECIAL_SYMBOL_SET.get(symbol));
-        } else {
-            throw new IllegalStateException(symbol + " not a valid symbol");
-        }
-    }
+        Double symbolValue = SPECIAL_SYMBOL_SET.get(symbol);
 
-    /**
-     * Returns all supported special symbols as a {@code Set}.
-     *
-     * @return a {@code Set} of supported special symbols
-     */
-    public static Set<String> getSymbolSet() {
-        return SPECIAL_SYMBOL_SET.keySet();
+        if (symbolValue != null) {
+            return Optional.of(String.valueOf(symbolValue));
+        } else {
+            return Optional.empty();
+        }
     }
 }
