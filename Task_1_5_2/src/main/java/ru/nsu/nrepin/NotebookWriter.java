@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,54 +17,49 @@ import java.io.PrintWriter;
 public class NotebookWriter {
     public static void save(Notebook notebook) {
 
-        File outputFile = new File(NotebookWriter.class.getResource("/notebook.json").getPath());
+        File outputFile = new File("notebook.json");
 
-        PrintWriter writer;
-
-        try {
-            writer = new PrintWriter(outputFile);
+        try (FileWriter writer = new FileWriter(outputFile)) {
+            writer.write(notebook.toJson());
         } catch (FileNotFoundException fe) {
             try {
                 outputFile.createNewFile();
-            } catch (IOException ioe) {
-                throw new IOError(ioe);
+            } catch (IOException e) {
+                throw new IOError(e);
             }
-
-            try {
-                writer = new PrintWriter(outputFile);
-            } catch (FileNotFoundException fee) {
-                throw new IOError(fee);
+            try (FileWriter writer = new FileWriter(outputFile)) {
+                writer.write(notebook.toJson());
+            } catch (IOException e) {
+                throw new IOError(e);
             }
+        } catch (IOException e) {
+            throw new IOError(e);
         }
-
-        writer.write(notebook.toJson());
     }
 
     public static Notebook restore() {
-        InputStream inputStream = NotebookWriter.class.getResourceAsStream("/notebook.json");
-
-        if (inputStream == null) {
-            return new Notebook();
-        }
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
         StringBuilder json = new StringBuilder();
 
-        while (true) {
-            String buffer;
+        File inputFile = new File("notebook.json");
 
-            try {
-                buffer = reader.readLine();
-            } catch (IOException e) {
-                break;
+        try (FileReader reader = new FileReader(inputFile)){
+
+            while (true) {
+                int c;
+
+                c = reader.read();
+
+                if (c == -1) {
+                    break;
+                }
+
+                json.append((char)c);
             }
-
-            if (buffer == null) {
-                break;
-            }
-
-            json.append(buffer);
+        } catch (FileNotFoundException fe) {
+            return new Notebook();
+        } catch (IOException e) {
+            throw new IOError(e);
         }
 
         return Notebook.fromJson(json.toString());
