@@ -7,12 +7,25 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArgumentParser {
-    public static CommandLine parseArguments(String[] args) {
 
-        final Options options = new Options();
+    private static final DateTimeFormatter formatter = Notebook.getDateTimeFormatter();
 
-        Option addOption = Option.builder()
+    private static final Option ADD_OPTION;
+    private static final Option REMOVE_OPTION;
+    private static final Option SHOW_OPTION;
+
+    private static final Options OPTIONS;
+
+    static {
+        ADD_OPTION = Option.builder()
                 .option("add")
                 .desc("Create new note")
                 .hasArgs()
@@ -20,7 +33,7 @@ public class ArgumentParser {
                 .type(String.class)
                 .build();
 
-        Option removeOption = Option.builder()
+        REMOVE_OPTION = Option.builder()
                 .option("rm")
                 .desc("Remove note")
                 .hasArg()
@@ -28,25 +41,62 @@ public class ArgumentParser {
                 .type(String.class)
                 .build();
 
-        Option showOption = Option.builder()
+        SHOW_OPTION = Option.builder()
                 .option("show")
                 .desc("Show notes")
+                .hasArgs()
+                .numberOfArgs(3)
+                .type(String.class)
+                .optionalArg(true)
                 .build();
 
-        options.addOption(addOption);
-        options.addOption(removeOption);
-        options.addOption(showOption);
+        OPTIONS = new Options();
 
+        OPTIONS.addOption(ADD_OPTION);
+        OPTIONS.addOption(REMOVE_OPTION);
+        OPTIONS.addOption(SHOW_OPTION);
+    }
+    public static CommandLine parseArguments(String[] args) {
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
 
         try {
-            cmd = parser.parse(options, args);
+            cmd = parser.parse(OPTIONS, args);
         } catch (ParseException exp){
             System.err.println("Parsing failed.  Reason: " + exp.getMessage());
             throw new IllegalStateException(exp.getMessage());
         }
 
         return cmd;
+    }
+
+    public static void executeCommands(CommandLine cmd, Notebook notebook) {
+        if (cmd.hasOption(ADD_OPTION)) {
+            String[] arguments = cmd.getOptionValues(ADD_OPTION);
+
+            notebook.add(arguments[0], arguments[1]);
+        }
+
+        if (cmd.hasOption(REMOVE_OPTION)) {
+            notebook.remove(cmd.getOptionValue(REMOVE_OPTION));
+        }
+
+        if (cmd.hasOption(SHOW_OPTION)) {
+            String[] arguments = cmd.getOptionValues(SHOW_OPTION);
+
+            if (arguments == null) {
+                System.out.println(notebook.toSortedString());
+            } else {
+
+                List<String> keywords =
+                        new ArrayList<>(Arrays.asList(arguments).subList(2, arguments.length));
+
+                System.out.println(notebook.toSortedFilteredString(
+                        LocalDateTime.parse(arguments[0], formatter),
+                        LocalDateTime.parse(arguments[1], formatter),
+                        keywords
+                ));
+            }
+        }
     }
 }

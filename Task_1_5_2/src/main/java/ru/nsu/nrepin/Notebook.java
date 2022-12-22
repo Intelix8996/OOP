@@ -4,10 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class Notebook {
 
@@ -38,8 +41,37 @@ public class Notebook {
         return false;
     }
 
-    @Override
-    public String toString() {
+    public String toSortedString() {
+        List<Record> sortedRecords = records.stream()
+                .sorted(Comparator.comparing(Record::getCreationTime))
+                .toList();
+
+        return makeString(sortedRecords);
+    }
+
+    public String toSortedFilteredString(LocalDateTime from, LocalDateTime to, List<String> keywords) {
+        List<Record> sortedRecords = records.stream()
+                .sorted(Comparator.comparing(Record::getCreationTime))
+                .filter(record -> record.getCreationTime().compareTo(from) > 0)
+                .filter(record -> record.getCreationTime().compareTo(to) < 0)
+                .filter(record -> {
+                    if (keywords.size() == 0) {
+                        return true;
+                    }
+
+                    for (String keyword : keywords) {
+                        if (record.getName().contains(keyword)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .toList();
+
+        return makeString(sortedRecords);
+    }
+
+    private String makeString(List<Record> records) {
         StringBuilder builder = new StringBuilder();
 
         for (Record record : records) {
