@@ -39,7 +39,7 @@ public class NotebookWriter {
 
         File inputFile = new File("notebook.json");
 
-        try (FileReader reader = new FileReader(inputFile)){
+        try (FileReader reader = new FileReader(inputFile)) {
 
             while (true) {
                 int c;
@@ -50,7 +50,7 @@ public class NotebookWriter {
                     break;
                 }
 
-                json.append((char)c);
+                json.append((char) c);
             }
         } catch (FileNotFoundException fe) {
             return new Notebook();

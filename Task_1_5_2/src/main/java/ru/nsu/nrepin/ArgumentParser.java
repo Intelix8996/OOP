@@ -1,16 +1,16 @@
 package ru.nsu.nrepin;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * This class handles arguments passed to application.
@@ -70,7 +70,7 @@ public class ArgumentParser {
 
         try {
             cmd = parser.parse(OPTIONS, args);
-        } catch (ParseException exp){
+        } catch (ParseException exp) {
             System.err.println("Parsing failed.  Reason: " + exp.getMessage());
             throw new IllegalStateException(exp.getMessage());
         }

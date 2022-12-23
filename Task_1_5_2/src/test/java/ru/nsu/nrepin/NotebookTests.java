@@ -1,13 +1,12 @@
 package ru.nsu.nrepin;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.time.LocalDateTime;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.time.LocalDateTime;
 
 /**
  * This class test {@code Notebook}.
@@ -16,6 +15,9 @@ public class NotebookTests {
 
     private static final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
+    /**
+     * Create empty notebook before running tests.
+     */
     @BeforeAll
     public static void createEmptyNotebook() {
         Notebook notebook = new Notebook();
@@ -43,8 +45,8 @@ public class NotebookTests {
         String currentTime = LocalDateTime.now().format(Notebook.getDateTimeFormatter());
 
         Assertions.assertEquals(
-                currentTime + " First note: This is my first note\n" +
-                        currentTime + " Second note: This is my second note",
+                currentTime + " First note: This is my first note\n"
+                        + currentTime + " Second note: This is my second note",
                 outputStream.toString().strip()
         );
 

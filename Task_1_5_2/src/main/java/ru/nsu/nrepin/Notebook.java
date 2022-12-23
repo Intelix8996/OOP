@@ -83,7 +83,11 @@ public class Notebook {
      *
      * @return string representation of notebook
      */
-    public String toSortedFilteredString(LocalDateTime from, LocalDateTime to, List<String> keywords) {
+    public String toSortedFilteredString(
+            LocalDateTime from,
+            LocalDateTime to,
+            List<String> keywords
+    ) {
         List<Record> sortedRecords = records.stream()
                 .sorted(Comparator.comparing(Record::getCreationTime))
                 .filter(record -> record.getCreationTime().compareTo(from) > 0)
