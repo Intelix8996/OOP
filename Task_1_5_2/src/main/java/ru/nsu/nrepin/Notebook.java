@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * This class represents notebook.
@@ -71,7 +72,7 @@ public class Notebook {
     public String toSortedString() {
         List<Record> sortedRecords = records.stream()
                 .sorted(Comparator.comparing(Record::getCreationTime))
-                .toList();
+                .collect(Collectors.toList());
 
         return makeString(sortedRecords);
     }
@@ -99,7 +100,7 @@ public class Notebook {
                     }
                     return false;
                 })
-                .toList();
+                .collect(Collectors.toList());
 
         return makeString(sortedRecords);
     }
