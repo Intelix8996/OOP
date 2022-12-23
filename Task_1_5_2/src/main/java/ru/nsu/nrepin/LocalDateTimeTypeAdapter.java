@@ -4,11 +4,14 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This is an adapter class for Gson library.
+ * This class handles serialization and deserialization of {@code LocalDateTime} objects.
+ */
 public class LocalDateTimeTypeAdapter extends TypeAdapter<LocalDateTime> {
 
     private static final DateTimeFormatter formatter = Notebook.getDateTimeFormatter();

@@ -6,14 +6,15 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This class handles arguments passed to application.
+ */
 public class ArgumentParser {
 
     private static final DateTimeFormatter formatter = Notebook.getDateTimeFormatter();
@@ -56,6 +57,13 @@ public class ArgumentParser {
         OPTIONS.addOption(REMOVE_OPTION);
         OPTIONS.addOption(SHOW_OPTION);
     }
+
+    /**
+     * Parses given array of arguments into {@code CommandLine} object.
+     *
+     * @param args arguments to parse
+     * @return parsed arguments as {@code CommandLine} object
+     */
     public static CommandLine parseArguments(String[] args) {
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
@@ -70,6 +78,12 @@ public class ArgumentParser {
         return cmd;
     }
 
+    /**
+     * Executes commands parsed from arguments.
+     *
+     * @param cmd parsed commands as {@code CommandLine} object
+     * @param notebook {@code Notebook} object to execute commands on
+     */
     public static void executeCommands(CommandLine cmd, Notebook notebook) {
         if (cmd.hasOption(ADD_OPTION)) {
             String[] arguments = cmd.getOptionValues(ADD_OPTION);
