@@ -65,22 +65,60 @@ public class Notebook {
     }
 
     /**
+     * Returns all notes sorted by creation time as {@code List}.
+     *
+     * @return sorted notes as {@code List}
+     */
+    public List<Record> toSortedList() {
+        return records.stream()
+                .sorted(Comparator.comparing(Record::getCreationTime))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Returns all notes sorted by creation time and
+     * filtered by creation time and keywords as {@code List}.
+     *
+     * @param from lower bound for creation time
+     * @param to upper bound for creation time
+     * @param keywords keywords to check
+     * @return sorted and filtered notes as {@code List}
+     */
+    public List<Record> toSortedFilteredList(
+            LocalDateTime from,
+            LocalDateTime to,
+            List<String> keywords
+    ) {
+        return records.stream()
+                .filter(record -> record.getCreationTime().isAfter(from))
+                .filter(record -> record.getCreationTime().isBefore(to))
+                .filter(record -> keywords.isEmpty()
+                               || keywords.stream().anyMatch(
+                                       keyword -> record.getName()
+                                                        .toLowerCase()
+                                                        .contains(keyword.toLowerCase())
+                                       )
+                )
+                .sorted(Comparator.comparing(Record::getCreationTime))
+                .collect(Collectors.toList());
+    }
+
+    /**
      * Returns a printable string representation of notebook with records sorted by creation time.
      *
      * @return string representation of notebook
      */
     public String toSortedString() {
-        List<Record> sortedRecords = records.stream()
-                .sorted(Comparator.comparing(Record::getCreationTime))
-                .collect(Collectors.toList());
-
-        return makeString(sortedRecords);
+        return makeString(toSortedList());
     }
 
     /**
      * Returns a printable string representation of notebook with records sorted by creation time
      * and filtered by creation time and keywords.
      *
+     * @param from lower bound for creation time
+     * @param to upper bound for creation time
+     * @param keywords keywords to check
      * @return string representation of notebook
      */
     public String toSortedFilteredString(
@@ -88,28 +126,16 @@ public class Notebook {
             LocalDateTime to,
             List<String> keywords
     ) {
-        List<Record> sortedRecords = records.stream()
-                .sorted(Comparator.comparing(Record::getCreationTime))
-                .filter(record -> record.getCreationTime().compareTo(from) > 0)
-                .filter(record -> record.getCreationTime().compareTo(to) < 0)
-                .filter(record -> {
-                    if (keywords.size() == 0) {
-                        return true;
-                    }
-
-                    for (String keyword : keywords) {
-                        if (record.getName().toLowerCase().contains(keyword.toLowerCase())) {
-                            return true;
-                        }
-                    }
-                    return false;
-                })
-                .collect(Collectors.toList());
-
-        return makeString(sortedRecords);
+        return makeString(toSortedFilteredList(from, to, keywords));
     }
 
-    private String makeString(List<Record> records) {
+    /**
+     * Converts a list of notes to a printable string.
+     *
+     * @param records list of notes
+     * @return printable string
+     */
+    public String makeString(List<Record> records) {
         StringBuilder builder = new StringBuilder();
 
         for (Record record : records) {
