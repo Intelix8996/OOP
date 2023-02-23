@@ -28,7 +28,7 @@ import org.openjdk.jmh.infra.Blackhole;
 public class ThreadedPrimeCheckerBenchmark {
     private List<Integer> data;
 
-    @Param({"1", "2", "3", "4"})
+    @Param({"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
     private int threadCount;
 
     /**

@@ -1,0 +1,15 @@
+Benchmark                                        (threadCount)  Mode  Cnt     Score     Error  Units
+PrimeCheckerBenchmark.benchmarkParallelStream              N/A  avgt    5  1361.245 ±  23.428  ms/op
+PrimeCheckerBenchmark.benchmarkSequental                   N/A  avgt    5  7912.668 ±  75.552  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              1  avgt    5  7905.559 ±  66.981  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              2  avgt    5  3962.040 ±  41.108  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              3  avgt    5  2668.364 ±  37.798  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              4  avgt    5  2002.148 ±  46.955  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              5  avgt    5  1608.506 ±  41.589  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              6  avgt    5  1343.835 ±  54.437  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              7  avgt    5  1724.976 ±  56.621  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              8  avgt    5  1522.861 ±  54.486  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded              9  avgt    5  1439.127 ± 183.810  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded             10  avgt    5  1448.086 ± 110.093  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded             11  avgt    5  1419.728 ±  28.755  ms/op
+ThreadedPrimeCheckerBenchmark.benchmarkThreaded             12  avgt    5  1363.144 ± 110.695  ms/op
