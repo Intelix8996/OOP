@@ -141,6 +141,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">PrimeCheckerRunnerThread</span>
 extends java.lang.Thread</pre>
+<div class="block">A thread class that is dispatched by ThreadedPrimeChecker.</div>
 </li>
 </ul>
 </div>
@@ -196,7 +197,9 @@ extends java.lang.Thread</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.List)">PrimeCheckerRunnerThread</a></span>&#8203;(java.util.List&lt;java.lang.Integer&gt;&nbsp;payload)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Create new thread with given payload as list of integers.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -219,7 +222,9 @@ extends java.lang.Thread</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResult()">getResult</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns result of computation.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -264,6 +269,11 @@ extends java.lang.Thread</pre>
 <li class="blockList">
 <h4>PrimeCheckerRunnerThread</h4>
 <pre>public&nbsp;PrimeCheckerRunnerThread&#8203;(java.util.List&lt;java.lang.Integer&gt;&nbsp;payload)</pre>
+<div class="block">Create new thread with given payload as list of integers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>payload</code> - list of nuumbers to check</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -283,6 +293,11 @@ extends java.lang.Thread</pre>
 <li class="blockList">
 <h4>getResult</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;getResult()</pre>
+<div class="block">Returns result of computation. Should be called only after computation is done.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if list contains composite number, <code>false</code> otherwise</dd>
+</dl>
 </li>
 </ul>
 <a id="run()">
