@@ -1,8 +1,11 @@
 package ru.nsu.nrepin;
 
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
@@ -13,11 +16,6 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
-
-import java.io.FileNotFoundException;
-import java.io.IOError;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * A class for benchmarking threaded checker.

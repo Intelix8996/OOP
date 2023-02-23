@@ -1,9 +1,8 @@
 package ru.nsu.nrepin;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 /**
  * Tests for PrimeChecker.
