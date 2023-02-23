@@ -3,11 +3,11 @@ package ru.nsu.nrepin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThreadPrimeChecker extends PrimeChecker {
+public class ThreadedPrimeChecker extends PrimeChecker {
 
     private final int threadCount;
 
-    public ThreadPrimeChecker(int threadCount) {
+    public ThreadedPrimeChecker(int threadCount) {
         this.threadCount = threadCount;
     }
 
@@ -15,7 +15,7 @@ public class ThreadPrimeChecker extends PrimeChecker {
     public boolean checkList(List<Integer> numbers) {
         int payloadSize = (numbers.size() + 1) / threadCount;
 
-        List<PrimeCheckerThread> workers = new ArrayList<>();
+        List<PrimeCheckerRunnerThread> workers = new ArrayList<>();
 
         for (int i = 0; i < threadCount; ++i) {
 
@@ -27,14 +27,14 @@ public class ThreadPrimeChecker extends PrimeChecker {
                 payload = numbers.subList(i * payloadSize, i * payloadSize + payloadSize);
             }
 
-            PrimeCheckerThread worker = new PrimeCheckerThread(payload);
+            PrimeCheckerRunnerThread worker = new PrimeCheckerRunnerThread(payload);
             worker.start();
             workers.add(worker);
         }
 
         boolean result = false;
 
-        for (PrimeCheckerThread worker : workers) {
+        for (PrimeCheckerRunnerThread worker : workers) {
 
             try {
                 worker.join();

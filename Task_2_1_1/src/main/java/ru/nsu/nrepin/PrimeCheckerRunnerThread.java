@@ -2,12 +2,12 @@ package ru.nsu.nrepin;
 
 import java.util.List;
 
-public class PrimeCheckerThread extends Thread {
+public class PrimeCheckerRunnerThread extends Thread {
 
     private final List<Integer> payload;
     private boolean result = false;
 
-    public PrimeCheckerThread(List<Integer> payload) {
+    public PrimeCheckerRunnerThread(List<Integer> payload) {
         this.payload = payload;
     }
 
