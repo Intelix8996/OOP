@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id "me.champeau.jmh" version "0.7.0"
 }
 
 group 'ru.nsu.nrepin'
