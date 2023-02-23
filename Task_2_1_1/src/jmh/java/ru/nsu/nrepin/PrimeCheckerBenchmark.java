@@ -17,6 +17,9 @@ import java.io.IOError;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * A class for benchmarking sequential and ParallelStream checkers.
+ */
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -26,6 +29,11 @@ public class PrimeCheckerBenchmark {
 
     private List<Integer> data;
 
+    /**
+     * Benchmarks SequentalPrimeChecker.
+     *
+     * @param bh black hole
+     */
     @Benchmark
     public void benchmarkSequental(Blackhole bh) {
 
@@ -34,6 +42,11 @@ public class PrimeCheckerBenchmark {
         bh.consume(checker.checkList(data));
     }
 
+    /**
+     * Benchmarks ParallelStreamPrimeChecker.
+     *
+     * @param bh black hole
+     */
     @Benchmark
     public void benchmarkParallelStream(Blackhole bh) {
 
@@ -42,6 +55,11 @@ public class PrimeCheckerBenchmark {
         bh.consume(checker.checkList(data));
     }
 
+    /**
+     * Loads data for benchmark.
+     *
+     * @throws FileNotFoundException if file is not found
+     */
     @Setup(Level.Trial)
     public void loadData() throws FileNotFoundException {
         try {
