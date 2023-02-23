@@ -3,10 +3,18 @@ package ru.nsu.nrepin;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implements a checker that uses threads to check a list of numbers.
+ */
 public class ThreadedPrimeChecker extends PrimeChecker {
 
     private final int threadCount;
 
+    /**
+     * Creates new checker with given count of threads.
+     *
+     * @param threadCount count of threads
+     */
     public ThreadedPrimeChecker(int threadCount) {
         this.threadCount = threadCount;
     }

@@ -8,10 +8,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for reading test data.
+ */
 public class TestDataReader {
 
     private static final String FILENAME = "/data.txt";
 
+    /**
+     * Reads test data from file.
+     *
+     * @return list of integers
+     * @throws FileNotFoundException if file is not found
+     */
     public static List<Integer> loadData() throws FileNotFoundException {
         InputStream inputStream = TestDataReader.class.getResourceAsStream(FILENAME);
 

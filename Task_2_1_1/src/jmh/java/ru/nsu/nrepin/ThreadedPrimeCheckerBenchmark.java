@@ -19,6 +19,9 @@ import java.io.IOError;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * A class for benchmarking threaded checker.
+ */
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -30,6 +33,11 @@ public class ThreadedPrimeCheckerBenchmark {
     @Param({"1", "2", "3", "4"})
     private int threadCount;
 
+    /**
+     * Benchmarks ThreadedPrimeChecker with threadCount threads.
+     *
+     * @param bh black hole
+     */
     @Benchmark
     public void benchmarkThreaded(Blackhole bh) {
 
@@ -38,6 +46,11 @@ public class ThreadedPrimeCheckerBenchmark {
         bh.consume(checker.checkList(data));
     }
 
+    /**
+     * Loads data for benchmark.
+     *
+     * @throws FileNotFoundException if file is not found
+     */
     @Setup(Level.Trial)
     public void loadData() throws FileNotFoundException {
         try {
