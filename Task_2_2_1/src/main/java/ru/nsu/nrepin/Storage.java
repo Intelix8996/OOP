@@ -25,6 +25,10 @@ public class Storage {
         return storage.size() < capacity;
     }
 
+    public boolean isEmpty() {
+        return storage.isEmpty();
+    }
+
     public int take() {
         return storage.pop();
     }
