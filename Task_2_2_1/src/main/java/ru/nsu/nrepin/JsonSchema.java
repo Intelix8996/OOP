@@ -12,6 +12,9 @@ public class JsonSchema {
     public List<Integer> couriers;
     public OrderGeneratorJsonSchema orderGenerator;
 
+    /**
+     * Schema for orderGenerator section.
+     */
     public static class OrderGeneratorJsonSchema {
         public int minTime;
         public int maxTime;
