@@ -3,6 +3,11 @@ package ru.nsu.nrepin;
 import java.util.Queue;
 import java.util.Random;
 
+/**
+ * This class is used to generate orders.
+ *
+ * It adds them to order queue and order registry.
+ */
 public class OrderGenerator extends StoppableThread {
 
     private final int minTime;
@@ -16,6 +21,15 @@ public class OrderGenerator extends StoppableThread {
     private final Queue<Integer> orderQueue;
     private final OrderRegistry orderRegistry;
 
+    /**
+     * Creates new order generator.
+     *
+     * @param min minimal time between orders
+     * @param max maximum time between orders
+     * @param count order count
+     * @param queue queue to use
+     * @param registry registry to use
+     */
     public OrderGenerator(int min, int max, int count,
                           Queue<Integer> queue, OrderRegistry registry) {
         minTime = min;
@@ -58,6 +72,11 @@ public class OrderGenerator extends StoppableThread {
         }
     }
 
+    /**
+     * Checks if generator generated all orders.
+     *
+     * @return status of generator as {@code boolean}
+     */
     public boolean finished() {
         return ordersGenerated == ordersCount;
     }

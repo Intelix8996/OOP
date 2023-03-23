@@ -3,6 +3,9 @@ package ru.nsu.nrepin;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that represents courier.
+ */
 public class Courier extends StoppableThread {
 
     private static final int DELIVERY_DURATION = 3500;
@@ -16,6 +19,14 @@ public class Courier extends StoppableThread {
 
     private final int courierNumber;
 
+    /**
+     * Creates new courier with given parameters.
+     *
+     * @param storageSize size of courier's storage
+     * @param number courier's id
+     * @param storage storage that courier will use
+     * @param orderRegistry registry that courier will use
+     */
     public Courier(int storageSize, int number, Storage storage, OrderRegistry orderRegistry) {
         this.storageSize = storageSize;
         this.storage = storage;

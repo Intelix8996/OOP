@@ -10,16 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * Class that creates different objects with parameters from json file.
+ */
 public class JsonObjectFactory {
 
     private final JsonSchema deserialized;
 
+    /**
+     * Creates new factory.
+     *
+     * @param filename json file to parse
+     */
     public JsonObjectFactory(String filename) {
         String json = readFromFile(filename);
 
         deserialized = new Gson().fromJson(json, JsonSchema.class);
     }
 
+    /**
+     * Returns list of Baker objects with parameters specified in json file.
+     *
+     * @param orderQueue order queue that bakers will use
+     * @param storage storage that bakers will use
+     * @return list of Baker objects
+     */
     public List<Baker> getBakers(Queue<Integer> orderQueue, Storage storage) {
         List<Baker> bakers = new ArrayList<>();
 
@@ -32,6 +47,13 @@ public class JsonObjectFactory {
         return bakers;
     }
 
+    /**
+     * Returns list of Courier objects with parameters specified in json file.
+     *
+     * @param storage storage that couriers will use
+     * @param orderRegistry registry that couriers will use
+     * @return list of Courier objects
+     */
     public List<Courier> getCouriers(Storage storage, OrderRegistry orderRegistry) {
         List<Courier> couriers = new ArrayList<>();
 
@@ -44,10 +66,22 @@ public class JsonObjectFactory {
         return couriers;
     }
 
+    /**
+     * Returns Storage object with parameters specified in json file.
+     *
+     * @return Storage object
+     */
     public Storage getStorage() {
         return new Storage(deserialized.storageCapacity);
     }
 
+    /**
+     * Returns OrderGenerator object with parameters specified in json file.
+     *
+     * @param orderQueue order queue that generator will use
+     * @param registry registry that generator will use
+     * @return OrderGenerator object
+     */
     public OrderGenerator getOrderGenerator(Queue<Integer> orderQueue, OrderRegistry registry) {
         return new OrderGenerator(
                 deserialized.orderGenerator.minTime,
