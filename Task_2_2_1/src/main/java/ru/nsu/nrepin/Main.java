@@ -7,10 +7,15 @@ import java.util.Queue;
 /**
  * Main class.
  *
- * Runs the simulation.
+ * <p>Runs the simulation.</p>
  */
 public class Main {
 
+    /**
+     * Program entry point.
+     *
+     * @param args program args
+     */
     public static void main(String[] args) {
 
         JsonObjectFactory factory = new JsonObjectFactory("/config.json");

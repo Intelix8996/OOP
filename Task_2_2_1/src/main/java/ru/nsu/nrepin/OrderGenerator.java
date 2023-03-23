@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * This class is used to generate orders.
  *
- * It adds them to order queue and order registry.
+ * <p>It adds them to order queue and order registry.<p/>
  */
 public class OrderGenerator extends StoppableThread {
 
@@ -54,7 +54,7 @@ public class OrderGenerator extends StoppableThread {
 
             int id = nextId++;
 
-            synchronized(orderQueue) {
+            synchronized (orderQueue) {
                 orderQueue.add(id);
             }
 
