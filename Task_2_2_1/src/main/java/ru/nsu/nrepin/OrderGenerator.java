@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * This class is used to generate orders.
  *
- * <p>It adds them to order queue and order registry.<p/>
+ * <p>It adds them to order queue and order registry.</p>
  */
 public class OrderGenerator extends StoppableThread {
 
