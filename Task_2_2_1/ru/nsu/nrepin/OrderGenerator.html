@@ -146,6 +146,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">OrderGenerator</span>
 extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableThread</a></pre>
+<div class="block">This class is used to generate orders.
+
+ It adds them to order queue and order registry.</div>
 </li>
 </ul>
 </div>
@@ -205,7 +208,9 @@ extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableT
               int&nbsp;count,
               java.util.Queue&lt;java.lang.Integer&gt;&nbsp;queue,
               <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;registry)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates new order generator.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -228,7 +233,9 @@ extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableT
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#finished()">finished</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks if generator generated all orders.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -277,6 +284,15 @@ extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableT
                       int&nbsp;count,
                       java.util.Queue&lt;java.lang.Integer&gt;&nbsp;queue,
                       <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;registry)</pre>
+<div class="block">Creates new order generator.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>min</code> - minimal time between orders</dd>
+<dd><code>max</code> - maximum time between orders</dd>
+<dd><code>count</code> - order count</dd>
+<dd><code>queue</code> - queue to use</dd>
+<dd><code>registry</code> - registry to use</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -311,6 +327,11 @@ extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableT
 <li class="blockList">
 <h4>finished</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;finished()</pre>
+<div class="block">Checks if generator generated all orders.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>status of generator as <code>boolean</code></dd>
+</dl>
 </li>
 </ul>
 </li>

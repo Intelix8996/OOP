@@ -146,6 +146,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Baker</span>
 extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableThread</a></pre>
+<div class="block">Class that represents Baker.</div>
 </li>
 </ul>
 </div>
@@ -204,7 +205,9 @@ extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableT
      int&nbsp;number,
      java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
      <a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates new baker with given parameters.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -270,6 +273,14 @@ extends <a href="StoppableThread.html" title="class in ru.nsu.nrepin">StoppableT
              int&nbsp;number,
              java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
              <a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage)</pre>
+<div class="block">Creates new baker with given parameters.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>experience</code> - baker's experience (bake time = experience * 3000ms)</dd>
+<dd><code>number</code> - baker's id</dd>
+<dd><code>orderQueue</code> - order queue that baker will use</dd>
+<dd><code>storage</code> - storage that baker will use</dd>
+</dl>
 </li>
 </ul>
 </li>

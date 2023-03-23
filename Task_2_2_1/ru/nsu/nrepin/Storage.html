@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Storage</span>
 extends java.lang.Object</pre>
+<div class="block">Class that represents Storage.</div>
 </li>
 </ul>
 </div>
@@ -153,7 +154,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int)">Storage</a></span>&#8203;(int&nbsp;capacity)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates new storage with given capacity.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -176,22 +179,30 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canStore()">canStore</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks if new order can be stored.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEmpty()">isEmpty</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks if storage is empty.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#store(int)">store</a></span>&#8203;(int&nbsp;id)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Puts order in storage.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#take()">take</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Takes last order from storage.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -224,6 +235,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>Storage</h4>
 <pre>public&nbsp;Storage&#8203;(int&nbsp;capacity)</pre>
+<div class="block">Creates new storage with given capacity.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>capacity</code> - storage capacity</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -243,6 +259,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>store</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;store&#8203;(int&nbsp;id)</pre>
+<div class="block">Puts order in storage.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - order id to store</dd>
+</dl>
 </li>
 </ul>
 <a id="canStore()">
@@ -252,6 +273,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>canStore</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;canStore()</pre>
+<div class="block">Checks if new order can be stored.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if order can be stored, <code>false</code> otherwise</dd>
+</dl>
 </li>
 </ul>
 <a id="isEmpty()">
@@ -261,6 +287,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isEmpty</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isEmpty()</pre>
+<div class="block">Checks if storage is empty.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if storage is empty, <code>false</code> otherwise</dd>
+</dl>
 </li>
 </ul>
 <a id="take()">
@@ -270,6 +301,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>take</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;take()</pre>
+<div class="block">Takes last order from storage.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>order form storage</dd>
+</dl>
 </li>
 </ul>
 </li>

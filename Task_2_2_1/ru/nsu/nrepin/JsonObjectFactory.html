@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">JsonObjectFactory</span>
 extends java.lang.Object</pre>
+<div class="block">Class that creates different objects with parameters from json file.</div>
 </li>
 </ul>
 </div>
@@ -153,7 +154,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String)">JsonObjectFactory</a></span>&#8203;(java.lang.String&nbsp;filename)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates new factory.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,24 +180,32 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>java.util.List&lt;<a href="Baker.html" title="class in ru.nsu.nrepin">Baker</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBakers(java.util.Queue,ru.nsu.nrepin.Storage)">getBakers</a></span>&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
          <a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns list of Baker objects with parameters specified in json file.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Courier.html" title="class in ru.nsu.nrepin">Courier</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCouriers(ru.nsu.nrepin.Storage,ru.nsu.nrepin.OrderRegistry)">getCouriers</a></span>&#8203;(<a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage,
            <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;orderRegistry)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns list of Courier objects with parameters specified in json file.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="OrderGenerator.html" title="class in ru.nsu.nrepin">OrderGenerator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrderGenerator(java.util.Queue,ru.nsu.nrepin.OrderRegistry)">getOrderGenerator</a></span>&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
                  <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;registry)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns OrderGenerator object with parameters specified in json file.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStorage()">getStorage</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns Storage object with parameters specified in json file.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -227,6 +238,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>JsonObjectFactory</h4>
 <pre>public&nbsp;JsonObjectFactory&#8203;(java.lang.String&nbsp;filename)</pre>
+<div class="block">Creates new factory.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>filename</code> - json file to parse</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -247,6 +263,14 @@ extends java.lang.Object</pre>
 <h4>getBakers</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Baker.html" title="class in ru.nsu.nrepin">Baker</a>&gt;&nbsp;getBakers&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
                                        <a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage)</pre>
+<div class="block">Returns list of Baker objects with parameters specified in json file.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>orderQueue</code> - order queue that bakers will use</dd>
+<dd><code>storage</code> - storage that bakers will use</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of Baker objects</dd>
+</dl>
 </li>
 </ul>
 <a id="getCouriers(ru.nsu.nrepin.Storage,ru.nsu.nrepin.OrderRegistry)">
@@ -257,6 +281,14 @@ extends java.lang.Object</pre>
 <h4>getCouriers</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Courier.html" title="class in ru.nsu.nrepin">Courier</a>&gt;&nbsp;getCouriers&#8203;(<a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage,
                                            <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;orderRegistry)</pre>
+<div class="block">Returns list of Courier objects with parameters specified in json file.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>storage</code> - storage that couriers will use</dd>
+<dd><code>orderRegistry</code> - registry that couriers will use</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of Courier objects</dd>
+</dl>
 </li>
 </ul>
 <a id="getStorage()">
@@ -266,6 +298,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getStorage</h4>
 <pre class="methodSignature">public&nbsp;<a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;getStorage()</pre>
+<div class="block">Returns Storage object with parameters specified in json file.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Storage object</dd>
+</dl>
 </li>
 </ul>
 <a id="getOrderGenerator(java.util.Queue,ru.nsu.nrepin.OrderRegistry)">
@@ -276,6 +313,14 @@ extends java.lang.Object</pre>
 <h4>getOrderGenerator</h4>
 <pre class="methodSignature">public&nbsp;<a href="OrderGenerator.html" title="class in ru.nsu.nrepin">OrderGenerator</a>&nbsp;getOrderGenerator&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
                                         <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;registry)</pre>
+<div class="block">Returns OrderGenerator object with parameters specified in json file.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>orderQueue</code> - order queue that generator will use</dd>
+<dd><code>registry</code> - registry that generator will use</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>OrderGenerator object</dd>
+</dl>
 </li>
 </ul>
 </li>
