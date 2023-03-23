@@ -1,0 +1,10 @@
+{
+  "storageCapacity": 15,
+  "orderGenerator": {
+    "minTime": 1000,
+    "maxTime": 2000,
+    "orderCount": 15
+  },
+  "bakers": [ 0.4, 0.5, 1 ],
+  "couriers": [ 2, 3 ]
+}
