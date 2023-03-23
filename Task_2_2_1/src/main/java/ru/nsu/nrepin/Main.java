@@ -6,6 +6,8 @@ import java.util.Queue;
 
 /**
  * Main class.
+ *
+ * Runs the simulation.
  */
 public class Main {
 

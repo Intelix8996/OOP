@@ -2,6 +2,9 @@ package ru.nsu.nrepin;
 
 import java.util.Queue;
 
+/**
+ * Class that represents Baker.
+ */
 public class Baker extends StoppableThread {
 
     private static final int DEFAULT_WORK_DURATION = 3000;
@@ -15,6 +18,14 @@ public class Baker extends StoppableThread {
 
     private final int bakerNumber;
 
+    /**
+     * Creates new baker with given parameters.
+     *
+     * @param experience baker's experience (bake time = experience * 3000ms)
+     * @param number baker's id
+     * @param orderQueue order queue that baker will use
+     * @param storage storage that baker will use
+     */
     public Baker(float experience, int number, Queue<Integer> orderQueue, Storage storage) {
         this.workDuration = (int) (DEFAULT_WORK_DURATION * experience);
         this.orderQueue = orderQueue;
