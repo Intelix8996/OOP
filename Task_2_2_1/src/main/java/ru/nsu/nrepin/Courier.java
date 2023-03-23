@@ -51,7 +51,11 @@ public class Courier extends StoppableThread {
                             int id = storage.take();
                             ids.add(id);
                             takeSuccessful = true;
-                            System.out.printf("[Courier-%d] Take from queue %d%n", courierNumber, id);
+                            System.out.printf(
+                                    "[Courier-%d] Take from queue %d%n",
+                                    courierNumber,
+                                    id
+                            );
 
                             if (storage.isEmpty()) {
                                 break;

@@ -1,12 +1,10 @@
 package ru.nsu.nrepin;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for pizzeria classes.
@@ -111,14 +109,13 @@ public class PizzeriaTests {
     public void testCourier() {
         OrderRegistry orderRegistry = new OrderRegistry();
         Storage storage = new Storage(5);
-
-        Courier courier = new Courier(1, 0, storage, orderRegistry);
-
         storage.store(1);
         orderRegistry.add(1);
 
         Assertions.assertFalse(orderRegistry.allFinished());
         Assertions.assertFalse(storage.isEmpty());
+
+        Courier courier = new Courier(1, 0, storage, orderRegistry);
 
         courier.start();
 
