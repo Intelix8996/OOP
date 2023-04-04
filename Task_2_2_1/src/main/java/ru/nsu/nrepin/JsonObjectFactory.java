@@ -81,7 +81,10 @@ public class JsonObjectFactory {
      * @param registry registry that generator will use
      * @return OrderGenerator object
      */
-    public OrderGenerator getOrderGenerator(BlockingQueue<Integer> orderQueue, OrderRegistry registry) {
+    public OrderGenerator getOrderGenerator(
+            BlockingQueue<Integer> orderQueue,
+            OrderRegistry registry
+    ) {
         return new OrderGenerator(
                 deserialized.orderGenerator.minTime,
                 deserialized.orderGenerator.maxTime,
