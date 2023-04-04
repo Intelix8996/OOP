@@ -1,8 +1,8 @@
 package ru.nsu.nrepin;
 
-import java.util.ArrayDeque;
 import java.util.List;
-import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * Pizzeria class.
@@ -20,7 +20,7 @@ public class Pizzeria {
 
         JsonObjectFactory factory = new JsonObjectFactory("/config.json");
 
-        Queue<Integer> orderQueue = new ArrayDeque<>();
+        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(factory.getOrderCount());
         OrderRegistry orderRegistry = new OrderRegistry();
 
         Storage storage = factory.getStorage();

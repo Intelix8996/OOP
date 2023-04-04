@@ -1,6 +1,6 @@
 package ru.nsu.nrepin;
 
-import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * Class that represents Baker.
@@ -11,7 +11,7 @@ public class Baker extends StoppableThread {
 
     private final int workDuration;
 
-    private final Queue<Integer> orderQueue;
+    private final BlockingQueue<Integer> orderQueue;
     private final Storage storage;
 
     private boolean shouldStop = false;
@@ -26,7 +26,7 @@ public class Baker extends StoppableThread {
      * @param orderQueue order queue that baker will use
      * @param storage storage that baker will use
      */
-    public Baker(float experience, int number, Queue<Integer> orderQueue, Storage storage) {
+    public Baker(float experience, int number, BlockingQueue<Integer> orderQueue, Storage storage) {
         this.workDuration = (int) (DEFAULT_WORK_DURATION * experience);
         this.orderQueue = orderQueue;
         this.storage = storage;
@@ -35,24 +35,15 @@ public class Baker extends StoppableThread {
 
     @Override
     public void run() {
-
         while (!shouldStop) {
-            Integer id = null;
-            boolean takeSuccessful = false;
-
-            while (!takeSuccessful) {
-                if (shouldStop) {
-                    return;
-                }
-
-                synchronized (orderQueue) {
-                    if (!orderQueue.isEmpty()) {
-                        id = orderQueue.remove();
-                        takeSuccessful = true;
-                        System.out.printf("[Baker-%d] Take from queue %d%n", bakerNumber, id);
-                    }
-                }
+            Integer id;
+            try {
+                id = orderQueue.take();
+            } catch (InterruptedException e) {
+                return;
             }
+
+            System.out.printf("[Baker-%d] Take from queue %d%n", bakerNumber, id);
 
             try {
                 Thread.sleep(workDuration);
@@ -60,26 +51,19 @@ public class Baker extends StoppableThread {
                 throw new RuntimeException(e);
             }
 
-            boolean storeSuccessful = false;
-
-            while (!storeSuccessful) {
-                if (shouldStop) {
-                    return;
-                }
-
-                synchronized (storage) {
-                    if (storage.canStore()) {
-                        storage.store(id);
-                        storeSuccessful = true;
-                        System.out.printf("[Baker-%d] Put in storage %d%n", bakerNumber, id);
-                    }
-                }
+            try {
+                storage.store(id);
+            } catch (InterruptedException e) {
+                return;
             }
+
+            System.out.printf("[Baker-%d] Put in storage %d%n", bakerNumber, id);
         }
     }
 
     @Override
     void requestStop() {
         shouldStop = true;
+        interrupt();
     }
 }

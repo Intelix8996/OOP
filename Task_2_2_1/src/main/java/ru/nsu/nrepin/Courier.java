@@ -38,29 +38,25 @@ public class Courier extends StoppableThread {
     public void run() {
         while (!shouldStop) {
             List<Integer> ids = new ArrayList<>();
-            boolean takeSuccessful = false;
 
-            while (!takeSuccessful) {
-                if (shouldStop) {
-                    return;
-                }
+            synchronized (storage) {
+                for (int i = 0; i < storageSize; ++i) {
+                    int id;
+                    try {
+                        id = storage.take();
+                    } catch (InterruptedException e) {
+                        return;
+                    }
+                    ids.add(id);
 
-                synchronized (storage) {
-                    if (!storage.isEmpty()) {
-                        for (int i = 0; i < storageSize; ++i) {
-                            int id = storage.take();
-                            ids.add(id);
-                            takeSuccessful = true;
-                            System.out.printf(
-                                    "[Courier-%d] Take from queue %d%n",
-                                    courierNumber,
-                                    id
-                            );
+                    System.out.printf(
+                            "[Courier-%d] Take from queue %d%n",
+                            courierNumber,
+                            id
+                    );
 
-                            if (storage.isEmpty()) {
-                                break;
-                            }
-                        }
+                    if (storage.isEmpty()) {
+                        break;
                     }
                 }
             }
@@ -68,14 +64,12 @@ public class Courier extends StoppableThread {
             try {
                 Thread.sleep((long) DELIVERY_DURATION * ids.size());
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                return;
             }
 
-            synchronized (orderRegistry) {
-                for (int id : ids) {
-                    orderRegistry.markFinished(id);
-                    System.out.printf("[Courier-%d] Finish delivery %d%n", courierNumber, id);
-                }
+            for (int id : ids) {
+                orderRegistry.markFinished(id);
+                System.out.printf("[Courier-%d] Finish delivery %d%n", courierNumber, id);
             }
         }
     }
@@ -83,5 +77,6 @@ public class Courier extends StoppableThread {
     @Override
     void requestStop() {
         shouldStop = true;
+        interrupt();
     }
 }

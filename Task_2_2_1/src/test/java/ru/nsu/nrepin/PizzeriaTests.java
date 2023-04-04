@@ -1,8 +1,9 @@
 package ru.nsu.nrepin;
 
-import java.util.ArrayDeque;
 import java.util.List;
-import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,25 +14,33 @@ public class PizzeriaTests {
 
     @Test
     public void testStorage() {
-        Storage storage = new Storage(1);
+        Storage storage = new Storage(2);
 
         int id = 1234;
 
         Assertions.assertTrue(storage.isEmpty());
 
-        Assertions.assertTrue(storage.canStore());
-
-        storage.store(id);
+        try {
+            storage.store(id);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         int id2 = 3456;
 
-        storage.store(id2);
+        try {
+            storage.store(id2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         Assertions.assertFalse(storage.isEmpty());
 
-        Assertions.assertFalse(storage.canStore());
-
-        Assertions.assertEquals(storage.take(), id);
+        try {
+            Assertions.assertEquals(storage.take(), id);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
@@ -49,10 +58,12 @@ public class PizzeriaTests {
 
     @Test
     public void testOrderGenerator() {
-        Queue<Integer> orderQueue = new ArrayDeque<>();
+        final int ORDER_COUNT = 3;
+
+        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(ORDER_COUNT);
         OrderRegistry orderRegistry = new OrderRegistry();
 
-        OrderGenerator orderGenerator = new OrderGenerator(99, 100, 3, orderQueue, orderRegistry);
+        OrderGenerator orderGenerator = new OrderGenerator(99, 100, ORDER_COUNT, orderQueue, orderRegistry);
 
         Assertions.assertFalse(orderGenerator.finished());
 
@@ -78,7 +89,7 @@ public class PizzeriaTests {
 
     @Test
     public void testBaker() {
-        Queue<Integer> orderQueue = new ArrayDeque<>();
+        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(5);
         Storage storage = new Storage(5);
 
         Baker baker = new Baker(1, 0, orderQueue, storage);
@@ -102,14 +113,22 @@ public class PizzeriaTests {
             throw new RuntimeException(e);
         }
 
-        Assertions.assertEquals(1, storage.take());
+        try {
+            Assertions.assertEquals(1, storage.take());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
     public void testCourier() {
         OrderRegistry orderRegistry = new OrderRegistry();
         Storage storage = new Storage(5);
-        storage.store(1);
+        try {
+            storage.store(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         orderRegistry.add(1);
 
         Assertions.assertFalse(orderRegistry.allFinished());
@@ -140,15 +159,15 @@ public class PizzeriaTests {
     public void testJsonFactory() {
         JsonObjectFactory factory = new JsonObjectFactory("/config.json");
 
-        Queue<Integer> orderQueue = new ArrayDeque<>();
+        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(factory.getOrderCount());
         OrderRegistry orderRegistry = new OrderRegistry();
 
         Storage storage = factory.getStorage();
         List<Baker> bakers = factory.getBakers(orderQueue, storage);
         List<Courier> couriers = factory.getCouriers(storage, orderRegistry);
-        OrderGenerator orderGenerator = factory.getOrderGenerator(orderQueue, orderRegistry);
 
         Assertions.assertEquals(3, bakers.size());
         Assertions.assertEquals(2, couriers.size());
+        Assertions.assertEquals(15, factory.getOrderCount());
     }
 }

@@ -22,7 +22,7 @@ public class OrderRegistry {
      *
      * @param id order id to add
      */
-    public void add(int id) {
+    public synchronized void add(int id) {
         registry.put(id, false);
     }
 
@@ -31,7 +31,7 @@ public class OrderRegistry {
      *
      * @param id order id to mark
      */
-    public void markFinished(int id) {
+    public synchronized void markFinished(int id) {
         registry.put(id, true);
     }
 

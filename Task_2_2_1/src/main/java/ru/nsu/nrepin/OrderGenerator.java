@@ -1,7 +1,7 @@
 package ru.nsu.nrepin;
 
-import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * This class is used to generate orders.
@@ -18,7 +18,7 @@ public class OrderGenerator extends StoppableThread {
 
     private boolean shouldStop = false;
 
-    private final Queue<Integer> orderQueue;
+    private final BlockingQueue<Integer> orderQueue;
     private final OrderRegistry orderRegistry;
 
     /**
@@ -31,7 +31,7 @@ public class OrderGenerator extends StoppableThread {
      * @param registry registry to use
      */
     public OrderGenerator(int min, int max, int count,
-                          Queue<Integer> queue, OrderRegistry registry) {
+                          BlockingQueue<Integer> queue, OrderRegistry registry) {
         minTime = min;
         maxTime = max;
         orderQueue = queue;
@@ -49,18 +49,17 @@ public class OrderGenerator extends StoppableThread {
             try {
                 Thread.sleep(random.nextInt(maxTime - minTime) + minTime);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                return;
             }
 
             int id = nextId++;
 
-            synchronized (orderQueue) {
-                orderQueue.add(id);
+            try {
+                orderQueue.put(id);
+            } catch (InterruptedException e) {
+                return;
             }
-
-            synchronized (orderRegistry) {
-                orderRegistry.add(id);
-            }
+            orderRegistry.add(id);
 
             //System.out.println("[Generator] Add to queue " + id);
 
@@ -84,5 +83,6 @@ public class OrderGenerator extends StoppableThread {
     @Override
     void requestStop() {
         shouldStop = true;
+        interrupt();
     }
 }
