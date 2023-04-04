@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -178,26 +178,19 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canStore()">canStore</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Checks if new order can be stored.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEmpty()">isEmpty</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Checks if storage is empty.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#store(int)">store</a></span>&#8203;(int&nbsp;id)</code></th>
 <td class="colLast">
 <div class="block">Puts order in storage.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#take()">take</a></span>()</code></th>
 <td class="colLast">
@@ -258,25 +251,14 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>store</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;store&#8203;(int&nbsp;id)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;store&#8203;(int&nbsp;id)
+           throws java.lang.InterruptedException</pre>
 <div class="block">Puts order in storage.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>id</code> - order id to store</dd>
-</dl>
-</li>
-</ul>
-<a id="canStore()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>canStore</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;canStore()</pre>
-<div class="block">Checks if new order can be stored.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if order can be stored, <code>false</code> otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.InterruptedException</code></dd>
 </dl>
 </li>
 </ul>
@@ -300,11 +282,14 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>take</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;take()</pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;take()
+         throws java.lang.InterruptedException</pre>
 <div class="block">Takes last order from storage.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>order form storage</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.InterruptedException</code></dd>
 </dl>
 </li>
 </ul>
