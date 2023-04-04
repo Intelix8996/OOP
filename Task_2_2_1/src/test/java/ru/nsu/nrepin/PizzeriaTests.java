@@ -3,7 +3,6 @@ package ru.nsu.nrepin;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -58,12 +57,18 @@ public class PizzeriaTests {
 
     @Test
     public void testOrderGenerator() {
-        final int ORDER_COUNT = 3;
+        final int orderCount = 3;
 
-        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(ORDER_COUNT);
+        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(orderCount);
         OrderRegistry orderRegistry = new OrderRegistry();
 
-        OrderGenerator orderGenerator = new OrderGenerator(99, 100, ORDER_COUNT, orderQueue, orderRegistry);
+        OrderGenerator orderGenerator = new OrderGenerator(
+                99,
+                100,
+                orderCount,
+                orderQueue,
+                orderRegistry
+        );
 
         Assertions.assertFalse(orderGenerator.finished());
 
