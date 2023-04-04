@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Main class.
+ * Pizzeria class.
  *
  * <p>Runs the simulation.</p>
  */
-public class Main {
+public class Pizzeria {
 
     /**
      * Program entry point.
