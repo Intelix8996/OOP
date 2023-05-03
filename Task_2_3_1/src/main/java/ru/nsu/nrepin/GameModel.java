@@ -1,5 +1,8 @@
 package ru.nsu.nrepin;
 
+/**
+ * Model class for SnakeGame.
+ */
 public class GameModel {
 
     private static final int INITIAL_LENGTH = 2;
@@ -11,6 +14,13 @@ public class GameModel {
 
     private int score = INITIAL_LENGTH;
 
+    /**
+     * Creates new GameModel.
+     *
+     * @param fieldCols column count
+     * @param fieldRows row count
+     * @param view assigned GameView
+     */
     public GameModel(int fieldCols, int fieldRows, GameView view) {
         field = new GameField(fieldCols, fieldRows);
         snake = new Snake(fieldCols / 2, fieldRows / 2, field);
@@ -21,6 +31,12 @@ public class GameModel {
         foodGenerator.generateFood();
     }
 
+    /**
+     * Performs one step of a game.
+     *
+     * @param direction current move direction
+     * @return status of a game after step
+     */
     public GameStatus step(Direction direction) {
 
         boolean grow = false;
@@ -60,14 +76,36 @@ public class GameModel {
         return status;
     }
 
+    /**
+     * Returns assigned GameField.
+     *
+     * @return game field
+     */
     public GameField getField() {
         return field;
     }
 
+    /**
+     * Returns current score.
+     *
+     * @return current score
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Returns assigned GameView.
+     *
+     * @return assigned game view
+     */
+    public GameView getView() {
+        return gameView;
+    }
+
+    /**
+     * Resets game.
+     */
     public void resetGame() {
         score = INITIAL_LENGTH;
 
@@ -79,10 +117,9 @@ public class GameModel {
         foodGenerator.generateFood();
     }
 
-    public GameView getView() {
-        return gameView;
-    }
-
+    /**
+     * Clears snake cells on the field.
+     */
     private void clearSnake() {
         for (int i = 0; i < field.getRowsCount(); ++i) {
             for (int j = 0; j < field.getColsCount(); ++j) {
@@ -94,6 +131,9 @@ public class GameModel {
         }
     }
 
+    /**
+     * Sets snake cells on the field according to snake's pieces coordinates.
+     */
     private void applySnake() {
         field.setCell(Cell.SNAKE_HEAD, snake.getHeadPosition());
 

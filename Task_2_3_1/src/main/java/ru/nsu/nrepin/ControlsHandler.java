@@ -4,10 +4,18 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * Class that handles key events.
+ */
 public class ControlsHandler implements EventHandler<KeyEvent> {
 
     private final GameController gameController;
 
+    /**
+     * Creates new handler and assigns a GameController to it.
+     *
+     * @param gameController GameController to assign
+     */
     public ControlsHandler(GameController gameController) {
         this.gameController = gameController;
     }

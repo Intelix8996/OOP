@@ -1,5 +1,8 @@
 package ru.nsu.nrepin;
 
+/**
+ * Class that is responsible for stepping game.
+ */
 public class GameThread extends Thread {
 
     private final GameController controller;
@@ -8,6 +11,12 @@ public class GameThread extends Thread {
 
     private boolean gameStopped;
 
+    /**
+     * Creates new game thread that will step game with some delay.
+     *
+     * @param delay step delay
+     * @param controller assigned controller
+     */
     public GameThread(int delay, GameController controller) {
         this.delay = delay;
         this.controller = controller;
@@ -28,10 +37,16 @@ public class GameThread extends Thread {
         }
     }
 
+    /**
+     * Stops game.
+     */
     public void stopGame() {
         gameStopped = true;
     }
 
+    /**
+     * Resumes game.
+     */
     public void resumeGame() {
         gameStopped = false;
     }
