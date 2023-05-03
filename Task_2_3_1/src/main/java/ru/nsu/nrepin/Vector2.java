@@ -5,8 +5,8 @@ package ru.nsu.nrepin;
  */
 public class Vector2 {
 
-    private int xComponent = 0;
-    private int yComponent = 0;
+    private int componentX = 0;
+    private int componentY = 0;
 
     /**
      * Creates new vector with given x and y components.
@@ -15,8 +15,8 @@ public class Vector2 {
      * @param y y component
      */
     public Vector2(int x, int y) {
-        this.xComponent = x;
-        this.yComponent = y;
+        this.componentX = x;
+        this.componentY = y;
     }
 
     /**
@@ -25,8 +25,8 @@ public class Vector2 {
      * @param vector given vector
      */
     public Vector2(Vector2 vector) {
-        this.xComponent = vector.xComponent;
-        this.yComponent = vector.yComponent;
+        this.componentX = vector.componentX;
+        this.componentY = vector.componentY;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Vector2 {
      * @return x component
      */
     public int getX() {
-        return xComponent;
+        return componentX;
     }
 
     /**
@@ -44,7 +44,7 @@ public class Vector2 {
      * @return y component
      */
     public int getY() {
-        return yComponent;
+        return componentY;
     }
 
     /**
@@ -53,7 +53,7 @@ public class Vector2 {
      * @param x new x component
      */
     public void setX(int x) {
-        this.xComponent = x;
+        this.componentX = x;
     }
 
     /**
@@ -62,7 +62,7 @@ public class Vector2 {
      * @param y new y component
      */
     public void setY(int y) {
-        this.yComponent = y;
+        this.componentY = y;
     }
 
     /**
@@ -72,8 +72,8 @@ public class Vector2 {
      * @param y new y component
      */
     public void set(int x, int y) {
-        this.xComponent = x;
-        this.yComponent = y;
+        this.componentX = x;
+        this.componentY = y;
     }
 
     /**
@@ -82,8 +82,8 @@ public class Vector2 {
      * @param vec given vector
      */
     public void set(Vector2 vec) {
-        this.xComponent = vec.xComponent;
-        this.yComponent = vec.yComponent;
+        this.componentX = vec.componentX;
+        this.componentY = vec.componentY;
     }
 
     /**
@@ -92,8 +92,8 @@ public class Vector2 {
      * @param other vector to add
      */
     public void add(Vector2 other) {
-        xComponent += other.xComponent;
-        yComponent += other.yComponent;
+        componentX += other.componentX;
+        componentY += other.componentY;
     }
 
     /**
@@ -104,7 +104,7 @@ public class Vector2 {
      * @return sum of two vectors
      */
     public static Vector2 add(Vector2 a, Vector2 b) {
-        return new Vector2(a.xComponent + b.xComponent, a.yComponent + b.yComponent);
+        return new Vector2(a.componentX + b.componentX, a.componentY + b.componentY);
     }
 
     /**
@@ -115,8 +115,8 @@ public class Vector2 {
     public void mod(Vector2 other) {
         add(other);
 
-        xComponent %= other.xComponent;
-        yComponent %= other.yComponent;
+        componentX %= other.componentX;
+        componentY %= other.componentY;
     }
 
     /**
@@ -128,7 +128,7 @@ public class Vector2 {
     public void mod(int x, int y) {
         add(new Vector2(x, y));
 
-        this.xComponent %= x;
-        this.yComponent %= y;
+        this.componentX %= x;
+        this.componentY %= y;
     }
 }
