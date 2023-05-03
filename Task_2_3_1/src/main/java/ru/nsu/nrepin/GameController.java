@@ -67,6 +67,8 @@ public class GameController {
                 case LOSE:
                     loseGame();
                     break;
+                default:
+                    break;
             }
         }
     }

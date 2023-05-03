@@ -32,7 +32,7 @@ public class GameField {
     }
 
     /**
-     * Sets cell to a given type by its x and y coordinates,
+     * Sets cell to a given type by its x and y coordinates.
      *
      * @param cell cell type
      * @param x x coordinate

@@ -55,7 +55,8 @@ public class Snake {
     }
 
     /**
-     * Returns next cell that snake will hit if it moves in given direction, doesn't modify snake's position.
+     * Returns next cell that snake will hit if it moves in given direction,
+     * doesn't modify snake's position.
      *
      * @param direction move direction
      * @return next cell type
