@@ -19,7 +19,9 @@ import javafx.stage.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * View class for SnakeGame.
+ */
 public class GameView {
 
     private static final int CELL_SIZE = 40;
@@ -35,6 +37,16 @@ public class GameView {
 
     private final List<List<Rectangle>> cellRectangles = new ArrayList<>();
 
+    /**
+     * Creates new game view with given parameters.
+     *
+     * @param windowWidth width of the window
+     * @param windowHeight height of the window
+     * @param windowTitle title of the window
+     * @param primaryStage primary stage
+     * @param fieldCols columns count of the field
+     * @param fieldRows rows count of the field
+     */
     public GameView(
             int windowWidth, int windowHeight, String windowTitle, Stage primaryStage,
             int fieldCols, int fieldRows) {
@@ -104,32 +116,59 @@ public class GameView {
         primaryStage.show();
     }
 
+    /**
+     * Sets handler for KeyPressed event.
+     *
+     * @param handler handler
+     */
     public void setKeyPressedHandler(EventHandler<? super KeyEvent> handler) {
         mainScene.setOnKeyPressed(handler);
     }
 
+    /**
+     * Sets handler for OnClose event.
+     *
+     * @param handler handler
+     */
     public void setCloseHandler(EventHandler<WindowEvent> handler) {
         mainStage.setOnCloseRequest(handler);
     }
 
+    /**
+     * Shows "Win" label.
+     */
     public void showWinLabel() {
         winGameLabel.setVisible(true);
     }
 
+    /**
+     * Shows "Lose" label with score.
+     *
+     * @param score current score
+     */
     public void showLoseLabel(int score) {
         Platform.runLater(() -> loseGameLabel.setText("Lose!\nLength: " + score));
         loseGameLabel.setVisible(true);
     }
 
+    /**
+     * Hides "Win" and "Lose" labels.
+     */
     public void hideLabels() {
         winGameLabel.setVisible(false);
         loseGameLabel.setVisible(false);
     }
 
+    /**
+     * Toggles "Pause" label.
+     */
     public void togglePauseLabel() {
         pauseLabel.setVisible(!pauseLabel.isVisible());
     }
 
+    /**
+     * Shows help window.
+     */
     public void showHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Help");
@@ -138,6 +177,11 @@ public class GameView {
         alert.showAndWait().ifPresent(rs -> { });
     }
 
+    /**
+     * Draws given GameModel to screen
+     *
+     * @param model game model
+     */
     public void draw(GameModel model) {
         GameField field = model.getField();
 

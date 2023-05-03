@@ -3,10 +3,19 @@ package ru.nsu.nrepin;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * Main class of SnakeGame.
+ */
 public class SnakeGame extends Application {
 
     private static final int FIELD_SIZE = 10;
     private static final int GAME_DELAY = 125;
+
+    /**
+     * Program entry point.
+     *
+     * @param args program arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
