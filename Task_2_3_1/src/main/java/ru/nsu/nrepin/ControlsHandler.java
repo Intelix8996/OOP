@@ -46,6 +46,8 @@ public class ControlsHandler implements EventHandler<KeyEvent> {
             case H:
                 gameController.showHelp();
                 break;
+            default:
+                break;
         }
     }
 }

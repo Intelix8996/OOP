@@ -5,8 +5,8 @@ package ru.nsu.nrepin;
  */
 public class Vector2 {
 
-    private int x = 0;
-    private int y = 0;
+    private int xComponent = 0;
+    private int yComponent = 0;
 
     /**
      * Creates new vector with given x and y components.
@@ -15,8 +15,8 @@ public class Vector2 {
      * @param y y component
      */
     public Vector2(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.xComponent = x;
+        this.yComponent = y;
     }
 
     /**
@@ -25,8 +25,8 @@ public class Vector2 {
      * @param vector given vector
      */
     public Vector2(Vector2 vector) {
-        this.x = vector.x;
-        this.y = vector.y;
+        this.xComponent = vector.xComponent;
+        this.yComponent = vector.yComponent;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Vector2 {
      * @return x component
      */
     public int getX() {
-        return x;
+        return xComponent;
     }
 
     /**
@@ -44,7 +44,7 @@ public class Vector2 {
      * @return y component
      */
     public int getY() {
-        return y;
+        return yComponent;
     }
 
     /**
@@ -53,7 +53,7 @@ public class Vector2 {
      * @param x new x component
      */
     public void setX(int x) {
-        this.x = x;
+        this.xComponent = x;
     }
 
     /**
@@ -62,7 +62,7 @@ public class Vector2 {
      * @param y new y component
      */
     public void setY(int y) {
-        this.y = y;
+        this.yComponent = y;
     }
 
     /**
@@ -72,8 +72,8 @@ public class Vector2 {
      * @param y new y component
      */
     public void set(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.xComponent = x;
+        this.yComponent = y;
     }
 
     /**
@@ -81,9 +81,9 @@ public class Vector2 {
      *
      * @param vec given vector
      */
-    public void set(Vector2 vec){
-        this.x = vec.x;
-        this.y = vec.y;
+    public void set(Vector2 vec) {
+        this.xComponent = vec.xComponent;
+        this.yComponent = vec.yComponent;
     }
 
     /**
@@ -92,8 +92,19 @@ public class Vector2 {
      * @param other vector to add
      */
     public void add(Vector2 other) {
-        x += other.x;
-        y += other.y;
+        xComponent += other.xComponent;
+        yComponent += other.yComponent;
+    }
+
+    /**
+     * Returns a new vector which is a sum of two given vectors.
+     *
+     * @param a first vecor
+     * @param b second vector
+     * @return sum of two vectors
+     */
+    public static Vector2 add(Vector2 a, Vector2 b) {
+        return new Vector2(a.xComponent + b.xComponent, a.yComponent + b.yComponent);
     }
 
     /**
@@ -104,8 +115,8 @@ public class Vector2 {
     public void mod(Vector2 other) {
         add(other);
 
-        x %= other.x;
-        y %= other.y;
+        xComponent %= other.xComponent;
+        yComponent %= other.yComponent;
     }
 
     /**
@@ -117,18 +128,7 @@ public class Vector2 {
     public void mod(int x, int y) {
         add(new Vector2(x, y));
 
-        this.x %= x;
-        this.y %= y;
-    }
-
-    /**
-     * Returns a new vector which is a sum of two given vectors.
-     *
-     * @param a first vecor
-     * @param b second vector
-     * @return sum of two vectors
-     */
-    public static Vector2 add(Vector2 a, Vector2 b) {
-        return new Vector2(a.x + b.x, a.y + b.y);
+        this.xComponent %= x;
+        this.yComponent %= y;
     }
 }

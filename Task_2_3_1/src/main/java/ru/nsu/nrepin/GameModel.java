@@ -54,6 +54,8 @@ public class GameModel {
             case FOOD:
                 grow = true;
                 break;
+            default:
+                break;
         }
 
         clearSnake();
@@ -123,8 +125,8 @@ public class GameModel {
     private void clearSnake() {
         for (int i = 0; i < field.getRowsCount(); ++i) {
             for (int j = 0; j < field.getColsCount(); ++j) {
-                if (field.getCell(j, i) == Cell.SNAKE_HEAD ||
-                        field.getCell(j, i) == Cell.SNAKE_TAIL) {
+                if (field.getCell(j, i) == Cell.SNAKE_HEAD
+                        || field.getCell(j, i) == Cell.SNAKE_TAIL) {
                     field.setCell(Cell.EMPTY, j, i);
                 }
             }

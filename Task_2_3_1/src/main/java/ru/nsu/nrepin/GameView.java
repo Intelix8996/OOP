@@ -1,5 +1,7 @@
 package ru.nsu.nrepin;
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -15,9 +17,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * View class for SnakeGame.
@@ -178,7 +177,7 @@ public class GameView {
     }
 
     /**
-     * Draws given GameModel to screen
+     * Draws given GameModel to screen.
      *
      * @param model game model
      */
@@ -202,6 +201,8 @@ public class GameView {
                         break;
                     case SNAKE_TAIL:
                         cellRectangle.setFill(Colors.SNAKE_TAIL);
+                        break;
+                    default:
                         break;
                 }
             }
