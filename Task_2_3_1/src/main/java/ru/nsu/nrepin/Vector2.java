@@ -131,4 +131,11 @@ public class Vector2 {
         this.componentX %= x;
         this.componentY %= y;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Vector2 other = (Vector2) obj;
+
+        return componentX == other.componentX && componentY == other.componentY;
+    }
 }
