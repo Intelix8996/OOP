@@ -1,5 +1,6 @@
 package ru.nsu.nrepin.controller;
 
+import javafx.application.Platform;
 import ru.nsu.nrepin.Direction;
 import ru.nsu.nrepin.model.GameModel;
 import ru.nsu.nrepin.view.GameView;
@@ -66,18 +67,23 @@ public class GameController {
      * Performs one step of the game.
      */
     public void step() {
-        if (!paused) {
-            switch (gameModel.step(direction)) {
-                case WIN:
-                    winGame();
-                    break;
-                case LOSE:
-                    loseGame();
-                    break;
-                default:
-                    gameView.draw(gameModel);
-                    break;
+        try {
+            if (!paused) {
+                switch (gameModel.step(direction)) {
+                    case WIN:
+                        winGame();
+                        break;
+                    case LOSE:
+                        loseGame();
+                        break;
+                    default:
+                        gameView.draw(gameModel);
+                        break;
+                }
             }
+        } catch (Exception e) {
+            Platform.runLater(gameView::showError);
+            gameThread.stopGame();
         }
     }
 
