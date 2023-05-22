@@ -11,7 +11,7 @@ public class GameController {
 
     private static final int GAME_DELAY = 125;
 
-    private GameThread gameThread;
+    private final GameThread gameThread;
     private final GameModel gameModel;
     private final GameView gameView;
 

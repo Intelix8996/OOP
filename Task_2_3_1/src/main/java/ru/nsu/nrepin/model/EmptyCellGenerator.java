@@ -4,14 +4,27 @@ import ru.nsu.nrepin.Vector2;
 
 import java.util.Random;
 
+/**
+ * Class that is responsible for selecting empty cells.
+ */
 public class EmptyCellGenerator {
 
     private final GameField field;
 
+    /**
+     * Creates new generator for given field.
+     *
+     * @param field assigned field
+     */
     public EmptyCellGenerator(GameField field) {
         this.field = field;
     }
 
+    /**
+     * Returns coordinates of some empty cell.
+     *
+     * @return coordinates of some empty cell
+     */
     public Vector2 getEmptyCell() {
         Random random = new Random();
 
