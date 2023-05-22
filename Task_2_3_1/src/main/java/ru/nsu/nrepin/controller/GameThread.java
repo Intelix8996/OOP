@@ -51,6 +51,11 @@ public class GameThread extends Thread {
         gameStopped = false;
     }
 
+    /**
+     * Returns {@code true} if game is stopped, {@code false} otherwise.
+     *
+     * @return {@code true} if game is stopped, {@code false} otherwise
+     */
     public boolean isGameStopped() {
         return gameStopped;
     }
