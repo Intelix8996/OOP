@@ -23,7 +23,6 @@ public class Snake {
      */
     public Snake(int x, int y, GameField field) {
         headPosition = new Vector2(x, y);
-        tailPositions.add(new Vector2(5, 8));
         gameField = field;
     }
 
@@ -34,11 +33,15 @@ public class Snake {
      * @param grow should grow
      */
     public void move(Direction direction, boolean grow) {
-        if (!grow) {
-            tailPositions.poll();
-        }
+        if (tailPositions.size() > 0) {
+            if (!grow) {
+                tailPositions.poll();
+            }
 
-        tailPositions.add(new Vector2(headPosition));
+            tailPositions.add(new Vector2(headPosition));
+        } else if (grow) {
+            tailPositions.add(new Vector2(headPosition));
+        }
 
         headPosition.add(direction.toVector());
         headPosition.mod(gameField.getColsCount(), gameField.getRowsCount());

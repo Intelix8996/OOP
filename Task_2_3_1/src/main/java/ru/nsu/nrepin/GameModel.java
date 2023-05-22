@@ -5,7 +5,7 @@ package ru.nsu.nrepin;
  */
 public class GameModel {
 
-    private static final int INITIAL_LENGTH = 2;
+    private static final int INITIAL_LENGTH = 1;
 
     private GameField field;
     private Snake snake;
