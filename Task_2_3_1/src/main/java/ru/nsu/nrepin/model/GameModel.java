@@ -10,6 +10,9 @@ public class GameModel {
 
     private static final int INITIAL_LENGTH = 1;
     private static final int WALL_COUNT_PERCENT = 5;
+    private static final int LENGTH_TO_WIN_PERCENT = 100;
+
+    private final int lengthToWin;
 
     private GameField field;
     private Snake snake;
@@ -26,6 +29,11 @@ public class GameModel {
     public GameModel(int fieldCols, int fieldRows) {
         field = new GameField(fieldCols, fieldRows);
         snake = new Snake(fieldCols / 2, fieldRows / 2, field);
+
+        int cellsCount = field.getRowsCount() * field.getColsCount();
+
+        lengthToWin = (cellsCount - (cellsCount * WALL_COUNT_PERCENT / 100))
+                        * LENGTH_TO_WIN_PERCENT / 100;
 
         cellGenerator = new EmptyCellGenerator(field);
 
@@ -67,7 +75,7 @@ public class GameModel {
         if (grow) {
             score++;
 
-            if (score == field.getRowsCount() * field.getColsCount()) {
+            if (score == lengthToWin) {
                 status = GameStatus.WIN;
             } else {
                 generateFood();
