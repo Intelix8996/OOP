@@ -1,8 +1,8 @@
 package ru.nsu.nrepin.controller;
 
 import ru.nsu.nrepin.Direction;
-import ru.nsu.nrepin.view.GameView;
 import ru.nsu.nrepin.model.GameModel;
+import ru.nsu.nrepin.view.GameView;
 
 /**
  * Controller class for SnakeGame.
