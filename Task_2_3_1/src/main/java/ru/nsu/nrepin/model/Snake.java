@@ -1,11 +1,9 @@
 package ru.nsu.nrepin.model;
 
-
-import ru.nsu.nrepin.Direction;
-import ru.nsu.nrepin.Vector2;
-
 import java.util.ArrayDeque;
 import java.util.Queue;
+import ru.nsu.nrepin.Direction;
+import ru.nsu.nrepin.Vector2;
 
 /**
  * Class that represents snake.

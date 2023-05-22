@@ -207,6 +207,7 @@ public class GameView {
                         break;
                     case WALL:
                         cellRectangle.setFill(Colors.WALL);
+                        break;
                     default:
                         break;
                 }

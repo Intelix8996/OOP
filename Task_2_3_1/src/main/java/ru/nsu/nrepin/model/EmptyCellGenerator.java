@@ -1,8 +1,7 @@
 package ru.nsu.nrepin.model;
 
-import ru.nsu.nrepin.Vector2;
-
 import java.util.Random;
+import ru.nsu.nrepin.Vector2;
 
 /**
  * Class that is responsible for selecting empty cells.
