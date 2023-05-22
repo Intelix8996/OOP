@@ -29,11 +29,11 @@ public class GameTests {
         Assertions.assertEquals(expectedHeadPos, nextHeadPos);
         Assertions.assertEquals(expectedHeadPos, actualHeadPos);
 
-        Assertions.assertEquals(1, snake.getTailPositions().size());
+        Assertions.assertEquals(0, snake.getTailPositions().size());
 
         snake.move(Direction.LEFT, true);
 
-        Assertions.assertEquals(2, snake.getTailPositions().size());
+        Assertions.assertEquals(1, snake.getTailPositions().size());
 
         snake = new Snake(3, 4, field);
 
