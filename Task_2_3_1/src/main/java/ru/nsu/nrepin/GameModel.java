@@ -9,7 +9,6 @@ public class GameModel {
 
     private GameField field;
     private Snake snake;
-    private final GameView gameView;
     private final FoodGenerator foodGenerator;
 
     private int score = INITIAL_LENGTH;
@@ -19,12 +18,10 @@ public class GameModel {
      *
      * @param fieldCols column count
      * @param fieldRows row count
-     * @param view assigned GameView
      */
-    public GameModel(int fieldCols, int fieldRows, GameView view) {
+    public GameModel(int fieldCols, int fieldRows) {
         field = new GameField(fieldCols, fieldRows);
         snake = new Snake(fieldCols / 2, fieldRows / 2, field);
-        gameView = view;
 
         foodGenerator = new FoodGenerator(this);
 
@@ -48,7 +45,6 @@ public class GameModel {
         switch (nextCell) {
             case SNAKE_TAIL:
             case SNAKE_HEAD:
-                gameView.showLoseLabel(score);
                 status = GameStatus.LOSE;
                 break;
             case FOOD:
@@ -66,14 +62,11 @@ public class GameModel {
             score++;
 
             if (score == field.getRowsCount() * field.getColsCount()) {
-                gameView.showWinLabel();
                 status = GameStatus.WIN;
             } else {
                 foodGenerator.generateFood();
             }
         }
-
-        gameView.draw(this);
 
         return status;
     }
@@ -97,15 +90,6 @@ public class GameModel {
     }
 
     /**
-     * Returns assigned GameView.
-     *
-     * @return assigned game view
-     */
-    public GameView getView() {
-        return gameView;
-    }
-
-    /**
      * Resets game.
      */
     public void resetGame() {
@@ -113,8 +97,6 @@ public class GameModel {
 
         field = new GameField(field.getColsCount(), field.getRowsCount());
         snake = new Snake(field.getColsCount() / 2, field.getRowsCount() / 2, field);
-
-        gameView.hideLabels();
 
         foodGenerator.generateFood();
     }

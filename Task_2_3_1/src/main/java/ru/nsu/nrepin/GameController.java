@@ -8,6 +8,7 @@ public class GameController {
     private GameThread gameThread;
 
     private final GameModel gameModel;
+    private final GameView gameView;
 
     private Direction direction = Direction.UP;
 
@@ -18,8 +19,9 @@ public class GameController {
      *
      * @param gameModel GameModel to assign
      */
-    public GameController(GameModel gameModel) {
+    public GameController(GameModel gameModel, GameView gameView) {
         this.gameModel = gameModel;
+        this.gameView = gameView;
     }
 
     /**
@@ -45,14 +47,14 @@ public class GameController {
      */
     public void togglePause() {
         paused = !paused;
-        gameModel.getView().togglePauseLabel();
+        gameView.togglePauseLabel();
     }
 
     /**
      * Shows help window.
      */
     public void showHelp() {
-        gameModel.getView().showHelp();
+        gameView.showHelp();
     }
 
     /**
@@ -70,6 +72,8 @@ public class GameController {
                 default:
                     break;
             }
+
+            gameView.draw(gameModel);
         }
     }
 
@@ -84,6 +88,7 @@ public class GameController {
      * Resets game.
      */
     public void resetGame() {
+        gameView.hideLabels();
         gameModel.resetGame();
         gameThread.resumeGame();
     }
@@ -92,6 +97,7 @@ public class GameController {
      * Callback for game win.
      */
     public void winGame() {
+        gameView.showWinLabel();
         gameThread.stopGame();
     }
 
@@ -99,6 +105,7 @@ public class GameController {
      * Callback for game lose.
      */
     public void loseGame() {
+        gameView.showLoseLabel(gameModel.getScore());
         gameThread.stopGame();
     }
 }
