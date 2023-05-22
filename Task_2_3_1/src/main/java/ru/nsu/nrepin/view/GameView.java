@@ -180,6 +180,17 @@ public class GameView {
     }
 
     /**
+     * Shows error message.
+     */
+    public void showError() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("An error has occurred!");
+        alert.setContentText("Some error has occurred, you need to close the application.");
+        alert.showAndWait().ifPresent(rs -> { });
+    }
+
+    /**
      * Draws given GameModel to screen.
      *
      * @param model game model
