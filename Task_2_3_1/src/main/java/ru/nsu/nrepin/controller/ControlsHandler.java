@@ -1,8 +1,9 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.controller;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import ru.nsu.nrepin.Direction;
 
 /**
  * Class that handles key events.

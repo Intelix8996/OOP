@@ -1,4 +1,4 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.model;
 
 /**
  * Status of the game.

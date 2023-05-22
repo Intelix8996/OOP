@@ -1,4 +1,4 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import ru.nsu.nrepin.model.Cell;
+import ru.nsu.nrepin.model.GameField;
+import ru.nsu.nrepin.model.GameModel;
 
 /**
  * View class for SnakeGame.

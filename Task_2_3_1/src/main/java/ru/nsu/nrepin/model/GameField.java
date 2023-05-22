@@ -1,4 +1,6 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.model;
+
+import ru.nsu.nrepin.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,6 +2,9 @@ package ru.nsu.nrepin;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.nsu.nrepin.model.Cell;
+import ru.nsu.nrepin.model.GameField;
+import ru.nsu.nrepin.model.Snake;
 
 /**
  * Tests for some game modules.

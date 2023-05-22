@@ -1,12 +1,17 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.controller;
+
+import ru.nsu.nrepin.Direction;
+import ru.nsu.nrepin.view.GameView;
+import ru.nsu.nrepin.model.GameModel;
 
 /**
  * Controller class for SnakeGame.
  */
 public class GameController {
 
-    private GameThread gameThread;
+    private static final int GAME_DELAY = 125;
 
+    private GameThread gameThread;
     private final GameModel gameModel;
     private final GameView gameView;
 
@@ -22,15 +27,13 @@ public class GameController {
     public GameController(GameModel gameModel, GameView gameView) {
         this.gameModel = gameModel;
         this.gameView = gameView;
-    }
 
-    /**
-     * Sets GameThread for this controller.
-     *
-     * @param thread GameThread to set
-     */
-    public void setGameThread(GameThread thread) {
-        gameThread = thread;
+        ControlsHandler controlsHandler = new ControlsHandler(this);
+
+        gameThread = new GameThread(GAME_DELAY, this);
+
+        gameView.setKeyPressedHandler(controlsHandler);
+        gameView.setCloseHandler(event -> gameThread.interrupt());
     }
 
     /**

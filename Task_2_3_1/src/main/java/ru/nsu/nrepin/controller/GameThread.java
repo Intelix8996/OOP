@@ -1,4 +1,4 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.controller;
 
 /**
  * Class that is responsible for stepping game.
