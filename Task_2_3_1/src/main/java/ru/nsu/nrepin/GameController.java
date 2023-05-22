@@ -70,10 +70,9 @@ public class GameController {
                     loseGame();
                     break;
                 default:
+                    gameView.draw(gameModel);
                     break;
             }
-
-            gameView.draw(gameModel);
         }
     }
 

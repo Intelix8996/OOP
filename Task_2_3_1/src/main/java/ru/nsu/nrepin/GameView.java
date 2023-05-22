@@ -202,6 +202,8 @@ public class GameView {
                     case SNAKE_TAIL:
                         cellRectangle.setFill(Colors.SNAKE_TAIL);
                         break;
+                    case WALL:
+                        cellRectangle.setFill(Colors.WALL);
                     default:
                         break;
                 }
@@ -220,5 +222,6 @@ public class GameView {
         public static final Color SNAKE_HEAD = Color.ORANGERED;
         public static final Color SNAKE_TAIL = Color.GREEN;
         public static final Color FOOD = Color.RED;
+        public static final Color WALL = Color.GRAY;
     }
 }

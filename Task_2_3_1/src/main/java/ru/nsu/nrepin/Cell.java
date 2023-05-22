@@ -19,5 +19,9 @@ public enum Cell {
     /**
      * Food cell.
      */
-    FOOD
+    FOOD,
+    /**
+     * Wall.
+     */
+    WALL
 }

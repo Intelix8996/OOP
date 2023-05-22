@@ -6,10 +6,11 @@ package ru.nsu.nrepin;
 public class GameModel {
 
     private static final int INITIAL_LENGTH = 1;
+    private static final int WALL_COUNT_PERCENT = 5;
 
     private GameField field;
     private Snake snake;
-    private final FoodGenerator foodGenerator;
+    private EmptyCellGenerator cellGenerator;
 
     private int score = INITIAL_LENGTH;
 
@@ -23,9 +24,10 @@ public class GameModel {
         field = new GameField(fieldCols, fieldRows);
         snake = new Snake(fieldCols / 2, fieldRows / 2, field);
 
-        foodGenerator = new FoodGenerator(this);
+        cellGenerator = new EmptyCellGenerator(field);
 
-        foodGenerator.generateFood();
+        generateFood();
+        generateWalls();
     }
 
     /**
@@ -43,6 +45,7 @@ public class GameModel {
         Cell nextCell = snake.nextCell(direction);
 
         switch (nextCell) {
+            case WALL:
             case SNAKE_TAIL:
             case SNAKE_HEAD:
                 status = GameStatus.LOSE;
@@ -64,7 +67,7 @@ public class GameModel {
             if (score == field.getRowsCount() * field.getColsCount()) {
                 status = GameStatus.WIN;
             } else {
-                foodGenerator.generateFood();
+                generateFood();
             }
         }
 
@@ -98,7 +101,10 @@ public class GameModel {
         field = new GameField(field.getColsCount(), field.getRowsCount());
         snake = new Snake(field.getColsCount() / 2, field.getRowsCount() / 2, field);
 
-        foodGenerator.generateFood();
+        cellGenerator = new EmptyCellGenerator(field);
+
+        generateFood();
+        generateWalls();
     }
 
     /**
@@ -123,6 +129,19 @@ public class GameModel {
 
         for (Vector2 pos : snake.getTailPositions()) {
             field.setCell(Cell.SNAKE_TAIL, pos);
+        }
+    }
+
+    private void generateFood() {
+        field.setCell(Cell.FOOD, cellGenerator.getEmptyCell());
+    }
+
+    private void generateWalls() {
+
+        int wallCount = field.getRowsCount() * field.getColsCount() * WALL_COUNT_PERCENT / 100;
+
+        for (int i = 0; i < wallCount; ++i) {
+            field.setCell(Cell.WALL, cellGenerator.getEmptyCell());
         }
     }
 }
