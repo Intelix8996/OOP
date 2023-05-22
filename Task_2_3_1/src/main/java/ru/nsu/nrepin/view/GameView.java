@@ -62,10 +62,10 @@ public class GameView {
         gridPane.setHgap(1);
         gridPane.setVgap(1);
 
-        primaryStage.setMinHeight(windowHeight);
-        primaryStage.setMaxHeight(windowHeight + 1);
-        primaryStage.setMinWidth(windowWidth);
-        primaryStage.setMaxWidth(windowWidth + 1);
+        primaryStage.setMinHeight(windowHeight + 39);
+        primaryStage.setMaxHeight(windowHeight + 39);
+        primaryStage.setMinWidth(windowWidth + 16);
+        primaryStage.setMaxWidth(windowWidth + 16);
 
         for (int i = 0; i < fieldRows; ++i) {
             cellRectangles.add(new ArrayList<>());
