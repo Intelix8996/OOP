@@ -29,8 +29,8 @@ public class SnakeGame extends Application {
                 primaryStage,
                 FIELD_SIZE, FIELD_SIZE
         );
-        GameModel model = new GameModel(FIELD_SIZE, FIELD_SIZE, view);
-        GameController controller = new GameController(model);
+        GameModel model = new GameModel(FIELD_SIZE, FIELD_SIZE);
+        GameController controller = new GameController(model, view);
         ControlsHandler controlsHandler = new ControlsHandler(controller);
 
         GameThread gameThread = new GameThread(GAME_DELAY, controller);
