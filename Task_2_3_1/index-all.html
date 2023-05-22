@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -45,7 +45,8 @@ loadScripts(document, 'script');</script>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="ru/nsu/nrepin/package-summary.html">Package</a></li>
+<li><a href="index.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
 <li><a href="deprecated-list.html">Deprecated</a></li>
@@ -91,7 +92,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </nav>
 </header>
 <main role="main">
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a><a id="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a><a id="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
@@ -110,15 +111,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">C</h2>
 <dl>
-<dt><a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin"><span class="typeNameLink">Cell</span></a> - Enum in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model"><span class="typeNameLink">Cell</span></a> - Enum in <a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a></dt>
 <dd>
 <div class="block">A type that game field cell may have.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/ControlsHandler.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">ControlsHandler</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/controller/ControlsHandler.html" title="class in ru.nsu.nrepin.controller"><span class="typeNameLink">ControlsHandler</span></a> - Class in <a href="ru/nsu/nrepin/controller/package-summary.html">ru.nsu.nrepin.controller</a></dt>
 <dd>
 <div class="block">Class that handles key events.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/ControlsHandler.html#%3Cinit%3E(ru.nsu.nrepin.GameController)">ControlsHandler(GameController)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/ControlsHandler.html" title="class in ru.nsu.nrepin">ControlsHandler</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/ControlsHandler.html#%3Cinit%3E(ru.nsu.nrepin.controller.GameController)">ControlsHandler(GameController)</a></span> - Constructor for class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/ControlsHandler.html" title="class in ru.nsu.nrepin.controller">ControlsHandler</a></dt>
 <dd>
 <div class="block">Creates new handler and assigns a GameController to it.</div>
 </dd>
@@ -136,7 +137,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Down.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#draw(ru.nsu.nrepin.GameModel)">draw(GameModel)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#draw(ru.nsu.nrepin.model.GameModel)">draw(GameModel)</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Draws given GameModel to screen.</div>
 </dd>
@@ -146,9 +147,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">E</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Cell.html#EMPTY">EMPTY</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin">Cell</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#EMPTY">EMPTY</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
 <dd>
 <div class="block">Empty cell.</div>
+</dd>
+<dt><a href="ru/nsu/nrepin/model/EmptyCellGenerator.html" title="class in ru.nsu.nrepin.model"><span class="typeNameLink">EmptyCellGenerator</span></a> - Class in <a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a></dt>
+<dd>
+<div class="block">Class that is responsible for selecting empty cells.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/EmptyCellGenerator.html#%3Cinit%3E(ru.nsu.nrepin.model.GameField)">EmptyCellGenerator(GameField)</a></span> - Constructor for class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/EmptyCellGenerator.html" title="class in ru.nsu.nrepin.model">EmptyCellGenerator</a></dt>
+<dd>
+<div class="block">Creates new generator for given field.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Vector2.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Vector2.html" title="class in ru.nsu.nrepin">Vector2</a></dt>
 <dd>&nbsp;</dd>
@@ -158,17 +167,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">F</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Cell.html#FOOD">FOOD</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin">Cell</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#FOOD">FOOD</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
 <dd>
 <div class="block">Food cell.</div>
-</dd>
-<dt><a href="ru/nsu/nrepin/FoodGenerator.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">FoodGenerator</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
-<dd>
-<div class="block">Class that generates food on game field.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/FoodGenerator.html#%3Cinit%3E(ru.nsu.nrepin.GameModel)">FoodGenerator(GameModel)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/FoodGenerator.html" title="class in ru.nsu.nrepin">FoodGenerator</a></dt>
-<dd>
-<div class="block">Creates new FoodGenerator and assigns GameModel to it.</div>
 </dd>
 </dl>
 <a id="I:G">
@@ -176,89 +177,85 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">G</h2>
 <dl>
-<dt><a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">GameController</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller"><span class="typeNameLink">GameController</span></a> - Class in <a href="ru/nsu/nrepin/controller/package-summary.html">ru.nsu.nrepin.controller</a></dt>
 <dd>
 <div class="block">Controller class for SnakeGame.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#%3Cinit%3E(ru.nsu.nrepin.GameModel)">GameController(GameModel)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#%3Cinit%3E(ru.nsu.nrepin.model.GameModel,ru.nsu.nrepin.view.GameView)">GameController(GameModel, GameView)</a></span> - Constructor for class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Creates new game controller and assigns GameModel to it.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">GameField</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model"><span class="typeNameLink">GameField</span></a> - Class in <a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a></dt>
 <dd>
 <div class="block">Class that represents game field.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#%3Cinit%3E(int,int)">GameField(int, int)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#%3Cinit%3E(int,int)">GameField(int, int)</a></span> - Constructor for class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Creates new GameField with given rows and columns count.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">GameModel</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/model/GameModel.html" title="class in ru.nsu.nrepin.model"><span class="typeNameLink">GameModel</span></a> - Class in <a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a></dt>
 <dd>
 <div class="block">Model class for SnakeGame.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameModel.html#%3Cinit%3E(int,int,ru.nsu.nrepin.GameView)">GameModel(int, int, GameView)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin">GameModel</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameModel.html#%3Cinit%3E(int,int)">GameModel(int, int)</a></span> - Constructor for class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameModel.html" title="class in ru.nsu.nrepin.model">GameModel</a></dt>
 <dd>
 <div class="block">Creates new GameModel.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/GameStatus.html" title="enum in ru.nsu.nrepin"><span class="typeNameLink">GameStatus</span></a> - Enum in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/model/GameStatus.html" title="enum in ru.nsu.nrepin.model"><span class="typeNameLink">GameStatus</span></a> - Enum in <a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a></dt>
 <dd>
 <div class="block">Status of the game.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/GameThread.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">GameThread</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/controller/GameThread.html" title="class in ru.nsu.nrepin.controller"><span class="typeNameLink">GameThread</span></a> - Class in <a href="ru/nsu/nrepin/controller/package-summary.html">ru.nsu.nrepin.controller</a></dt>
 <dd>
 <div class="block">Class that is responsible for stepping game.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameThread.html#%3Cinit%3E(int,ru.nsu.nrepin.GameController)">GameThread(int, GameController)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameThread.html" title="class in ru.nsu.nrepin">GameThread</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameThread.html#%3Cinit%3E(int,ru.nsu.nrepin.controller.GameController)">GameThread(int, GameController)</a></span> - Constructor for class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameThread.html" title="class in ru.nsu.nrepin.controller">GameThread</a></dt>
 <dd>
 <div class="block">Creates new game thread that will step game with some delay.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">GameView</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view"><span class="typeNameLink">GameView</span></a> - Class in <a href="ru/nsu/nrepin/view/package-summary.html">ru.nsu.nrepin.view</a></dt>
 <dd>
 <div class="block">View class for SnakeGame.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#%3Cinit%3E(int,int,java.lang.String,javafx.stage.Stage,int,int)">GameView(int, int, String, Stage, int, int)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#%3Cinit%3E(int,int,java.lang.String,javafx.stage.Stage,int,int)">GameView(int, int, String, Stage, int, int)</a></span> - Constructor for class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Creates new game view with given parameters.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/FoodGenerator.html#generateFood()">generateFood()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/FoodGenerator.html" title="class in ru.nsu.nrepin">FoodGenerator</a></dt>
-<dd>
-<div class="block">Generates food in random empty cell of game field.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#getCell(int,int)">getCell(int, int)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#getCell(int,int)">getCell(int, int)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Returns cell type by its x and y coordinates.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#getCell(ru.nsu.nrepin.Vector2)">getCell(Vector2)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#getCell(ru.nsu.nrepin.Vector2)">getCell(Vector2)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Returns cell type by its coordinates as a Vector2.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#getColsCount()">getColsCount()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#getColsCount()">getColsCount()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Return columns count of the field.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameModel.html#getField()">getField()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin">GameModel</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/EmptyCellGenerator.html#getEmptyCell()">getEmptyCell()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/EmptyCellGenerator.html" title="class in ru.nsu.nrepin.model">EmptyCellGenerator</a></dt>
+<dd>
+<div class="block">Returns coordinates of some empty cell.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameModel.html#getField()">getField()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameModel.html" title="class in ru.nsu.nrepin.model">GameModel</a></dt>
 <dd>
 <div class="block">Returns assigned GameField.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Snake.html#getHeadPosition()">getHeadPosition()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin">Snake</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Snake.html#getHeadPosition()">getHeadPosition()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model">Snake</a></dt>
 <dd>
 <div class="block">Returns current position of snake's head.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#getRowsCount()">getRowsCount()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#getRowsCount()">getRowsCount()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Return rows count of the field.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameModel.html#getScore()">getScore()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin">GameModel</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameModel.html#getScore()">getScore()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameModel.html" title="class in ru.nsu.nrepin.model">GameModel</a></dt>
 <dd>
 <div class="block">Returns current score.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Snake.html#getTailPositions()">getTailPositions()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin">Snake</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Snake.html#getTailPositions()">getTailPositions()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model">Snake</a></dt>
 <dd>
 <div class="block">Returns current positions of all snake's tail parts.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameModel.html#getView()">getView()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin">GameModel</a></dt>
-<dd>
-<div class="block">Returns assigned GameView.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Vector2.html#getX()">getX()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Vector2.html" title="class in ru.nsu.nrepin">Vector2</a></dt>
 <dd>
@@ -274,11 +271,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">H</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/ControlsHandler.html#handle(javafx.scene.input.KeyEvent)">handle(KeyEvent)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/ControlsHandler.html" title="class in ru.nsu.nrepin">ControlsHandler</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/ControlsHandler.html#handle(javafx.scene.input.KeyEvent)">handle(KeyEvent)</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/ControlsHandler.html" title="class in ru.nsu.nrepin.controller">ControlsHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#hideLabels()">hideLabels()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#hideLabels()">hideLabels()</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Hides "Win" and "Lose" labels.</div>
+</dd>
+</dl>
+<a id="I:I">
+<!--   -->
+</a>
+<h2 class="title">I</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameThread.html#isGameStopped()">isGameStopped()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameThread.html" title="class in ru.nsu.nrepin.controller">GameThread</a></dt>
+<dd>
+<div class="block">Returns <code>true</code> if game is stopped, <code>false</code> otherwise.</div>
 </dd>
 </dl>
 <a id="I:L">
@@ -290,11 +297,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Left.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameStatus.html#LOSE">LOSE</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameStatus.html" title="enum in ru.nsu.nrepin">GameStatus</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameStatus.html#LOSE">LOSE</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameStatus.html" title="enum in ru.nsu.nrepin.model">GameStatus</a></dt>
 <dd>
 <div class="block">Lose.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#loseGame()">loseGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#loseGame()">loseGame()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Callback for game lose.</div>
 </dd>
@@ -316,7 +323,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Performs component-wise modulo operation on vector.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Snake.html#move(ru.nsu.nrepin.Direction,boolean)">move(Direction, boolean)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin">Snake</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Snake.html#move(ru.nsu.nrepin.Direction,boolean)">move(Direction, boolean)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model">Snake</a></dt>
 <dd>
 <div class="block">Moves snake in given direction and increases its length if <code>grow</code> is <code>true</code>.</div>
 </dd>
@@ -326,12 +333,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">N</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Snake.html#nextCell(ru.nsu.nrepin.Direction)">nextCell(Direction)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin">Snake</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Snake.html#nextCell(ru.nsu.nrepin.Direction)">nextCell(Direction)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model">Snake</a></dt>
 <dd>
 <div class="block">Returns next cell that snake will hit if it moves in given direction,
  doesn't modify snake's position.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Snake.html#nextHeadPosition(ru.nsu.nrepin.Direction)">nextHeadPosition(Direction)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin">Snake</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Snake.html#nextHeadPosition(ru.nsu.nrepin.Direction)">nextHeadPosition(Direction)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model">Snake</a></dt>
 <dd>
 <div class="block">Returns head position after move in given direction, but doesn't modify it.</div>
 </dd>
@@ -341,7 +348,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">P</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameStatus.html#PLAYING">PLAYING</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameStatus.html" title="enum in ru.nsu.nrepin">GameStatus</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameStatus.html#PLAYING">PLAYING</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameStatus.html" title="enum in ru.nsu.nrepin.model">GameStatus</a></dt>
 <dd>
 <div class="block">Game is in progress.</div>
 </dd>
@@ -351,15 +358,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">R</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#resetGame()">resetGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#resetGame()">resetGame()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Resets game.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameModel.html#resetGame()">resetGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin">GameModel</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameModel.html#resetGame()">resetGame()</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameModel.html" title="class in ru.nsu.nrepin.model">GameModel</a></dt>
 <dd>
 <div class="block">Resets game.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameThread.html#resumeGame()">resumeGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameThread.html" title="class in ru.nsu.nrepin">GameThread</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameThread.html#resumeGame()">resumeGame()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameThread.html" title="class in ru.nsu.nrepin.controller">GameThread</a></dt>
 <dd>
 <div class="block">Resumes game.</div>
 </dd>
@@ -369,7 +376,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a> - package ru.nsu.nrepin</dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameThread.html#run()">run()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameThread.html" title="class in ru.nsu.nrepin">GameThread</a></dt>
+<dt><a href="ru/nsu/nrepin/controller/package-summary.html">ru.nsu.nrepin.controller</a> - package ru.nsu.nrepin.controller</dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a> - package ru.nsu.nrepin.model</dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/nrepin/view/package-summary.html">ru.nsu.nrepin.view</a> - package ru.nsu.nrepin.view</dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameThread.html#run()">run()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameThread.html" title="class in ru.nsu.nrepin.controller">GameThread</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a id="I:S">
@@ -385,27 +398,23 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Sets x and y components similar to given vector.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#setCell(ru.nsu.nrepin.Cell,int,int)">setCell(Cell, int, int)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#setCell(ru.nsu.nrepin.model.Cell,int,int)">setCell(Cell, int, int)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Sets cell to a given type by its x and y coordinates.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameField.html#setCell(ru.nsu.nrepin.Cell,ru.nsu.nrepin.Vector2)">setCell(Cell, Vector2)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameField.html" title="class in ru.nsu.nrepin">GameField</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameField.html#setCell(ru.nsu.nrepin.model.Cell,ru.nsu.nrepin.Vector2)">setCell(Cell, Vector2)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameField.html" title="class in ru.nsu.nrepin.model">GameField</a></dt>
 <dd>
 <div class="block">Sets cell to a given type by its coordinates as a Vector2.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#setCloseHandler(javafx.event.EventHandler)">setCloseHandler(EventHandler&lt;WindowEvent&gt;)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#setCloseHandler(javafx.event.EventHandler)">setCloseHandler(EventHandler&lt;WindowEvent&gt;)</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Sets handler for OnClose event.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#setDirection(ru.nsu.nrepin.Direction)">setDirection(Direction)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#setDirection(ru.nsu.nrepin.Direction)">setDirection(Direction)</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Sets direction of movement.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#setGameThread(ru.nsu.nrepin.GameThread)">setGameThread(GameThread)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
-<dd>
-<div class="block">Sets GameThread for this controller.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#setKeyPressedHandler(javafx.event.EventHandler)">setKeyPressedHandler(EventHandler&lt;? super KeyEvent&gt;)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#setKeyPressedHandler(javafx.event.EventHandler)">setKeyPressedHandler(EventHandler&lt;? super KeyEvent&gt;)</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Sets handler for KeyPressed event.</div>
 </dd>
@@ -417,35 +426,35 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Sets y component of the vector.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#showHelp()">showHelp()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#showHelp()">showHelp()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Shows help window.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#showHelp()">showHelp()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#showHelp()">showHelp()</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Shows help window.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#showLoseLabel(int)">showLoseLabel(int)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#showLoseLabel(int)">showLoseLabel(int)</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Shows "Lose" label with score.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#showWinLabel()">showWinLabel()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#showWinLabel()">showWinLabel()</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Shows "Win" label.</div>
 </dd>
-<dt><a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin"><span class="typeNameLink">Snake</span></a> - Class in <a href="ru/nsu/nrepin/package-summary.html">ru.nsu.nrepin</a></dt>
+<dt><a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model"><span class="typeNameLink">Snake</span></a> - Class in <a href="ru/nsu/nrepin/model/package-summary.html">ru.nsu.nrepin.model</a></dt>
 <dd>
 <div class="block">Class that represents snake.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Snake.html#%3Cinit%3E(int,int,ru.nsu.nrepin.GameField)">Snake(int, int, GameField)</a></span> - Constructor for class ru.nsu.nrepin.<a href="ru/nsu/nrepin/Snake.html" title="class in ru.nsu.nrepin">Snake</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Snake.html#%3Cinit%3E(int,int,ru.nsu.nrepin.model.GameField)">Snake(int, int, GameField)</a></span> - Constructor for class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Snake.html" title="class in ru.nsu.nrepin.model">Snake</a></dt>
 <dd>
 <div class="block">Creates new snake with initial position.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Cell.html#SNAKE_HEAD">SNAKE_HEAD</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin">Cell</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#SNAKE_HEAD">SNAKE_HEAD</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
 <dd>
 <div class="block">Snake's head.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Cell.html#SNAKE_TAIL">SNAKE_TAIL</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin">Cell</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#SNAKE_TAIL">SNAKE_TAIL</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
 <dd>
 <div class="block">Snake's tail.</div>
 </dd>
@@ -457,19 +466,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/nrepin/SnakeGame.html#start(javafx.stage.Stage)">start(Stage)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/SnakeGame.html" title="class in ru.nsu.nrepin">SnakeGame</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#startGame()">startGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#startGame()">startGame()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Starts game.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#step()">step()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#step()">step()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Performs one step of the game.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameModel.html#step(ru.nsu.nrepin.Direction)">step(Direction)</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameModel.html" title="class in ru.nsu.nrepin">GameModel</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameModel.html#step(ru.nsu.nrepin.Direction)">step(Direction)</a></span> - Method in class ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameModel.html" title="class in ru.nsu.nrepin.model">GameModel</a></dt>
 <dd>
 <div class="block">Performs one step of a game.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameThread.html#stopGame()">stopGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameThread.html" title="class in ru.nsu.nrepin">GameThread</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameThread.html#stopGame()">stopGame()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameThread.html" title="class in ru.nsu.nrepin.controller">GameThread</a></dt>
 <dd>
 <div class="block">Stops game.</div>
 </dd>
@@ -479,11 +488,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">T</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#togglePause()">togglePause()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#togglePause()">togglePause()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Toggles game pause.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameView.html#togglePauseLabel()">togglePauseLabel()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameView.html" title="class in ru.nsu.nrepin">GameView</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/view/GameView.html#togglePauseLabel()">togglePauseLabel()</a></span> - Method in class ru.nsu.nrepin.view.<a href="ru/nsu/nrepin/view/GameView.html" title="class in ru.nsu.nrepin.view">GameView</a></dt>
 <dd>
 <div class="block">Toggles "Pause" label.</div>
 </dd>
@@ -507,29 +516,29 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">V</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Cell.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum ru.nsu.nrepin.<a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin">Cell</a></dt>
-<dd>
-<div class="block">Returns the enum constant of this type with the specified name.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Direction.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum ru.nsu.nrepin.<a href="ru/nsu/nrepin/Direction.html" title="enum in ru.nsu.nrepin">Direction</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameStatus.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameStatus.html" title="enum in ru.nsu.nrepin">GameStatus</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Cell.html#values()">values()</a></span> - Static method in enum ru.nsu.nrepin.<a href="ru/nsu/nrepin/Cell.html" title="enum in ru.nsu.nrepin">Cell</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameStatus.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameStatus.html" title="enum in ru.nsu.nrepin.model">GameStatus</a></dt>
 <dd>
-<div class="block">Returns an array containing the constants of this enum type, in
-the order they are declared.</div>
+<div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/nrepin/Direction.html#values()">values()</a></span> - Static method in enum ru.nsu.nrepin.<a href="ru/nsu/nrepin/Direction.html" title="enum in ru.nsu.nrepin">Direction</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameStatus.html#values()">values()</a></span> - Static method in enum ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameStatus.html" title="enum in ru.nsu.nrepin">GameStatus</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#values()">values()</a></span> - Static method in enum ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum type, in
+the order they are declared.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameStatus.html#values()">values()</a></span> - Static method in enum ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameStatus.html" title="enum in ru.nsu.nrepin.model">GameStatus</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
@@ -552,16 +561,20 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameStatus.html#WIN">WIN</a></span> - ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameStatus.html" title="enum in ru.nsu.nrepin">GameStatus</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/Cell.html#WALL">WALL</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/Cell.html" title="enum in ru.nsu.nrepin.model">Cell</a></dt>
+<dd>
+<div class="block">Wall.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/model/GameStatus.html#WIN">WIN</a></span> - ru.nsu.nrepin.model.<a href="ru/nsu/nrepin/model/GameStatus.html" title="enum in ru.nsu.nrepin.model">GameStatus</a></dt>
 <dd>
 <div class="block">Win.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/GameController.html#winGame()">winGame()</a></span> - Method in class ru.nsu.nrepin.<a href="ru/nsu/nrepin/GameController.html" title="class in ru.nsu.nrepin">GameController</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/nrepin/controller/GameController.html#winGame()">winGame()</a></span> - Method in class ru.nsu.nrepin.controller.<a href="ru/nsu/nrepin/controller/GameController.html" title="class in ru.nsu.nrepin.controller">GameController</a></dt>
 <dd>
 <div class="block">Callback for game win.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
 </main>
 <footer role="contentinfo">
 <nav role="navigation">
@@ -574,7 +587,8 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="ru/nsu/nrepin/package-summary.html">Package</a></li>
+<li><a href="index.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
 <li><a href="deprecated-list.html">Deprecated</a></li>

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ru.nsu.nrepin"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ru.nsu.nrepin"},{"l":"ru.nsu.nrepin.controller"},{"l":"ru.nsu.nrepin.model"},{"l":"ru.nsu.nrepin.view"}]
