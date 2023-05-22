@@ -50,4 +50,8 @@ public class GameThread extends Thread {
     public void resumeGame() {
         gameStopped = false;
     }
+
+    public boolean isGameStopped() {
+        return gameStopped;
+    }
 }
