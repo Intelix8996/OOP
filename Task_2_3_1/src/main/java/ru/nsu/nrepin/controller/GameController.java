@@ -49,8 +49,10 @@ public class GameController {
      * Toggles game pause.
      */
     public void togglePause() {
-        paused = !paused;
-        gameView.togglePauseLabel();
+        if (!gameThread.isGameStopped()) {
+            paused = !paused;
+            gameView.togglePauseLabel();
+        }
     }
 
     /**
