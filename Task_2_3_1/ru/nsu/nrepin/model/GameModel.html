@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -187,19 +187,26 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGoal()">getGoal</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns number of points required to win.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScore()">getScore</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns current score.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetGame()">resetGame</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Resets game.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="GameStatus.html" title="enum in ru.nsu.nrepin.model">GameStatus</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#step(ru.nsu.nrepin.Direction)">step</a></span>&#8203;(<a href="../Direction.html" title="enum in ru.nsu.nrepin">Direction</a>&nbsp;direction)</code></th>
 <td class="colLast">
@@ -297,6 +304,20 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>current score</dd>
+</dl>
+</li>
+</ul>
+<a id="getGoal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGoal</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getGoal()</pre>
+<div class="block">Returns number of points required to win.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of points required to win</dd>
 </dl>
 </li>
 </ul>
