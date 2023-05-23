@@ -115,7 +115,7 @@ public class GameController {
      * Callback for game lose.
      */
     public void loseGame() {
-        gameView.showLoseLabel(gameModel.getScore());
+        gameView.showLoseLabel(gameModel.getScore(), gameModel.getGoal());
         gameThread.stopGame();
     }
 }

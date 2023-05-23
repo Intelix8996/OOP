@@ -148,8 +148,10 @@ public class GameView {
      *
      * @param score current score
      */
-    public void showLoseLabel(int score) {
-        Platform.runLater(() -> loseGameLabel.setText("Lose!\nLength: " + score));
+    public void showLoseLabel(int score, int goal) {
+        String scoreString = "Lose!\nLength: " + score + "\nGoal: " + goal;
+
+        Platform.runLater(() -> loseGameLabel.setText(scoreString));
         loseGameLabel.setVisible(true);
     }
 
@@ -225,7 +227,9 @@ public class GameView {
             }
         }
 
-        Platform.runLater(() -> scoreLabel.setText("Length: " + model.getScore()));
+        String scoreString = "Length: " + model.getScore() + "\nGoal: " + model.getGoal();
+
+        Platform.runLater(() -> scoreLabel.setText(scoreString));
     }
 
     private Rectangle getCellRectangle(int x, int y) {

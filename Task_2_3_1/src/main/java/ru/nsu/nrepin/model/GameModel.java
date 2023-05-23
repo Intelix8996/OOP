@@ -109,6 +109,15 @@ public class GameModel {
     }
 
     /**
+     * Returns number of points required to win.
+     *
+     * @return number of points required to win
+     */
+    public int getGoal() {
+        return lengthToWin;
+    }
+
+    /**
      * Resets game.
      */
     public void resetGame() {
