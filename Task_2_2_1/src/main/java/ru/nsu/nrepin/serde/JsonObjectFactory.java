@@ -1,15 +1,18 @@
 package ru.nsu.nrepin.serde;
 
 import com.google.gson.Gson;
-import ru.nsu.nrepin.pizzeria.*;
-import ru.nsu.nrepin.util.BlockingQueue;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import ru.nsu.nrepin.pizzeria.Baker;
+import ru.nsu.nrepin.pizzeria.Courier;
+import ru.nsu.nrepin.pizzeria.OrderGenerator;
+import ru.nsu.nrepin.pizzeria.OrderRegistry;
+import ru.nsu.nrepin.pizzeria.Storage;
+import ru.nsu.nrepin.util.BlockingQueue;
 
 /**
  * Class that creates different objects with parameters from json file.

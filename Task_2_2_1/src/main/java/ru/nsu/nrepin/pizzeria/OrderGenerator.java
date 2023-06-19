@@ -1,9 +1,8 @@
 package ru.nsu.nrepin.pizzeria;
 
+import java.util.Random;
 import ru.nsu.nrepin.util.BlockingQueue;
 import ru.nsu.nrepin.util.StoppableThread;
-
-import java.util.Random;
 
 /**
  * This class is used to generate orders.
