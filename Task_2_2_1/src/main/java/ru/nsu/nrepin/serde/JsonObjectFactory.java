@@ -1,6 +1,9 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.serde;
 
 import com.google.gson.Gson;
+import ru.nsu.nrepin.pizzeria.*;
+import ru.nsu.nrepin.util.BlockingQueue;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

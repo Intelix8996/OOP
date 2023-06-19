@@ -1,4 +1,4 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.serde;
 
 import java.util.List;
 

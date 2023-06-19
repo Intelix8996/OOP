@@ -1,4 +1,4 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.pizzeria;
 
 import java.util.HashMap;
 import java.util.Map;

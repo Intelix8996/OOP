@@ -1,4 +1,7 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.pizzeria;
+
+import ru.nsu.nrepin.util.BlockingQueue;
+import ru.nsu.nrepin.util.StoppableThread;
 
 /**
  * Class that represents Baker.
@@ -60,7 +63,7 @@ public class Baker extends StoppableThread {
     }
 
     @Override
-    void requestStop() {
+    public void requestStop() {
         shouldStop = true;
         interrupt();
     }

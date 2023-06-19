@@ -1,4 +1,6 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.pizzeria;
+
+import ru.nsu.nrepin.util.StoppableThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +75,7 @@ public class Courier extends StoppableThread {
     }
 
     @Override
-    void requestStop() {
+    public void requestStop() {
         shouldStop = true;
         interrupt();
     }

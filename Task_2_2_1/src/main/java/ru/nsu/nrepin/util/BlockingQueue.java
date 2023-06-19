@@ -1,4 +1,4 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.util;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
