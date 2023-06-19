@@ -1,8 +1,6 @@
 package ru.nsu.nrepin;
 
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -59,7 +57,7 @@ public class PizzeriaTests {
     public void testOrderGenerator() {
         final int orderCount = 3;
 
-        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(orderCount);
+        BlockingQueue<Integer> orderQueue = new BlockingQueue<>(orderCount);
         OrderRegistry orderRegistry = new OrderRegistry();
 
         OrderGenerator orderGenerator = new OrderGenerator(
@@ -94,12 +92,16 @@ public class PizzeriaTests {
 
     @Test
     public void testBaker() {
-        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(5);
+        BlockingQueue<Integer> orderQueue = new BlockingQueue<>(5);
         Storage storage = new Storage(5);
 
         Baker baker = new Baker(1, 0, orderQueue, storage);
 
-        orderQueue.add(1);
+        try {
+            orderQueue.put(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         Assertions.assertTrue(storage.isEmpty());
 
@@ -164,7 +166,7 @@ public class PizzeriaTests {
     public void testJsonFactory() {
         JsonObjectFactory factory = new JsonObjectFactory("/config.json");
 
-        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(factory.getOrderCount());
+        BlockingQueue<Integer> orderQueue = new BlockingQueue<>(factory.getOrderCount());
         OrderRegistry orderRegistry = new OrderRegistry();
 
         Storage storage = factory.getStorage();

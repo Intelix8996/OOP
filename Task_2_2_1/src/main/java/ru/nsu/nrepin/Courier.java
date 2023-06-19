@@ -39,25 +39,23 @@ public class Courier extends StoppableThread {
         while (!shouldStop) {
             List<Integer> ids = new ArrayList<>();
 
-            synchronized (storage) {
-                for (int i = 0; i < storageSize; ++i) {
-                    int id;
-                    try {
-                        id = storage.take();
-                    } catch (InterruptedException e) {
-                        return;
-                    }
-                    ids.add(id);
+            for (int i = 0; i < storageSize; ++i) {
+                int id;
+                try {
+                    id = storage.take();
+                } catch (InterruptedException e) {
+                    return;
+                }
+                ids.add(id);
 
-                    System.out.printf(
-                            "[Courier-%d] Take from queue %d%n",
-                            courierNumber,
-                            id
-                    );
+                System.out.printf(
+                        "[Courier-%d] Take from queue %d%n",
+                        courierNumber,
+                        id
+                );
 
-                    if (storage.isEmpty()) {
-                        break;
-                    }
+                if (storage.isEmpty()) {
+                    break;
                 }
             }
 

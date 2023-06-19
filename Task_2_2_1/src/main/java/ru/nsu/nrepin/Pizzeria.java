@@ -1,8 +1,6 @@
 package ru.nsu.nrepin;
 
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * Pizzeria class.
@@ -20,7 +18,7 @@ public class Pizzeria {
 
         JsonObjectFactory factory = new JsonObjectFactory("/config.json");
 
-        BlockingQueue<Integer> orderQueue = new ArrayBlockingQueue<>(factory.getOrderCount());
+        BlockingQueue<Integer> orderQueue = new BlockingQueue<>(factory.getOrderCount());
         OrderRegistry orderRegistry = new OrderRegistry();
 
         Storage storage = factory.getStorage();
