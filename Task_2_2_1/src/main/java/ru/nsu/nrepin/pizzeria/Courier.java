@@ -1,9 +1,8 @@
 package ru.nsu.nrepin.pizzeria;
 
-import ru.nsu.nrepin.util.StoppableThread;
-
 import java.util.ArrayList;
 import java.util.List;
+import ru.nsu.nrepin.util.StoppableThread;
 
 /**
  * Class that represents courier.
