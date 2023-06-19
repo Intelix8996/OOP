@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -178,7 +178,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Baker.html" title="class in ru.nsu.nrepin">Baker</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBakers(java.util.concurrent.BlockingQueue,ru.nsu.nrepin.Storage)">getBakers</a></span>&#8203;(java.util.concurrent.BlockingQueue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBakers(ru.nsu.nrepin.BlockingQueue,ru.nsu.nrepin.Storage)">getBakers</a></span>&#8203;(<a href="BlockingQueue.html" title="class in ru.nsu.nrepin">BlockingQueue</a>&lt;java.lang.Integer&gt;&nbsp;orderQueue,
          <a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage)</code></th>
 <td class="colLast">
 <div class="block">Returns list of Baker objects with parameters specified in json file.</div>
@@ -201,7 +201,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="OrderGenerator.html" title="class in ru.nsu.nrepin">OrderGenerator</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrderGenerator(java.util.concurrent.BlockingQueue,ru.nsu.nrepin.OrderRegistry)">getOrderGenerator</a></span>&#8203;(java.util.concurrent.BlockingQueue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrderGenerator(ru.nsu.nrepin.BlockingQueue,ru.nsu.nrepin.OrderRegistry)">getOrderGenerator</a></span>&#8203;(<a href="BlockingQueue.html" title="class in ru.nsu.nrepin">BlockingQueue</a>&lt;java.lang.Integer&gt;&nbsp;orderQueue,
                  <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;registry)</code></th>
 <td class="colLast">
 <div class="block">Returns OrderGenerator object with parameters specified in json file.</div>
@@ -262,13 +262,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getBakers(java.util.concurrent.BlockingQueue,ru.nsu.nrepin.Storage)">
+<a id="getBakers(ru.nsu.nrepin.BlockingQueue,ru.nsu.nrepin.Storage)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getBakers</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Baker.html" title="class in ru.nsu.nrepin">Baker</a>&gt;&nbsp;getBakers&#8203;(java.util.concurrent.BlockingQueue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Baker.html" title="class in ru.nsu.nrepin">Baker</a>&gt;&nbsp;getBakers&#8203;(<a href="BlockingQueue.html" title="class in ru.nsu.nrepin">BlockingQueue</a>&lt;java.lang.Integer&gt;&nbsp;orderQueue,
                                        <a href="Storage.html" title="class in ru.nsu.nrepin">Storage</a>&nbsp;storage)</pre>
 <div class="block">Returns list of Baker objects with parameters specified in json file.</div>
 <dl>
@@ -312,13 +312,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="getOrderGenerator(java.util.concurrent.BlockingQueue,ru.nsu.nrepin.OrderRegistry)">
+<a id="getOrderGenerator(ru.nsu.nrepin.BlockingQueue,ru.nsu.nrepin.OrderRegistry)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getOrderGenerator</h4>
-<pre class="methodSignature">public&nbsp;<a href="OrderGenerator.html" title="class in ru.nsu.nrepin">OrderGenerator</a>&nbsp;getOrderGenerator&#8203;(java.util.concurrent.BlockingQueue&lt;java.lang.Integer&gt;&nbsp;orderQueue,
+<pre class="methodSignature">public&nbsp;<a href="OrderGenerator.html" title="class in ru.nsu.nrepin">OrderGenerator</a>&nbsp;getOrderGenerator&#8203;(<a href="BlockingQueue.html" title="class in ru.nsu.nrepin">BlockingQueue</a>&lt;java.lang.Integer&gt;&nbsp;orderQueue,
                                         <a href="OrderRegistry.html" title="class in ru.nsu.nrepin">OrderRegistry</a>&nbsp;registry)</pre>
 <div class="block">Returns OrderGenerator object with parameters specified in json file.</div>
 <dl>
