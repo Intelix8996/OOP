@@ -3,6 +3,9 @@ package ru.nsu.nrepin;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.nsu.nrepin.pizzeria.*;
+import ru.nsu.nrepin.serde.JsonObjectFactory;
+import ru.nsu.nrepin.util.BlockingQueue;
 
 /**
  * Tests for pizzeria classes.

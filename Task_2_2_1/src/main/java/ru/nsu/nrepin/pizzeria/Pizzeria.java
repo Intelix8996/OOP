@@ -1,6 +1,8 @@
-package ru.nsu.nrepin;
+package ru.nsu.nrepin.pizzeria;
 
 import java.util.List;
+import ru.nsu.nrepin.serde.JsonObjectFactory;
+import ru.nsu.nrepin.util.BlockingQueue;
 
 /**
  * Pizzeria class.
@@ -10,13 +12,13 @@ import java.util.List;
 public class Pizzeria {
 
     /**
-     * Program entry point.
+     * Runs the simulation with parameters from specified config file.
      *
-     * @param args program args
+     * @param config config file
      */
-    public static void main(String[] args) {
+    public static void runSimulation(String config) {
 
-        JsonObjectFactory factory = new JsonObjectFactory("/config.json");
+        JsonObjectFactory factory = new JsonObjectFactory(config);
 
         BlockingQueue<Integer> orderQueue = new BlockingQueue<>(factory.getOrderCount());
         OrderRegistry orderRegistry = new OrderRegistry();
