@@ -1,7 +1,5 @@
 package ru.nsu.nrepin;
 
-import java.util.concurrent.BlockingQueue;
-
 /**
  * Class that represents Baker.
  */

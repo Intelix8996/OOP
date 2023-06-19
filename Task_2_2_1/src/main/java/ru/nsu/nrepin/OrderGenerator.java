@@ -1,7 +1,6 @@
 package ru.nsu.nrepin;
 
 import java.util.Random;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * This class is used to generate orders.
